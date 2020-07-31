@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title> 1 Introduction | Lockdown to R-Full-stack</title>
+  <meta name="description" content="This is my journey to R programming." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content=" 1 Introduction | Lockdown to R-Full-stack" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is my journey to R programming." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content=" 1 Introduction | Lockdown to R-Full-stack" />
+  
+  <meta name="twitter:description" content="This is my journey to R programming." />
+  
+
+<meta name="author" content="Richard Nacianceno" />
+
+
+<meta name="date" content="2020-07-31" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="data-science-toolbox.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Lockdown to R-Full-Stack</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#expect-to-have-lucid-dreams"><i class="fa fa-check"></i>Expect To Have Lucid Dreams</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#retrospect"><i class="fa fa-check"></i>Retrospect</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="data-science-toolbox.html"><a href="data-science-toolbox.html"><i class="fa fa-check"></i><b>2</b> Data Science Toolbox</a></li>
+<li class="chapter" data-level="3" data-path="getting-and-cleaning-data.html"><a href="getting-and-cleaning-data.html"><i class="fa fa-check"></i><b>3</b> Getting and Cleaning Data</a></li>
+<li class="chapter" data-level="4" data-path="r-programming.html"><a href="r-programming.html"><i class="fa fa-check"></i><b>4</b> R Programming</a></li>
+<li class="chapter" data-level="5" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>5</b> Applications</a><ul>
+<li class="chapter" data-level="5.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>5.1</b> Example one</a></li>
+<li class="chapter" data-level="5.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>5.2</b> Example two</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>6</b> Final Words</a></li>
+<li class="chapter" data-level="7" data-path="reproducible-research.html"><a href="reproducible-research.html"><i class="fa fa-check"></i><b>7</b> Reproducible Research</a></li>
+<li class="chapter" data-level="8" data-path="regression-models.html"><a href="regression-models.html"><i class="fa fa-check"></i><b>8</b> Regression Models</a></li>
+<li class="chapter" data-level="9" data-path="practical-machine-learning.html"><a href="practical-machine-learning.html"><i class="fa fa-check"></i><b>9</b> Practical Machine Learning</a></li>
+<li class="chapter" data-level="10" data-path="developing-data-products.html"><a href="developing-data-products.html"><i class="fa fa-check"></i><b>10</b> Developing Data Products</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Lockdown to R-Full-stack</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introduction" class="section level1">
+<h1><span class="header-section-number"> 1</span> Introduction</h1>
+<p>It was March 2020, still traumatize that Andrew Yang drop-out from the presidential race. The only candidate that is data informed and very original. The other headline news during these time frame were about Syrian Civil War, Coronavirus pandemic, European migrant crisis, and the presidential race in the United States <span class="citation">(Wikipedia <a href="#ref-headline" role="doc-biblioref">2020</a>)</span>.</p>
+<p>I was very optimistic that United States will not have a pandemic in any of its states or properties. At the same time, I was amazed at the many dashboards that were created to monitor the spread of Covid-19 globally. Below is an example code of how easy to pull information and create your own dashboards and map visualization.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="introduction.html#cb1-1"></a><span class="kw">library</span>(COVID19)</span>
+<span id="cb1-2"><a href="introduction.html#cb1-2"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="introduction.html#cb1-3"></a><span class="kw">library</span>(DT)</span>
+<span id="cb1-4"><a href="introduction.html#cb1-4"></a><span class="kw">library</span>(knitr)</span>
+<span id="cb1-5"><a href="introduction.html#cb1-5"></a><span class="kw">library</span>(kableExtra)</span>
+<span id="cb1-6"><a href="introduction.html#cb1-6"></a></span>
+<span id="cb1-7"><a href="introduction.html#cb1-7"></a>X &lt;-<span class="st"> </span><span class="kw">covid19</span>()</span>
+<span id="cb1-8"><a href="introduction.html#cb1-8"></a>MarchCovid &lt;-<span class="st"> </span>X <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(date <span class="op">==</span><span class="st"> &quot;2020-03-31&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb1-9"><a href="introduction.html#cb1-9"></a><span class="st">  </span><span class="kw">select</span>(</span>
+<span id="cb1-10"><a href="introduction.html#cb1-10"></a>    administrative_area_level_<span class="dv">1</span>,</span>
+<span id="cb1-11"><a href="introduction.html#cb1-11"></a>    date,</span>
+<span id="cb1-12"><a href="introduction.html#cb1-12"></a>    confirmed,</span>
+<span id="cb1-13"><a href="introduction.html#cb1-13"></a>    recovered,</span>
+<span id="cb1-14"><a href="introduction.html#cb1-14"></a>    deaths</span>
+<span id="cb1-15"><a href="introduction.html#cb1-15"></a>  ) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(confirmed)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb1-16"><a href="introduction.html#cb1-16"></a><span class="st">    </span><span class="kw">rename</span>(<span class="dt">country =</span> </span>
+<span id="cb1-17"><a href="introduction.html#cb1-17"></a>             administrative_area_level_<span class="dv">1</span>)</span>
+<span id="cb1-18"><a href="introduction.html#cb1-18"></a></span>
+<span id="cb1-19"><a href="introduction.html#cb1-19"></a>MarchCovid[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, ] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">kable</span>(<span class="dt">caption =</span> <span class="st">&#39;March 2020 Covid19 Metrics&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">kable_styling</span>()</span></code></pre></div>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-2">Table 1.1: </span>March 2020 Covid19 Metrics
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+id
+</th>
+<th style="text-align:left;">
+country
+</th>
+<th style="text-align:left;">
+date
+</th>
+<th style="text-align:right;">
+confirmed
+</th>
+<th style="text-align:right;">
+recovered
+</th>
+<th style="text-align:right;">
+deaths
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+USA
+</td>
+<td style="text-align:left;">
+United States
+</td>
+<td style="text-align:left;">
+2020-03-31
+</td>
+<td style="text-align:right;">
+188724
+</td>
+<td style="text-align:right;">
+7024
+</td>
+<td style="text-align:right;">
+5605
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ITA
+</td>
+<td style="text-align:left;">
+Italy
+</td>
+<td style="text-align:left;">
+2020-03-31
+</td>
+<td style="text-align:right;">
+105792
+</td>
+<td style="text-align:right;">
+15729
+</td>
+<td style="text-align:right;">
+12428
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ESP
+</td>
+<td style="text-align:left;">
+Spain
+</td>
+<td style="text-align:left;">
+2020-03-31
+</td>
+<td style="text-align:right;">
+95923
+</td>
+<td style="text-align:right;">
+19259
+</td>
+<td style="text-align:right;">
+8464
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CHN
+</td>
+<td style="text-align:left;">
+China
+</td>
+<td style="text-align:left;">
+2020-03-31
+</td>
+<td style="text-align:right;">
+82545
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+3314
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+DEU
+</td>
+<td style="text-align:left;">
+Germany
+</td>
+<td style="text-align:left;">
+2020-03-31
+</td>
+<td style="text-align:right;">
+60618
+</td>
+<td style="text-align:right;">
+58437
+</td>
+<td style="text-align:right;">
+2181
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FRA
+</td>
+<td style="text-align:left;">
+France
+</td>
+<td style="text-align:left;">
+2020-03-31
+</td>
+<td style="text-align:right;">
+52128
+</td>
+<td style="text-align:right;">
+9444
+</td>
+<td style="text-align:right;">
+3523
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+IRN
+</td>
+<td style="text-align:left;">
+Iran
+</td>
+<td style="text-align:left;">
+2020-03-31
+</td>
+<td style="text-align:right;">
+44605
+</td>
+<td style="text-align:right;">
+14656
+</td>
+<td style="text-align:right;">
+2898
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GBR
+</td>
+<td style="text-align:left;">
+United Kingdom
+</td>
+<td style="text-align:left;">
+2020-03-31
+</td>
+<td style="text-align:right;">
+38484
+</td>
+<td style="text-align:right;">
+135
+</td>
+<td style="text-align:right;">
+2426
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BEL
+</td>
+<td style="text-align:left;">
+Belgium
+</td>
+<td style="text-align:left;">
+2020-03-31
+</td>
+<td style="text-align:right;">
+16982
+</td>
+<td style="text-align:right;">
+1696
+</td>
+<td style="text-align:right;">
+1305
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CHE
+</td>
+<td style="text-align:left;">
+Switzerland
+</td>
+<td style="text-align:left;">
+2020-03-31
+</td>
+<td style="text-align:right;">
+16605
+</td>
+<td style="text-align:right;">
+1823
+</td>
+<td style="text-align:right;">
+433
+</td>
+</tr>
+</tbody>
+</table>
+<p>I started the Data Science Specialization when Covid-19 cases were below 200,000 in the US. These numbers are peoples families, love ones or neighbors and our lives have forever change.</p>
+<p>Map visualization can be accomplish with many packages available in R. One of them is called leaflet package and below will show us how aggressive the spread of Covid19 through out the globe during the end of <strong>March 2020</strong>.</p>
+<details>
+<p><summary><strong>View Code</strong></summary></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="introduction.html#cb2-1"></a><span class="kw">library</span>(leaflet)</span>
+<span id="cb2-2"><a href="introduction.html#cb2-2"></a><span class="kw">library</span>(viridisLite)</span>
+<span id="cb2-3"><a href="introduction.html#cb2-3"></a><span class="kw">library</span>(viridis)</span>
+<span id="cb2-4"><a href="introduction.html#cb2-4"></a></span>
+<span id="cb2-5"><a href="introduction.html#cb2-5"></a>mapVisData &lt;-<span class="st"> </span>X <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(date <span class="op">==</span><span class="st"> &quot;2020-03-31&quot;</span>) <span class="op">%&gt;%</span><span class="st">    </span></span>
+<span id="cb2-6"><a href="introduction.html#cb2-6"></a><span class="st">    </span><span class="kw">rename</span>(<span class="dt">country=</span>administrative_area_level_<span class="dv">1</span>)  <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb2-7"><a href="introduction.html#cb2-7"></a><span class="st">    </span><span class="kw">select</span>(country,</span>
+<span id="cb2-8"><a href="introduction.html#cb2-8"></a>          date,</span>
+<span id="cb2-9"><a href="introduction.html#cb2-9"></a>          longitude,</span>
+<span id="cb2-10"><a href="introduction.html#cb2-10"></a>          latitude,</span>
+<span id="cb2-11"><a href="introduction.html#cb2-11"></a>          confirmed,</span>
+<span id="cb2-12"><a href="introduction.html#cb2-12"></a>          recovered,</span>
+<span id="cb2-13"><a href="introduction.html#cb2-13"></a>          deaths)</span>
+<span id="cb2-14"><a href="introduction.html#cb2-14"></a>CountryColor &lt;-<span class="st"> </span><span class="kw">colorFactor</span>(<span class="kw">viridis</span>(<span class="dv">76</span>), mapVisData<span class="op">$</span>country)</span>
+<span id="cb2-15"><a href="introduction.html#cb2-15"></a></span>
+<span id="cb2-16"><a href="introduction.html#cb2-16"></a>map1 &lt;-<span class="st"> </span><span class="kw">leaflet</span>(<span class="dt">data =</span> mapVisData) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">addTiles</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb2-17"><a href="introduction.html#cb2-17"></a><span class="st">          </span><span class="kw">setView</span>(<span class="dt">lng =</span> <span class="fl">26.8206</span>,</span>
+<span id="cb2-18"><a href="introduction.html#cb2-18"></a>                <span class="dt">lat =</span> <span class="fl">30.8025</span>,</span>
+<span id="cb2-19"><a href="introduction.html#cb2-19"></a>                <span class="dt">zoom =</span> <span class="dv">2</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb2-20"><a href="introduction.html#cb2-20"></a><span class="st">          </span><span class="kw">addCircleMarkers</span>(</span>
+<span id="cb2-21"><a href="introduction.html#cb2-21"></a>             <span class="op">~</span><span class="st"> </span>longitude,</span>
+<span id="cb2-22"><a href="introduction.html#cb2-22"></a>             <span class="op">~</span><span class="st"> </span>latitude,</span>
+<span id="cb2-23"><a href="introduction.html#cb2-23"></a>             <span class="dt">popup =</span> <span class="kw">paste</span>(</span>
+<span id="cb2-24"><a href="introduction.html#cb2-24"></a>               <span class="st">&quot;Country: &quot;</span>,<span class="kw">prettyNum</span>(mapVisData<span class="op">$</span>country, <span class="dt">big.mark =</span> <span class="st">&quot;,&quot;</span>), </span>
+<span id="cb2-25"><a href="introduction.html#cb2-25"></a>               <span class="st">&quot;&lt;br&gt;&quot;</span>,</span>
+<span id="cb2-26"><a href="introduction.html#cb2-26"></a>               <span class="st">&quot;Confirmed: &quot;</span>,<span class="kw">prettyNum</span>(mapVisData<span class="op">$</span>confirmed, <span class="dt">big.mark =</span> <span class="st">&quot;,&quot;</span>), </span>
+<span id="cb2-27"><a href="introduction.html#cb2-27"></a>               <span class="st">&quot;&lt;br&gt;&quot;</span>,</span>
+<span id="cb2-28"><a href="introduction.html#cb2-28"></a>               <span class="st">&quot;Recovered: &quot;</span>, <span class="kw">prettyNum</span>(mapVisData<span class="op">$</span>recovered, <span class="dt">big.mark =</span> <span class="st">&quot;,&quot;</span>), </span>
+<span id="cb2-29"><a href="introduction.html#cb2-29"></a>               <span class="st">&quot;&lt;br&gt;&quot;</span>,</span>
+<span id="cb2-30"><a href="introduction.html#cb2-30"></a>               <span class="st">&quot;Deaths: &quot;</span>, <span class="kw">prettyNum</span>(mapVisData<span class="op">$</span>deaths, <span class="dt">big.mark =</span> <span class="st">&quot;,&quot;</span>)),</span>
+<span id="cb2-31"><a href="introduction.html#cb2-31"></a>             <span class="dt">weight =</span> <span class="dv">1</span>,</span>
+<span id="cb2-32"><a href="introduction.html#cb2-32"></a>             <span class="dt">radius =</span> <span class="op">~</span><span class="st"> </span><span class="kw">sqrt</span>(confirmed)<span class="op">*</span>.<span class="dv">1</span>,</span>
+<span id="cb2-33"><a href="introduction.html#cb2-33"></a>             <span class="dt">stroke =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb2-34"><a href="introduction.html#cb2-34"></a>             <span class="dt">fillOpacity =</span> <span class="fl">.7</span>,</span>
+<span id="cb2-35"><a href="introduction.html#cb2-35"></a>             <span class="dt">fillColor =</span> <span class="op">~</span><span class="kw">CountryColor</span>(country)</span>
+<span id="cb2-36"><a href="introduction.html#cb2-36"></a>        ) </span></code></pre></div>
+</details>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="introduction.html#cb3-1"></a>map1</span></code></pre></div>
+<div class="figure"><span id="fig:mapvis"></span>
+<div id="htmlwidget-36a8adfc8bf39ee94727" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-36a8adfc8bf39ee94727">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addCircleMarkers","args":[[33,-11.2027,41.1533,42.5063,24,-38.4161,40.0691,-14.333333,17.0608,-31.9961875,47.5162,40.1431,-3.3731,50.8333,9.3077,12.2383,23.685,42.7339,26.0275,25.0343,43.9159,53.7098,13.1939,32.3333333,-17,-14.235,13.1939,4.5,27.5142,-22.3285,null,6.6111,44.78404667,46.8182,-35.6751,32.82838485,8,3.848,0,-1,4.5709,-12.1666667,16,9.7489,22,35.1264,49.8037633,51,11.8251,15.415,63.2878,18.7357,null,28.0339,-1.8312,26,15.1794,24.2155,40,58.5953,9.145,64,-17.7134,8.305672727,-0.8037,55.3781,42.3154,7.9465,9.9456,13.4432,11.8037,1.5,null,39.0742,12.1165,15.7835,13.46666,5,15.2,45.1,18.9712,47.1625,-0.7893,21,53.1424,32,33,64.9631,31,43,18.1096,31.24,36,48.0196,-0.0236,41.2044,11.55,17.357822,37,29.5,18,33.8547,6.4281,25,13.9094,47.14,7,-29.5,55.1694,49.8153,56.8796,31.7917,43.7333,47,-18.7669,3.2028,23.6345,41.833,17.570692,35.9375,21.9162,42.5,46.8625,15.2,-18.665695,21.0079,null,-20.2,-13.254308,2.5,-22.9576,17.6078,9.082,12.8654,52.1326,60.472,28.1667,-40.9006,21,30.3753,8.538,-9.19,13,-6.315,51.9194,18.25,39.3999,-23.4425,null,25.3548,42.602636,45.9432,60,-1.9403,24,12.8628,14.4974,1.2833,8.460555,13.7942,43.9424,5.1521,44.0165,6.877,0.18636,3.9193,48.669,46.1512,63,-26.5,-4.6796,35,15.4542,8.6195,15,39,-8.874217,10.6918,34,38.9637,23.5,-6,1,48.3794,-32.5228,38,41.3775,41.9,12.9843,8,18.333333,16.1666667,15.552727,-30.5595,-15.4167,-20],[65,17.8739,20.1683,1.5218,54,-63.6167,45.0382,-170,-61.7964,141.2327875,14.5501,47.5769,29.9189,4,2.3158,-1.5616,90.3563,25.4858,50.55,-77.3963,17.6791,27.9534,-59.5432,-64.75,-65,-51.9253,-59.5432,114.6666667,90.4336,24.6849,null,20.9394,-82.50859333,8.2275,-71.543,111.6490818,-5,11.5021,25,15,-74.2973,44.25,-24,-83.7534,-80,33.4299,15.4749126,9,42.5903,-61.371,-13.3381,-70.1627,null,1.6596,-78.1834,30,39.7823,-12.8858,-4,25.0136,40.4897,26,178.065,5.429018182,11.6094,-3.436,43.3569,-1.0232,-9.6966,-15.3101,-15.1804,10,null,21.8243,-61.679,-90.2308,144.783333,-58.75,-86.2419,15.2,-72.2852,19.5033,113.9213,78,-7.6921,53,44,-19.0208,35,12,-77.2975,36.51,138,66.9237,37.9062,74.7661,104.9167,-62.782998,127.5,47.75,105,35.8623,-9.4295,17,-60.9789,9.55,81,28.5,23.8813,6.1296,24.6032,-7.0926,7.4167,29,46.8691,73.2207,-102.5528,22,-3.996166,14.3754,95.956,19.3,103.8467,145.75,35.529562,10.9408,null,57.5,34.301525,112.5,18.4904,8.0817,8.6753,-85.2072,5.2913,8.4689,84.25,174.886,57,69.3451,-80.7821,-75.0152,122,143.9555,19.1451,-66.5,-8.2245,-58.4438,null,51.1839,20.902977,24.9668,100,29.8739,45,30.2176,-14.4524,103.8333,-11.779889,-88.8965,12.4578,46.1996,21.0059,31.307,6.613081,-56.0278,19.699,14.9955,16,31.5,55.492,38,18.7322,0.8248,101,71,125.727539,-61.2225,9,35.2433,121,35,32,31.1656,-55.7658,-97,64.5853,12.45,-61.2872,-66,-64.833333,107.8333333,48.516388,22.9375,28.2833,30],[1.31909059582729,0.264575131106459,1.55884572681199,1.93907194296653,2.57681974534503,3.24653661614959,2.30651251893416,0,0.264575131106459,6.75351760196122,10.219589032833,1.72626765016321,0.14142135623731,13.0315002973564,0.3,1.61554944214035,0.714142842854285,1.99749843554382,2.38117617995813,0.374165738677394,2.04939015319192,1.2328828005938,0.173205080756888,0.565685424949238,1.03440804327886,7.56108457828637,0.58309518948453,1.13578166916005,0.2,0.2,0,0.173205080756888,9.23904756996088,12.8860389569487,5.33291665038935,28.7306456592956,1.33790881602597,1.38924439894498,0.989949493661167,0.435889894354067,3.00832179129826,0,0.244948974278318,1.86279360101972,1.36381816969859,1.61864140562386,5.76194411635517,24.6207229788242,0.547722557505166,0.346410161513775,5.34789678284838,3.33016516106934,2.66833281282527,2.67581763205193,4.73286382647969,2.66458251889485,0.387298334620742,0,30.9714384554544,2.72946881279124,0.509901951359279,3.76563407675255,0.223606797749979,22.8315571085285,0.4,19.6173392691262,1.04880884817015,1.26885775404495,0.469041575982343,0.2,0.282842712474619,0.346410161513775,0.360555127546399,3.62491379207837,0.3,0.616441400296898,0.830662386291808,0.346410161513775,1.18743420870379,2.94448637286709,0.387298334620742,2.21810730128188,3.90896405713841,4.04351332383115,5.68770604022395,21.1198958330765,2.6343879744639,3.3689761055846,7.31983606373804,32.5256821604098,0.6,1.65529453572468,4.41927595879687,1.85202591774521,0.768114574786861,1.03440804327886,1.04403065089106,0.282842712474619,9.89242134161298,1.7,0.3,2.16794833886788,0.173205080756888,0.316227766016838,0.360555127546399,0.824621125123532,1.19582607431014,0,2.31732604525129,4.66690475583121,1.994993734326,2.48394846967484,0.721110255092798,1.87882942280559,0.754983443527075,0.424264068711929,3.48568501158667,1.81383571472171,0.529150262212918,1.3,0.387298334620742,1.04403065089106,0.346410161513775,0.14142135623731,0.282842712474619,0.244948974278318,0.14142135623731,1.19582607431014,0,5.25927751692188,0.33166247903554,0.519615242270663,1.16189500386223,0.223606797749979,11.2227447623119,6.81248853210044,0.223606797749979,2.54361946839538,1.3856406460551,4.60217339960154,3.43656805548792,3.26343377441614,4.56508488420533,0.1,4.80728613668877,1.54596248337403,8.62728230672904,0.806225774829855,1.09087121146357,2.79463772249642,1.0295630140987,4.73814309619285,4.83425278610873,0.866025403784439,3.95347948015416,0.264575131106459,1.3228756555323,3.04302481094059,0.1,0.565685424949238,1.53622914957372,0.223606797749979,3,0,0,0.3,1.90525588832577,2.83196045170126,6.95269731830748,0.3,0.316227766016838,0.316227766016838,0.264575131106459,0.58309518948453,4.06324993078201,0,0.1,0.932737905308882,1.98494332412792,11.6322826650662,1.79443584449264,0.435889894354067,0.66332495807108,2.53968501984006,1.83847763108502,43.4423756256492,1.3114877048604,0.244948974278318,0.1,1.16189500386223,0.547722557505166,1.4560219778561,0,3.6783148315499,0.591607978309962,0.282842712474619],null,null,{"interactive":true,"className":"","stroke":false,"color":"#03F","weight":1,"opacity":0.5,"fill":true,"fillColor":["#440154","#460B5E","#440356","#46095C","#D9E319","#470F61","#471063","#45075A","#460D60","#471265","#481467","#481669","#46347F","#482172","#482475","#46327F","#481C6D","#47317E","#481A6C","#48186A","#472A7A","#481F70","#482374","#482576","#482878","#472D7C","#481D6E","#472F7D","#482677","#472C7B","#3F4888","#443B84","#453983","#ACDC31","#423F86","#424186","#3E4C8A","#453882","#3F4688","#404587","#414287","#414487","#443A83","#3E4A89","#3D4E8A","#3C4F8A","#3B518A","#2F6A8E","#39558C","#39568C","#3A528B","#38588C","#3A548B","#450558","#37598C","#375B8C","#355F8D","#F4E61E","#97D83E","#34608D","#34618D","#32648E","#33638D","#32668E","#31678E","#DDE319","#30698E","#2F6C8E","#2C738E","#31688E","#2B748E","#355E8D","#2E6D8E","#2E6F8E","#2D708E","#2C718E","#2D708E","#2B768E","#2A798E","#3D4D8A","#2A778E","#297A8E","#277F8E","#287D8E","#26828E","#27808E","#26818E","#297C8E","#26838E","#25858E","#25868E","#23888E","#24878E","#23898E","#228A8D","#21908D","#453681","#65CC5E","#228C8D","#218F8D","#20918C","#20938C","#1F968B","#1F978B","#68CC5C","#1F988B","#9BD93C","#1F958B","#1F998B","#1E9A8A","#20928C","#27AD81","#23A983","#22A884","#1F9D89","#1FA087","#22A784","#1E9C8A","#1FA187","#20A386","#2BB07F","#25AB82","#24AA82","#39B977","#28AE80","#21A485","#29AF7F","#21A685","#1F9F88","#1FA088","#2CB17E","#35B779","#37B878","#33B67A","#2FB47B","#3BBA75","#2EB37D","#31B57B","#3DBC74","#40BD72","#44BF70","#4CC36C","#4FC36A","#47C06F","#51C469","#57C666","#54C568","#49C16D","#42BE71","#59C765","#218D8D","#5CC863","#5FCA61","#61CB5F","#74D056","#9ED93A","#77D153","#83D34B","#80D34D","#365C8D","#6ECE59","#8DD644","#7AD151","#94D741","#71D058","#A2DA38","#87D549","#8AD646","#A8DB34","#A5DB36","#7DD24F","#AFDC2F","#433D85","#C4E023","#BDDF26","#B6DE2A","#C1DF25","#C8E121","#CBE11F","#CFE21D","#B3DD2C","#BADE28","#D2E21B","#D5E21A","#E4E419","#E0E419","#E7E41A","#2A788E","#6BCD5B","#EBE51A","#F1E51D","#EEE51B","#F7E620","#91D743","#FAE723","#FDE725"],"fillOpacity":0.7},null,null,["Country:  Afghanistan <br> Confirmed:  174 <br> Recovered:  5 <br> Deaths:  4","Country:  Angola <br> Confirmed:  7 <br> Recovered:  1 <br> Deaths:  2","Country:  Albania <br> Confirmed:  243 <br> Recovered:  52 <br> Deaths:  15","Country:  Andorra <br> Confirmed:  376 <br> Recovered:  10 <br> Deaths:  12","Country:  United Arab Emirates <br> Confirmed:  664 <br> Recovered:  61 <br> Deaths:  6","Country:  Argentina <br> Confirmed:  1,054 <br> Recovered:  240 <br> Deaths:  27","Country:  Armenia <br> Confirmed:  532 <br> Recovered:  30 <br> Deaths:  3","Country:  American Samoa <br> Confirmed:  0 <br> Recovered:  0 <br> Deaths:  0","Country:  Antigua and Barbuda <br> Confirmed:  7 <br> Recovered:  0 <br> Deaths:  0","Country:  Australia <br> Confirmed:  4,561 <br> Recovered:  345 <br> Deaths:  19","Country:  Austria <br> Confirmed:  10,444 <br> Recovered:  1,238 <br> Deaths:  164","Country:  Azerbaijan <br> Confirmed:  298 <br> Recovered:  26 <br> Deaths:  5","Country:  Burundi <br> Confirmed:  2 <br> Recovered:  0 <br> Deaths:  0","Country:  Belgium <br> Confirmed:  16,982 <br> Recovered:  1,696 <br> Deaths:  1,305","Country:  Benin <br> Confirmed:  9 <br> Recovered:  1 <br> Deaths:  0","Country:  Burkina Faso <br> Confirmed:  261 <br> Recovered:  32 <br> Deaths:  14","Country:  Bangladesh <br> Confirmed:  51 <br> Recovered:  25 <br> Deaths:  5","Country:  Bulgaria <br> Confirmed:  399 <br> Recovered:  17 <br> Deaths:  8","Country:  Bahrain <br> Confirmed:  567 <br> Recovered:  295 <br> Deaths:  4","Country:  Bahamas <br> Confirmed:  14 <br> Recovered:  1 <br> Deaths:  0","Country:  Bosnia and Herzegovina <br> Confirmed:  420 <br> Recovered:  17 <br> Deaths:  13","Country:  Belarus <br> Confirmed:  152 <br> Recovered:  47 <br> Deaths:  1","Country:  Belize <br> Confirmed:  3 <br> Recovered:  0 <br> Deaths:  0","Country:  Bermuda <br> Confirmed:  32 <br> Recovered:  10 <br> Deaths:  0","Country:  Bolivia <br> Confirmed:  107 <br> Recovered:  0 <br> Deaths:  6","Country:  Brazil <br> Confirmed:  5,717 <br> Recovered:  127 <br> Deaths:  201","Country:  Barbados <br> Confirmed:  34 <br> Recovered:  0 <br> Deaths:  0","Country:  Brunei <br> Confirmed:  129 <br> Recovered:  45 <br> Deaths:  1","Country:  Bhutan <br> Confirmed:  4 <br> Recovered:  0 <br> Deaths:  0","Country:  Botswana <br> Confirmed:  4 <br> Recovered:  0 <br> Deaths:  1","Country:  Costa Atlantica <br> Confirmed:  0 <br> Recovered:  0 <br> Deaths:  0","Country:  Central African Republic <br> Confirmed:  3 <br> Recovered:  0 <br> Deaths:  0","Country:  Canada <br> Confirmed:  8,536 <br> Recovered:  1,254 <br> Deaths:  96","Country:  Switzerland <br> Confirmed:  16,605 <br> Recovered:  1,823 <br> Deaths:  433","Country:  Chile <br> Confirmed:  2,844 <br> Recovered:  156 <br> Deaths:  12","Country:  China <br> Confirmed:  82,545 <br> Recovered:  0 <br> Deaths:  3,314","Country:  Cote d'Ivoire <br> Confirmed:  179 <br> Recovered:  7 <br> Deaths:  1","Country:  Cameroon <br> Confirmed:  193 <br> Recovered:  5 <br> Deaths:  6","Country:  Congo, the Democratic Republic of the <br> Confirmed:  98 <br> Recovered:  2 <br> Deaths:  8","Country:  Congo <br> Confirmed:  19 <br> Recovered:  0 <br> Deaths:  0","Country:  Colombia <br> Confirmed:  905 <br> Recovered:  203 <br> Deaths:  29","Country:  Comoros <br> Confirmed:  0 <br> Recovered:  0 <br> Deaths:  0","Country:  Cape Verde <br> Confirmed:  6 <br> Recovered:  0 <br> Deaths:  1","Country:  Costa Rica <br> Confirmed:  347 <br> Recovered:  4 <br> Deaths:  2","Country:  Cuba <br> Confirmed:  186 <br> Recovered:  8 <br> Deaths:  6","Country:  Cyprus <br> Confirmed:  262 <br> Recovered:  23 <br> Deaths:  8","Country:  Czech Republic <br> Confirmed:  3,320 <br> Recovered:  45 <br> Deaths:  31","Country:  Germany <br> Confirmed:  60,618 <br> Recovered:  58,437 <br> Deaths:  2,181","Country:  Djibouti <br> Confirmed:  30 <br> Recovered:  0 <br> Deaths:  0","Country:  Dominica <br> Confirmed:  12 <br> Recovered:  0 <br> Deaths:  0","Country:  Denmark <br> Confirmed:  2,860 <br> Recovered:  1 <br> Deaths:  90","Country:  Dominican Republic <br> Confirmed:  1,109 <br> Recovered:  5 <br> Deaths:  51","Country:  Diamond Princess <br> Confirmed:  712 <br> Recovered:  603 <br> Deaths:  10","Country:  Algeria <br> Confirmed:  716 <br> Recovered:  46 <br> Deaths:  44","Country:  Ecuador <br> Confirmed:  2,240 <br> Recovered:  54 <br> Deaths:  75","Country:  Egypt <br> Confirmed:  710 <br> Recovered:  157 <br> Deaths:  46","Country:  Eritrea <br> Confirmed:  15 <br> Recovered:  0 <br> Deaths:  0","Country:  Western Sahara <br> Confirmed:  0 <br> Recovered:  0 <br> Deaths:  0","Country:  Spain <br> Confirmed:  95,923 <br> Recovered:  19,259 <br> Deaths:  8,464","Country:  Estonia <br> Confirmed:  745 <br> Recovered:  26 <br> Deaths:  4","Country:  Ethiopia <br> Confirmed:  26 <br> Recovered:  2 <br> Deaths:  0","Country:  Finland <br> Confirmed:  1,418 <br> Recovered:  10 <br> Deaths:  17","Country:  Fiji <br> Confirmed:  5 <br> Recovered:  0 <br> Deaths:  0","Country:  France <br> Confirmed:  52,128 <br> Recovered:  9,444 <br> Deaths:  3,523","Country:  Gabon <br> Confirmed:  16 <br> Recovered:  0 <br> Deaths:  1","Country:  United Kingdom <br> Confirmed:  38,484 <br> Recovered:  135 <br> Deaths:  2,426","Country:  Georgia <br> Confirmed:  110 <br> Recovered:  21 <br> Deaths:  0","Country:  Ghana <br> Confirmed:  161 <br> Recovered:  31 <br> Deaths:  5","Country:  Guinea <br> Confirmed:  22 <br> Recovered:  0 <br> Deaths:  0","Country:  Gambia <br> Confirmed:  4 <br> Recovered:  0 <br> Deaths:  1","Country:  Guinea-Bissau <br> Confirmed:  8 <br> Recovered:  0 <br> Deaths:  0","Country:  Equatorial Guinea <br> Confirmed:  12 <br> Recovered:  1 <br> Deaths:  0","Country:  Grand Princess <br> Confirmed:  13 <br> Recovered:  0 <br> Deaths:  0","Country:  Greece <br> Confirmed:  1,314 <br> Recovered:  52 <br> Deaths:  49","Country:  Grenada <br> Confirmed:  9 <br> Recovered:  0 <br> Deaths:  0","Country:  Guatemala <br> Confirmed:  38 <br> Recovered:  12 <br> Deaths:  1","Country:  Guam <br> Confirmed:  69 <br> Recovered:  0 <br> Deaths:  2","Country:  Guyana <br> Confirmed:  12 <br> Recovered:  0 <br> Deaths:  2","Country:  Honduras <br> Confirmed:  141 <br> Recovered:  3 <br> Deaths:  7","Country:  Croatia <br> Confirmed:  867 <br> Recovered:  67 <br> Deaths:  6","Country:  Haiti <br> Confirmed:  15 <br> Recovered:  1 <br> Deaths:  0","Country:  Hungary <br> Confirmed:  492 <br> Recovered:  37 <br> Deaths:  16","Country:  Indonesia <br> Confirmed:  1,528 <br> Recovered:  81 <br> Deaths:  136","Country:  India <br> Confirmed:  1,635 <br> Recovered:  150 <br> Deaths:  47","Country:  Ireland <br> Confirmed:  3,235 <br> Recovered:  5 <br> Deaths:  71","Country:  Iran <br> Confirmed:  44,605 <br> Recovered:  14,656 <br> Deaths:  2,898","Country:  Iraq <br> Confirmed:  694 <br> Recovered:  170 <br> Deaths:  50","Country:  Iceland <br> Confirmed:  1,135 <br> Recovered:  198 <br> Deaths:  2","Country:  Israel <br> Confirmed:  5,358 <br> Recovered:  224 <br> Deaths:  20","Country:  Italy <br> Confirmed:  105,792 <br> Recovered:  15,729 <br> Deaths:  12,428","Country:  Jamaica <br> Confirmed:  36 <br> Recovered:  2 <br> Deaths:  1","Country:  Jordan <br> Confirmed:  274 <br> Recovered:  30 <br> Deaths:  5","Country:  Japan <br> Confirmed:  1,953 <br> Recovered:  424 <br> Deaths:  56","Country:  Kazakhstan <br> Confirmed:  343 <br> Recovered:  24 <br> Deaths:  2","Country:  Kenya <br> Confirmed:  59 <br> Recovered:  1 <br> Deaths:  1","Country:  Kyrgyzstan <br> Confirmed:  107 <br> Recovered:  3 <br> Deaths:  0","Country:  Cambodia <br> Confirmed:  109 <br> Recovered:  23 <br> Deaths:  0","Country:  Saint Kitts and Nevis <br> Confirmed:  8 <br> Recovered:  0 <br> Deaths:  0","Country:  Korea, South <br> Confirmed:  9,786 <br> Recovered:  5,408 <br> Deaths:  162","Country:  Kuwait <br> Confirmed:  289 <br> Recovered:  73 <br> Deaths:  0","Country:  Laos <br> Confirmed:  9 <br> Recovered:  0 <br> Deaths:  0","Country:  Lebanon <br> Confirmed:  470 <br> Recovered:  37 <br> Deaths:  12","Country:  Liberia <br> Confirmed:  3 <br> Recovered:  0 <br> Deaths:  0","Country:  Libya <br> Confirmed:  10 <br> Recovered:  1 <br> Deaths:  0","Country:  Saint Lucia <br> Confirmed:  13 <br> Recovered:  1 <br> Deaths:  0","Country:  Liechtenstein <br> Confirmed:  68 <br> Recovered:  44 <br> Deaths:  0","Country:  Sri Lanka <br> Confirmed:  143 <br> Recovered:  17 <br> Deaths:  2","Country:  Lesotho <br> Confirmed:  0 <br> Recovered:  0 <br> Deaths:  0","Country:  Lithuania <br> Confirmed:  537 <br> Recovered:  7 <br> Deaths:  8","Country:  Luxembourg <br> Confirmed:  2,178 <br> Recovered:  80 <br> Deaths:  23","Country:  Latvia <br> Confirmed:  398 <br> Recovered:  1 <br> Deaths:  0","Country:  Morocco <br> Confirmed:  617 <br> Recovered:  24 <br> Deaths:  36","Country:  Monaco <br> Confirmed:  52 <br> Recovered:  2 <br> Deaths:  1","Country:  Moldova <br> Confirmed:  353 <br> Recovered:  18 <br> Deaths:  4","Country:  Madagascar <br> Confirmed:  57 <br> Recovered:  0 <br> Deaths:  0","Country:  Maldives <br> Confirmed:  18 <br> Recovered:  13 <br> Deaths:  0","Country:  Mexico <br> Confirmed:  1,215 <br> Recovered:  35 <br> Deaths:  29","Country:  Macedonia <br> Confirmed:  329 <br> Recovered:  12 <br> Deaths:  9","Country:  Mali <br> Confirmed:  28 <br> Recovered:  0 <br> Deaths:  2","Country:  Malta <br> Confirmed:  169 <br> Recovered:  2 <br> Deaths:  0","Country:  Myanmar <br> Confirmed:  15 <br> Recovered:  0 <br> Deaths:  1","Country:  Montenegro <br> Confirmed:  109 <br> Recovered:  0 <br> Deaths:  2","Country:  Mongolia <br> Confirmed:  12 <br> Recovered:  2 <br> Deaths:  0","Country:  Northern Mariana Islands <br> Confirmed:  2 <br> Recovered:  0 <br> Deaths:  0","Country:  Mozambique <br> Confirmed:  8 <br> Recovered:  0 <br> Deaths:  0","Country:  Mauritania <br> Confirmed:  6 <br> Recovered:  2 <br> Deaths:  1","Country:  MS Zaandam <br> Confirmed:  2 <br> Recovered:  0 <br> Deaths:  0","Country:  Mauritius <br> Confirmed:  143 <br> Recovered:  0 <br> Deaths:  5","Country:  Malawi <br> Confirmed:  0 <br> Recovered:  0 <br> Deaths:  0","Country:  Malaysia <br> Confirmed:  2,766 <br> Recovered:  537 <br> Deaths:  43","Country:  Namibia <br> Confirmed:  11 <br> Recovered:  2 <br> Deaths:  0","Country:  Niger <br> Confirmed:  27 <br> Recovered:  0 <br> Deaths:  3","Country:  Nigeria <br> Confirmed:  135 <br> Recovered:  8 <br> Deaths:  2","Country:  Nicaragua <br> Confirmed:  5 <br> Recovered:  0 <br> Deaths:  1","Country:  Netherlands <br> Confirmed:  12,595 <br> Recovered:  0 <br> Deaths:  1,039","Country:  Norway <br> Confirmed:  4,641 <br> Recovered:  13 <br> Deaths:  39","Country:  Nepal <br> Confirmed:  5 <br> Recovered:  1 <br> Deaths:  0","Country:  New Zealand <br> Confirmed:  647 <br> Recovered:  74 <br> Deaths:  1","Country:  Oman <br> Confirmed:  192 <br> Recovered:  34 <br> Deaths:  1","Country:  Pakistan <br> Confirmed:  2,118 <br> Recovered:  94 <br> Deaths:  27","Country:  Panama <br> Confirmed:  1,181 <br> Recovered:  9 <br> Deaths:  30","Country:  Peru <br> Confirmed:  1,065 <br> Recovered:  394 <br> Deaths:  30","Country:  Philippines <br> Confirmed:  2,084 <br> Recovered:  49 <br> Deaths:  88","Country:  Papua New Guinea <br> Confirmed:  1 <br> Recovered:  0 <br> Deaths:  0","Country:  Poland <br> Confirmed:  2,311 <br> Recovered:  7 <br> Deaths:  33","Country:  Puerto Rico <br> Confirmed:  239 <br> Recovered:  0 <br> Deaths:  8","Country:  Portugal <br> Confirmed:  7,443 <br> Recovered:  43 <br> Deaths:  160","Country:  Paraguay <br> Confirmed:  65 <br> Recovered:  1 <br> Deaths:  3","Country:  Palestine <br> Confirmed:  119 <br> Recovered:  18 <br> Deaths:  1","Country:  Qatar <br> Confirmed:  781 <br> Recovered:  62 <br> Deaths:  2","Country:  Kosovo <br> Confirmed:  106 <br> Recovered:  1 <br> Deaths:  1","Country:  Romania <br> Confirmed:  2,245 <br> Recovered:  220 <br> Deaths:  82","Country:  Russia <br> Confirmed:  2,337 <br> Recovered:  121 <br> Deaths:  17","Country:  Rwanda <br> Confirmed:  75 <br> Recovered:  0 <br> Deaths:  0","Country:  Saudi Arabia <br> Confirmed:  1,563 <br> Recovered:  165 <br> Deaths:  10","Country:  Sudan <br> Confirmed:  7 <br> Recovered:  1 <br> Deaths:  2","Country:  Senegal <br> Confirmed:  175 <br> Recovered:  40 <br> Deaths:  0","Country:  Singapore <br> Confirmed:  926 <br> Recovered:  240 <br> Deaths:  3","Country:  Sierra Leone <br> Confirmed:  1 <br> Recovered:  0 <br> Deaths:  0","Country:  El Salvador <br> Confirmed:  32 <br> Recovered:  0 <br> Deaths:  1","Country:  San Marino <br> Confirmed:  236 <br> Recovered:  13 <br> Deaths:  26","Country:  Somalia <br> Confirmed:  5 <br> Recovered:  1 <br> Deaths:  0","Country:  Serbia <br> Confirmed:  900 <br> Recovered:  15 <br> Deaths:  16","Country:  South Sudan <br> Confirmed:  0 <br> Recovered:  0 <br> Deaths:  0","Country:  Sao Tome and Principe <br> Confirmed:  0 <br> Recovered:  0 <br> Deaths:  0","Country:  Suriname <br> Confirmed:  9 <br> Recovered:  0 <br> Deaths:  0","Country:  Slovakia <br> Confirmed:  363 <br> Recovered:  3 <br> Deaths:  0","Country:  Slovenia <br> Confirmed:  802 <br> Recovered:  10 <br> Deaths:  15","Country:  Sweden <br> Confirmed:  4,834 <br> Recovered:  0 <br> Deaths:  332","Country:  Swaziland <br> Confirmed:  9 <br> Recovered:  0 <br> Deaths:  0","Country:  Seychelles <br> Confirmed:  10 <br> Recovered:  0 <br> Deaths:  0","Country:  Syria <br> Confirmed:  10 <br> Recovered:  0 <br> Deaths:  2","Country:  Chad <br> Confirmed:  7 <br> Recovered:  0 <br> Deaths:  0","Country:  Togo <br> Confirmed:  34 <br> Recovered:  10 <br> Deaths:  1","Country:  Thailand <br> Confirmed:  1,651 <br> Recovered:  342 <br> Deaths:  10","Country:  Tajikistan <br> Confirmed:  0 <br> Recovered:  0 <br> Deaths:  0","Country:  Timor-Leste <br> Confirmed:  1 <br> Recovered:  0 <br> Deaths:  0","Country:  Trinidad and Tobago <br> Confirmed:  87 <br> Recovered:  1 <br> Deaths:  3","Country:  Tunisia <br> Confirmed:  394 <br> Recovered:  3 <br> Deaths:  10","Country:  Turkey <br> Confirmed:  13,531 <br> Recovered:  243 <br> Deaths:  214","Country:  Taiwan <br> Confirmed:  322 <br> Recovered:  39 <br> Deaths:  5","Country:  Tanzania <br> Confirmed:  19 <br> Recovered:  1 <br> Deaths:  1","Country:  Uganda <br> Confirmed:  44 <br> Recovered:  0 <br> Deaths:  0","Country:  Ukraine <br> Confirmed:  645 <br> Recovered:  10 <br> Deaths:  17","Country:  Uruguay <br> Confirmed:  338 <br> Recovered:  41 <br> Deaths:  1","Country:  United States <br> Confirmed:  188,724 <br> Recovered:  7,024 <br> Deaths:  5,605","Country:  Uzbekistan <br> Confirmed:  172 <br> Recovered:  7 <br> Deaths:  2","Country:  Holy See <br> Confirmed:  6 <br> Recovered:  0 <br> Deaths:  0","Country:  Saint Vincent and the Grenadines <br> Confirmed:  1 <br> Recovered:  1 <br> Deaths:  0","Country:  Venezuela <br> Confirmed:  135 <br> Recovered:  39 <br> Deaths:  3","Country:  Virgin Islands, U.S <br> Confirmed:  30 <br> Recovered:  0 <br> Deaths:  0","Country:  Vietnam <br> Confirmed:  212 <br> Recovered:  58 <br> Deaths:  0","Country:  Yemen <br> Confirmed:  0 <br> Recovered:  0 <br> Deaths:  0","Country:  South Africa <br> Confirmed:  1,353 <br> Recovered:  31 <br> Deaths:  5","Country:  Zambia <br> Confirmed:  35 <br> Recovered:  0 <br> Deaths:  0","Country:  Zimbabwe <br> Confirmed:  8 <br> Recovered:  0 <br> Deaths:  1"],null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"setView":[[30.8025,26.8206],2,[]],"limits":{"lat":[-40.9006,64.9631],"lng":[-170,178.065]}},"evals":[],"jsHooks":[]}</script>
+<p class="caption">
+Figure 1.1: <span class="citation">(RStudio Leaflet Team <a href="#ref-leaflet" role="doc-biblioref">2020</a>)</span>
+</p>
+</div>
+<p><br>
+At the beginning of the class, I was not able to code the way I code in R now. The progression and knowledge skills increase as I consume more of the information. Again, I had vivid dreams while taking these classes and if you decided to pursue the same route, may you have sweetest of all dreams.</p>
+
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-leaflet">
+<p>RStudio Leaflet Team. 2020. “Leaflet for R.” <a href="https://rstudio.github.io/leaflet/">https://rstudio.github.io/leaflet/</a>.</p>
+</div>
+<div id="ref-headline">
+<p>Wikipedia. 2020. “Portal:Current Events/March 2020.” Wikipedia, The Free Encyclopedia. <a href="https://en.wikipedia.org/wiki/Portal:Current_events/March_2020">https://en.wikipedia.org/wiki/Portal:Current_events/March_2020</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-science-toolbox.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["r_full_stack.pdf", "r_full_stack.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
