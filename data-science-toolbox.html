@@ -187,27 +187,32 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">2.1</span> What is Data Science?</h2>
 <p>Create a Venn Diagram</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="data-science-toolbox.html#cb1-1"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="data-science-toolbox.html#cb1-2"></a><span class="kw">library</span>(ggforce)</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="data-science-toolbox.html#cb2-1"></a>VennDS &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">-1</span>),</span>
-<span id="cb2-2"><a href="data-science-toolbox.html#cb2-2"></a>                   <span class="dt">y =</span> <span class="kw">c</span>(<span class="op">-</span><span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">1</span>),</span>
-<span id="cb2-3"><a href="data-science-toolbox.html#cb2-3"></a>                   <span class="dt">tx =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">-3</span>),</span>
-<span id="cb2-4"><a href="data-science-toolbox.html#cb2-4"></a>                   <span class="dt">ty =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="fl">1.3</span>),</span>
-<span id="cb2-5"><a href="data-science-toolbox.html#cb2-5"></a>                   <span class="dt">cat =</span> <span class="kw">c</span>(<span class="st">&#39;Variety&#39;</span>, <span class="st">&#39;Velocity&#39;</span>, </span>
-<span id="cb2-6"><a href="data-science-toolbox.html#cb2-6"></a>                           <span class="st">&#39;Volume&#39;</span>))</span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="data-science-toolbox.html#cb3-1"></a><span class="kw">ggplot</span>(VennDS, <span class="kw">aes</span>(</span>
-<span id="cb3-2"><a href="data-science-toolbox.html#cb3-2"></a>  <span class="dt">x0 =</span> x ,</span>
-<span id="cb3-3"><a href="data-science-toolbox.html#cb3-3"></a>  <span class="dt">y0 =</span> y,</span>
-<span id="cb3-4"><a href="data-science-toolbox.html#cb3-4"></a>  <span class="dt">r =</span> <span class="fl">1.5</span>,</span>
-<span id="cb3-5"><a href="data-science-toolbox.html#cb3-5"></a>  <span class="dt">fill =</span> cat</span>
-<span id="cb3-6"><a href="data-science-toolbox.html#cb3-6"></a>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_circle</span>(</span>
-<span id="cb3-7"><a href="data-science-toolbox.html#cb3-7"></a>    <span class="dt">alpha =</span> <span class="fl">0.25</span>,</span>
-<span id="cb3-8"><a href="data-science-toolbox.html#cb3-8"></a>    <span class="dt">size =</span> <span class="dv">1</span>,</span>
-<span id="cb3-9"><a href="data-science-toolbox.html#cb3-9"></a>    <span class="dt">color =</span> <span class="st">&quot;transparent&quot;</span>,</span>
-<span id="cb3-10"><a href="data-science-toolbox.html#cb3-10"></a>    <span class="dt">show.legend =</span> <span class="ot">FALSE</span></span>
-<span id="cb3-11"><a href="data-science-toolbox.html#cb3-11"></a>  ) <span class="op">+</span><span class="st"> </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">-1.5</span> , <span class="dt">y =</span> <span class="dv">1</span>, <span class="dt">label =</span> <span class="st">&quot;Volume&quot;</span>), <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">1.5</span> , <span class="dt">y =</span> <span class="dv">1</span>, <span class="dt">label =</span> <span class="st">&quot;Velocity&quot;</span>), <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb3-12"><a href="data-science-toolbox.html#cb3-12"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="dv">0</span> , <span class="dt">y =</span> <span class="dv">-1</span>, <span class="dt">label =</span> <span class="st">&quot;Variety&quot;</span>), <span class="dt">size =</span> <span class="dv">5</span>)<span class="op">+</span></span>
-<span id="cb3-13"><a href="data-science-toolbox.html#cb3-13"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="dv">0</span> , <span class="dt">y =</span> <span class="fl">.5</span>, <span class="dt">label =</span> <span class="st">&quot;Big Data&quot;</span>), <span class="dt">size =</span> <span class="dv">5</span>)</span></code></pre></div>
-<p><img src="r_full_stack_files/figure-html/unnamed-chunk-4-1.png" width="576" /></p>
+<span id="cb1-2"><a href="data-science-toolbox.html#cb1-2"></a><span class="kw">library</span>(ggforce)</span>
+<span id="cb1-3"><a href="data-science-toolbox.html#cb1-3"></a></span>
+<span id="cb1-4"><a href="data-science-toolbox.html#cb1-4"></a>VennDS &lt;-<span class="st"> </span><span class="kw">tibble</span>(</span>
+<span id="cb1-5"><a href="data-science-toolbox.html#cb1-5"></a>  <span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>),</span>
+<span id="cb1-6"><a href="data-science-toolbox.html#cb1-6"></a>  <span class="dt">y =</span> <span class="kw">c</span>(<span class="op">-</span><span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">1</span>),</span>
+<span id="cb1-7"><a href="data-science-toolbox.html#cb1-7"></a>  <span class="dt">tx =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3</span>,<span class="op">-</span><span class="dv">3</span>),</span>
+<span id="cb1-8"><a href="data-science-toolbox.html#cb1-8"></a>  <span class="dt">ty =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="fl">1.3</span>),</span>
+<span id="cb1-9"><a href="data-science-toolbox.html#cb1-9"></a>  <span class="dt">cat =</span> <span class="kw">c</span>(<span class="st">&#39;Variety&#39;</span>, <span class="st">&#39;Velocity&#39;</span>,</span>
+<span id="cb1-10"><a href="data-science-toolbox.html#cb1-10"></a>          <span class="st">&#39;Volume&#39;</span>)</span>
+<span id="cb1-11"><a href="data-science-toolbox.html#cb1-11"></a>)</span>
+<span id="cb1-12"><a href="data-science-toolbox.html#cb1-12"></a></span>
+<span id="cb1-13"><a href="data-science-toolbox.html#cb1-13"></a><span class="kw">ggplot</span>(VennDS, <span class="kw">aes</span>(</span>
+<span id="cb1-14"><a href="data-science-toolbox.html#cb1-14"></a>  <span class="dt">x0 =</span> x ,</span>
+<span id="cb1-15"><a href="data-science-toolbox.html#cb1-15"></a>  <span class="dt">y0 =</span> y,</span>
+<span id="cb1-16"><a href="data-science-toolbox.html#cb1-16"></a>  <span class="dt">r =</span> <span class="fl">1.5</span>,</span>
+<span id="cb1-17"><a href="data-science-toolbox.html#cb1-17"></a>  <span class="dt">fill =</span> cat</span>
+<span id="cb1-18"><a href="data-science-toolbox.html#cb1-18"></a>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_circle</span>(</span>
+<span id="cb1-19"><a href="data-science-toolbox.html#cb1-19"></a>  <span class="dt">alpha =</span> <span class="fl">0.25</span>,</span>
+<span id="cb1-20"><a href="data-science-toolbox.html#cb1-20"></a>  <span class="dt">size =</span> <span class="dv">1</span>,</span>
+<span id="cb1-21"><a href="data-science-toolbox.html#cb1-21"></a>  <span class="dt">color =</span> <span class="st">&quot;transparent&quot;</span>,</span>
+<span id="cb1-22"><a href="data-science-toolbox.html#cb1-22"></a>  <span class="dt">show.legend =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb1-23"><a href="data-science-toolbox.html#cb1-23"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">-1.5</span> , <span class="dt">y =</span> <span class="dv">1</span>, <span class="dt">label =</span> <span class="st">&quot;Volume&quot;</span>), <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span><span class="st">       </span></span>
+<span id="cb1-24"><a href="data-science-toolbox.html#cb1-24"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">1.5</span> , <span class="dt">y =</span> <span class="dv">1</span>, <span class="dt">label =</span> <span class="st">&quot;Velocity&quot;</span>), <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span></span>
+<span id="cb1-25"><a href="data-science-toolbox.html#cb1-25"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="dv">0</span> , <span class="dt">y =</span> <span class="dv">-1</span>, <span class="dt">label =</span> <span class="st">&quot;Variety&quot;</span>), <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span></span>
+<span id="cb1-26"><a href="data-science-toolbox.html#cb1-26"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="dv">0</span> , <span class="dt">y =</span> <span class="fl">.75</span>, <span class="dt">label =</span> <span class="st">&quot;Big Data&quot;</span>), <span class="dt">size =</span> <span class="dv">5</span>)</span></code></pre></div>
+<p><img src="r_full_stack_files/figure-html/unnamed-chunk-7-1.png" width="576" /></p>
 
 </div>
 </div>
