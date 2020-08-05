@@ -53,13 +53,6 @@
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
-<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-1.3.1/leaflet.js"></script>
-<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
-<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
-<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
-<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
 <link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet" />
 <script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script>
 <script src="libs/dygraphs-1.1.1/shapes.js"></script>
@@ -68,6 +61,12 @@
 <script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script>
 <script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script>
 <script src="libs/Dygraph.Plugins.Rebase-1.0/rebase.js"></script>
+<script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -152,7 +151,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a><ul>
 <li class="chapter" data-level="" data-path="expect-to-have-lucid-dreams.html"><a href="expect-to-have-lucid-dreams.html"><i class="fa fa-check"></i>Expect To Have Lucid Dreams</a></li>
-<li class="chapter" data-level="" data-path="retrospect.html"><a href="retrospect.html"><i class="fa fa-check"></i>Retrospect</a></li>
+<li class="chapter" data-level="" data-path="why-create-a-bookdown-of-experience.html"><a href="why-create-a-bookdown-of-experience.html"><i class="fa fa-check"></i>Why Create a bookdown of Experience?</a></li>
+<li class="chapter" data-level="" data-path="in-retrospect.html"><a href="in-retrospect.html"><i class="fa fa-check"></i>In Retrospect</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
 <li class="chapter" data-level="2" data-path="data-science-toolbox.html"><a href="data-science-toolbox.html"><i class="fa fa-check"></i><b>2</b> Data Science Toolbox</a></li>
@@ -200,41 +200,41 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 Create a Venn Diagram
 <details>
 <p><summary><strong>View Code</strong></summary></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="what-is-data-science.html#cb10-1"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb10-2"><a href="what-is-data-science.html#cb10-2"></a><span class="kw">library</span>(ggforce)</span>
-<span id="cb10-3"><a href="what-is-data-science.html#cb10-3"></a></span>
-<span id="cb10-4"><a href="what-is-data-science.html#cb10-4"></a><span class="co">## Data frame - All of the arguments below are required to build the venn diagram. </span></span>
-<span id="cb10-5"><a href="what-is-data-science.html#cb10-5"></a></span>
-<span id="cb10-6"><a href="what-is-data-science.html#cb10-6"></a>VennDS &lt;-<span class="st"> </span><span class="kw">tibble</span>(</span>
-<span id="cb10-7"><a href="what-is-data-science.html#cb10-7"></a>  <span class="co"># Center of each circles</span></span>
-<span id="cb10-8"><a href="what-is-data-science.html#cb10-8"></a>  <span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>),  </span>
-<span id="cb10-9"><a href="what-is-data-science.html#cb10-9"></a>  <span class="dt">y =</span> <span class="kw">c</span>(<span class="op">-</span><span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">1</span>),</span>
-<span id="cb10-10"><a href="what-is-data-science.html#cb10-10"></a>  <span class="co"># label coordinates if needed</span></span>
-<span id="cb10-11"><a href="what-is-data-science.html#cb10-11"></a>  <span class="dt">tx =</span> <span class="ot">NULL</span>,</span>
-<span id="cb10-12"><a href="what-is-data-science.html#cb10-12"></a>  <span class="dt">ty =</span> <span class="ot">NULL</span>,</span>
-<span id="cb10-13"><a href="what-is-data-science.html#cb10-13"></a>  <span class="dt">cat =</span> <span class="kw">c</span>(<span class="st">&#39;Variety&#39;</span>, <span class="st">&#39;Velocity&#39;</span>,</span>
-<span id="cb10-14"><a href="what-is-data-science.html#cb10-14"></a>          <span class="st">&#39;Volume&#39;</span>)</span>
-<span id="cb10-15"><a href="what-is-data-science.html#cb10-15"></a>)</span>
-<span id="cb10-16"><a href="what-is-data-science.html#cb10-16"></a><span class="co"># ggplot argument x0, y0, r are all required,</span></span>
-<span id="cb10-17"><a href="what-is-data-science.html#cb10-17"></a>vennd &lt;-<span class="st"> </span><span class="kw">ggplot</span>(VennDS, <span class="kw">aes</span>(</span>
-<span id="cb10-18"><a href="what-is-data-science.html#cb10-18"></a>  <span class="dt">x0 =</span> x,</span>
-<span id="cb10-19"><a href="what-is-data-science.html#cb10-19"></a>  <span class="dt">y0 =</span> y,</span>
-<span id="cb10-20"><a href="what-is-data-science.html#cb10-20"></a>  <span class="dt">r =</span> <span class="fl">1.5</span>,</span>
-<span id="cb10-21"><a href="what-is-data-science.html#cb10-21"></a>  <span class="dt">fill =</span> cat</span>
-<span id="cb10-22"><a href="what-is-data-science.html#cb10-22"></a>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_circle</span>(</span>
-<span id="cb10-23"><a href="what-is-data-science.html#cb10-23"></a>  <span class="dt">alpha =</span> <span class="fl">0.25</span>,</span>
-<span id="cb10-24"><a href="what-is-data-science.html#cb10-24"></a>  <span class="dt">size =</span> <span class="dv">1</span>,</span>
-<span id="cb10-25"><a href="what-is-data-science.html#cb10-25"></a>  <span class="dt">color =</span> <span class="st">&quot;transparent&quot;</span>,</span>
-<span id="cb10-26"><a href="what-is-data-science.html#cb10-26"></a>  <span class="dt">show.legend =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb10-27"><a href="what-is-data-science.html#cb10-27"></a><span class="st">  </span><span class="co"># using geom_text to draw on the graph</span></span>
-<span id="cb10-28"><a href="what-is-data-science.html#cb10-28"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">-1.5</span> , <span class="dt">y =</span> <span class="dv">1</span>, <span class="dt">label =</span> <span class="st">&quot;Volume&quot;</span>), <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span><span class="st">       </span></span>
-<span id="cb10-29"><a href="what-is-data-science.html#cb10-29"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">1.5</span> , <span class="dt">y =</span> <span class="dv">1</span>, <span class="dt">label =</span> <span class="st">&quot;Velocity&quot;</span>), <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span></span>
-<span id="cb10-30"><a href="what-is-data-science.html#cb10-30"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="dv">0</span> , <span class="dt">y =</span> <span class="dv">-1</span>, <span class="dt">label =</span> <span class="st">&quot;Variety&quot;</span>), <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span></span>
-<span id="cb10-31"><a href="what-is-data-science.html#cb10-31"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="dv">0</span> , <span class="dt">y =</span> <span class="fl">.75</span>, <span class="dt">label =</span> <span class="st">&quot;Big Data&quot;</span>), <span class="dt">size =</span> <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="what-is-data-science.html#cb12-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb12-2"><a href="what-is-data-science.html#cb12-2"></a><span class="kw">library</span>(ggforce)</span>
+<span id="cb12-3"><a href="what-is-data-science.html#cb12-3"></a></span>
+<span id="cb12-4"><a href="what-is-data-science.html#cb12-4"></a><span class="co">## Data frame - All of the arguments below are required to build the venn diagram. </span></span>
+<span id="cb12-5"><a href="what-is-data-science.html#cb12-5"></a></span>
+<span id="cb12-6"><a href="what-is-data-science.html#cb12-6"></a>VennDS &lt;-<span class="st"> </span><span class="kw">tibble</span>(</span>
+<span id="cb12-7"><a href="what-is-data-science.html#cb12-7"></a>  <span class="co"># Center of each circles</span></span>
+<span id="cb12-8"><a href="what-is-data-science.html#cb12-8"></a>  <span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>),  </span>
+<span id="cb12-9"><a href="what-is-data-science.html#cb12-9"></a>  <span class="dt">y =</span> <span class="kw">c</span>(<span class="op">-</span><span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">1</span>),</span>
+<span id="cb12-10"><a href="what-is-data-science.html#cb12-10"></a>  <span class="co"># label coordinates if needed</span></span>
+<span id="cb12-11"><a href="what-is-data-science.html#cb12-11"></a>  <span class="dt">tx =</span> <span class="ot">NULL</span>,</span>
+<span id="cb12-12"><a href="what-is-data-science.html#cb12-12"></a>  <span class="dt">ty =</span> <span class="ot">NULL</span>,</span>
+<span id="cb12-13"><a href="what-is-data-science.html#cb12-13"></a>  <span class="dt">cat =</span> <span class="kw">c</span>(<span class="st">&#39;Variety&#39;</span>, <span class="st">&#39;Velocity&#39;</span>,</span>
+<span id="cb12-14"><a href="what-is-data-science.html#cb12-14"></a>          <span class="st">&#39;Volume&#39;</span>)</span>
+<span id="cb12-15"><a href="what-is-data-science.html#cb12-15"></a>)</span>
+<span id="cb12-16"><a href="what-is-data-science.html#cb12-16"></a><span class="co"># ggplot argument x0, y0, r are all required,</span></span>
+<span id="cb12-17"><a href="what-is-data-science.html#cb12-17"></a>vennd &lt;-<span class="st"> </span><span class="kw">ggplot</span>(VennDS, <span class="kw">aes</span>(</span>
+<span id="cb12-18"><a href="what-is-data-science.html#cb12-18"></a>  <span class="dt">x0 =</span> x,</span>
+<span id="cb12-19"><a href="what-is-data-science.html#cb12-19"></a>  <span class="dt">y0 =</span> y,</span>
+<span id="cb12-20"><a href="what-is-data-science.html#cb12-20"></a>  <span class="dt">r =</span> <span class="fl">1.5</span>,</span>
+<span id="cb12-21"><a href="what-is-data-science.html#cb12-21"></a>  <span class="dt">fill =</span> cat</span>
+<span id="cb12-22"><a href="what-is-data-science.html#cb12-22"></a>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_circle</span>(</span>
+<span id="cb12-23"><a href="what-is-data-science.html#cb12-23"></a>  <span class="dt">alpha =</span> <span class="fl">0.25</span>,</span>
+<span id="cb12-24"><a href="what-is-data-science.html#cb12-24"></a>  <span class="dt">size =</span> <span class="dv">1</span>,</span>
+<span id="cb12-25"><a href="what-is-data-science.html#cb12-25"></a>  <span class="dt">color =</span> <span class="st">&quot;transparent&quot;</span>,</span>
+<span id="cb12-26"><a href="what-is-data-science.html#cb12-26"></a>  <span class="dt">show.legend =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb12-27"><a href="what-is-data-science.html#cb12-27"></a><span class="st">  </span><span class="co"># using geom_text to draw on the graph</span></span>
+<span id="cb12-28"><a href="what-is-data-science.html#cb12-28"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">-1.5</span> , <span class="dt">y =</span> <span class="dv">1</span>, <span class="dt">label =</span> <span class="st">&quot;Volume&quot;</span>), <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span><span class="st">       </span></span>
+<span id="cb12-29"><a href="what-is-data-science.html#cb12-29"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">1.5</span> , <span class="dt">y =</span> <span class="dv">1</span>, <span class="dt">label =</span> <span class="st">&quot;Velocity&quot;</span>), <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span></span>
+<span id="cb12-30"><a href="what-is-data-science.html#cb12-30"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="dv">0</span> , <span class="dt">y =</span> <span class="dv">-1</span>, <span class="dt">label =</span> <span class="st">&quot;Variety&quot;</span>), <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span></span>
+<span id="cb12-31"><a href="what-is-data-science.html#cb12-31"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="dv">0</span> , <span class="dt">y =</span> <span class="fl">.75</span>, <span class="dt">label =</span> <span class="st">&quot;Big Data&quot;</span>), <span class="dt">size =</span> <span class="dv">5</span>)</span></code></pre></div>
 </details>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="what-is-data-science.html#cb11-1"></a>vennd </span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-5"></span>
-<img src="r_full_stack_files/figure-html/unnamed-chunk-5-1.png" alt="[@ggforce]" width="672" />
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="what-is-data-science.html#cb13-1"></a>vennd </span></code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-6"></span>
+<img src="r_full_stack_files/figure-html/unnamed-chunk-6-1.png" alt="[@ggforce]" width="672" />
 <p class="caption">
 Figure 4.1: <span class="citation">(Pedersen <a href="#ref-ggforce" role="doc-biblioref">2020</a>)</span>
 </p>
