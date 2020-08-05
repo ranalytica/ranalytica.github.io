@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title> 3 So Much More | Lockdown to R-Full-stack</title>
+  <meta name="description" content="This is my journey to R programming." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content=" 3 So Much More | Lockdown to R-Full-stack" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is my journey to R programming." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content=" 3 So Much More | Lockdown to R-Full-stack" />
+  
+  <meta name="twitter:description" content="This is my journey to R programming." />
+  
+
+<meta name="author" content="Richard Nacianceno" />
+
+
+<meta name="date" content="2020-08-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-science-toolbox.html"/>
+<link rel="next" href="what.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
+<link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet" />
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script>
+<script src="libs/dygraphs-1.1.1/shapes.js"></script>
+<script src="libs/moment-2.8.4/moment.js"></script>
+<script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script>
+<script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script>
+<script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script>
+<script src="libs/Dygraph.Plugins.Rebase-1.0/rebase.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Lockdown to R-Full-Stack</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a><ul>
+<li class="chapter" data-level="" data-path="expect-to-have-lucid-dreams.html"><a href="expect-to-have-lucid-dreams.html"><i class="fa fa-check"></i>Expect To Have Lucid Dreams</a></li>
+<li class="chapter" data-level="" data-path="retrospect.html"><a href="retrospect.html"><i class="fa fa-check"></i>Retrospect</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="data-science-toolbox.html"><a href="data-science-toolbox.html"><i class="fa fa-check"></i><b>2</b> Data Science Toolbox</a></li>
+<li class="chapter" data-level="3" data-path="so-much-more.html"><a href="so-much-more.html"><i class="fa fa-check"></i><b>3</b> So Much More</a></li>
+<li class="chapter" data-level="4" data-path="what.html"><a href="what.html"><i class="fa fa-check"></i><b>4</b> What</a><ul>
+<li class="chapter" data-level="4.1" data-path="what-is-data-science.html"><a href="what-is-data-science.html"><i class="fa fa-check"></i><b>4.1</b> What is Data Science?</a></li>
+<li class="chapter" data-level="4.2" data-path="what-is-data.html"><a href="what-is-data.html"><i class="fa fa-check"></i><b>4.2</b> What is Data?</a></li>
+<li class="chapter" data-level="4.3" data-path="what-is-a-data-scientist.html"><a href="what-is-a-data-scientist.html"><i class="fa fa-check"></i><b>4.3</b> What is a data scientist?</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="getting-and-cleaning-data.html"><a href="getting-and-cleaning-data.html"><i class="fa fa-check"></i><b>5</b> Getting and Cleaning Data</a></li>
+<li class="chapter" data-level="6" data-path="r-programming.html"><a href="r-programming.html"><i class="fa fa-check"></i><b>6</b> R Programming</a></li>
+<li class="chapter" data-level="7" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>7</b> Applications</a><ul>
+<li class="chapter" data-level="7.1" data-path="example-one.html"><a href="example-one.html"><i class="fa fa-check"></i><b>7.1</b> Example one</a></li>
+<li class="chapter" data-level="7.2" data-path="example-two.html"><a href="example-two.html"><i class="fa fa-check"></i><b>7.2</b> Example two</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>8</b> Final Words</a></li>
+<li class="chapter" data-level="9" data-path="reproducible-research.html"><a href="reproducible-research.html"><i class="fa fa-check"></i><b>9</b> Reproducible Research</a></li>
+<li class="chapter" data-level="10" data-path="regression-models.html"><a href="regression-models.html"><i class="fa fa-check"></i><b>10</b> Regression Models</a></li>
+<li class="chapter" data-level="11" data-path="practical-machine-learning.html"><a href="practical-machine-learning.html"><i class="fa fa-check"></i><b>11</b> Practical Machine Learning</a></li>
+<li class="chapter" data-level="12" data-path="developing-data-products.html"><a href="developing-data-products.html"><i class="fa fa-check"></i><b>12</b> Developing Data Products</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Lockdown to R-Full-stack</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="so-much-more" class="section level1">
+<h1><span class="header-section-number"> 3</span> So Much More</h1>
+<p>R language is use in many industries such as research in academia, pharmaceutical for clinical trials, finance for risk management, social media for sentiment analysis, manufacturing for predicting demand and market trends and many more.</p>
+<p>Below is an example of a reproducible expression in building a simple metric stock analysis in R combined with shiny.</p>
+<details>
+<p><summary><strong>View Code</strong></summary></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="so-much-more.html#cb4-1"></a><span class="kw">library</span>(shiny)</span>
+<span id="cb4-2"><a href="so-much-more.html#cb4-2"></a><span class="kw">library</span>(plotly)</span>
+<span id="cb4-3"><a href="so-much-more.html#cb4-3"></a><span class="kw">library</span>(tidyquant)</span>
+<span id="cb4-4"><a href="so-much-more.html#cb4-4"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb4-5"><a href="so-much-more.html#cb4-5"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb4-6"><a href="so-much-more.html#cb4-6"></a><span class="kw">library</span>(shinydashboard)</span>
+<span id="cb4-7"><a href="so-much-more.html#cb4-7"></a><span class="kw">library</span>(dygraphs)</span>
+<span id="cb4-8"><a href="so-much-more.html#cb4-8"></a><span class="kw">library</span>(timetk)</span>
+<span id="cb4-9"><a href="so-much-more.html#cb4-9"></a><span class="kw">library</span>(glue)</span>
+<span id="cb4-10"><a href="so-much-more.html#cb4-10"></a></span>
+<span id="cb4-11"><a href="so-much-more.html#cb4-11"></a><span class="co"># You can change to whatever ticker you want</span></span>
+<span id="cb4-12"><a href="so-much-more.html#cb4-12"></a>ticker &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;NIO&quot;</span>, <span class="st">&quot;SPY&quot;</span>)</span>
+<span id="cb4-13"><a href="so-much-more.html#cb4-13"></a><span class="co"># tidyquant package for tidy format</span></span>
+<span id="cb4-14"><a href="so-much-more.html#cb4-14"></a>StockData &lt;-<span class="st"> </span><span class="kw">tq_get</span>(ticker, <span class="dt">from =</span> <span class="st">&quot;2020-06-01&quot;</span>)</span>
+<span id="cb4-15"><a href="so-much-more.html#cb4-15"></a><span class="co"># table format</span></span>
+<span id="cb4-16"><a href="so-much-more.html#cb4-16"></a>table3<span class="fl">.1</span> &lt;-<span class="st"> </span>StockData[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>,] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">kable</span>(<span class="dt">caption =</span> <span class="st">&#39;NIO vs. SPY&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">kable_styling</span>()</span></code></pre></div>
+</details>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="so-much-more.html#cb5-1"></a>table3<span class="fl">.1</span></span></code></pre></div>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:stock">Table 3.1: </span>NIO vs. SPY
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+symbol
+</th>
+<th style="text-align:left;">
+date
+</th>
+<th style="text-align:right;">
+open
+</th>
+<th style="text-align:right;">
+high
+</th>
+<th style="text-align:right;">
+low
+</th>
+<th style="text-align:right;">
+close
+</th>
+<th style="text-align:right;">
+volume
+</th>
+<th style="text-align:right;">
+adjusted
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+NIO
+</td>
+<td style="text-align:left;">
+2020-06-01
+</td>
+<td style="text-align:right;">
+4.00
+</td>
+<td style="text-align:right;">
+4.33
+</td>
+<td style="text-align:right;">
+3.96
+</td>
+<td style="text-align:right;">
+4.26
+</td>
+<td style="text-align:right;">
+69222000
+</td>
+<td style="text-align:right;">
+4.26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NIO
+</td>
+<td style="text-align:left;">
+2020-06-02
+</td>
+<td style="text-align:right;">
+4.36
+</td>
+<td style="text-align:right;">
+4.73
+</td>
+<td style="text-align:right;">
+4.35
+</td>
+<td style="text-align:right;">
+4.70
+</td>
+<td style="text-align:right;">
+82476600
+</td>
+<td style="text-align:right;">
+4.70
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NIO
+</td>
+<td style="text-align:left;">
+2020-06-03
+</td>
+<td style="text-align:right;">
+5.00
+</td>
+<td style="text-align:right;">
+5.70
+</td>
+<td style="text-align:right;">
+4.98
+</td>
+<td style="text-align:right;">
+5.60
+</td>
+<td style="text-align:right;">
+199210000
+</td>
+<td style="text-align:right;">
+5.60
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NIO
+</td>
+<td style="text-align:left;">
+2020-06-04
+</td>
+<td style="text-align:right;">
+6.01
+</td>
+<td style="text-align:right;">
+6.20
+</td>
+<td style="text-align:right;">
+5.61
+</td>
+<td style="text-align:right;">
+5.97
+</td>
+<td style="text-align:right;">
+173052600
+</td>
+<td style="text-align:right;">
+5.97
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NIO
+</td>
+<td style="text-align:left;">
+2020-06-05
+</td>
+<td style="text-align:right;">
+6.03
+</td>
+<td style="text-align:right;">
+6.08
+</td>
+<td style="text-align:right;">
+5.52
+</td>
+<td style="text-align:right;">
+5.59
+</td>
+<td style="text-align:right;">
+90811800
+</td>
+<td style="text-align:right;">
+5.59
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NIO
+</td>
+<td style="text-align:left;">
+2020-06-08
+</td>
+<td style="text-align:right;">
+5.81
+</td>
+<td style="text-align:right;">
+6.08
+</td>
+<td style="text-align:right;">
+5.68
+</td>
+<td style="text-align:right;">
+5.97
+</td>
+<td style="text-align:right;">
+85951600
+</td>
+<td style="text-align:right;">
+5.97
+</td>
+</tr>
+</tbody>
+</table>
+<p>Create a time series.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="so-much-more.html#cb6-1"></a>StockData <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(symbol <span class="op">==</span><span class="st"> &quot;NIO&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(symbol, date, close) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb6-2"><a href="so-much-more.html#cb6-2"></a><span class="st">  </span><span class="kw">spread</span>(<span class="dt">key =</span> symbol, <span class="dt">value =</span> close) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tk_xts</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb6-3"><a href="so-much-more.html#cb6-3"></a><span class="st">  </span><span class="kw">dygraph</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">dyRangeSelector</span>()</span></code></pre></div>
+<pre><code>## Warning: Non-numeric columns
+## being dropped: date</code></pre>
+<pre><code>## Using column `date` for date_var.</code></pre>
+<p><div id="htmlwidget-5496473afed85bdc381d" style="width:672px;height:480px;" class="dygraphs html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5496473afed85bdc381d">{"x":{"attrs":{"labels":["day","NIO"],"legend":"auto","retainDateWindow":false,"axes":{"x":{"pixelsPerLabel":60}},"showRangeSelector":true,"rangeSelectorHeight":40,"rangeSelectorPlotFillColor":" #A7B1C4","rangeSelectorPlotStrokeColor":"#808FAB","interactionModel":"Dygraph.Interaction.defaultModel"},"scale":"daily","annotations":[],"shadings":[],"events":[],"format":"date","data":[["2020-06-01T00:00:00.000Z","2020-06-02T00:00:00.000Z","2020-06-03T00:00:00.000Z","2020-06-04T00:00:00.000Z","2020-06-05T00:00:00.000Z","2020-06-08T00:00:00.000Z","2020-06-09T00:00:00.000Z","2020-06-10T00:00:00.000Z","2020-06-11T00:00:00.000Z","2020-06-12T00:00:00.000Z","2020-06-15T00:00:00.000Z","2020-06-16T00:00:00.000Z","2020-06-17T00:00:00.000Z","2020-06-18T00:00:00.000Z","2020-06-19T00:00:00.000Z","2020-06-22T00:00:00.000Z","2020-06-23T00:00:00.000Z","2020-06-24T00:00:00.000Z","2020-06-25T00:00:00.000Z","2020-06-26T00:00:00.000Z","2020-06-29T00:00:00.000Z","2020-06-30T00:00:00.000Z","2020-07-01T00:00:00.000Z","2020-07-02T00:00:00.000Z","2020-07-06T00:00:00.000Z","2020-07-07T00:00:00.000Z","2020-07-08T00:00:00.000Z","2020-07-09T00:00:00.000Z","2020-07-10T00:00:00.000Z","2020-07-13T00:00:00.000Z","2020-07-14T00:00:00.000Z","2020-07-15T00:00:00.000Z","2020-07-16T00:00:00.000Z","2020-07-17T00:00:00.000Z","2020-07-20T00:00:00.000Z","2020-07-21T00:00:00.000Z","2020-07-22T00:00:00.000Z","2020-07-23T00:00:00.000Z","2020-07-24T00:00:00.000Z","2020-07-27T00:00:00.000Z","2020-07-28T00:00:00.000Z","2020-07-29T00:00:00.000Z","2020-07-30T00:00:00.000Z","2020-07-31T00:00:00.000Z","2020-08-03T00:00:00.000Z","2020-08-04T00:00:00.000Z"],[4.26,4.7,5.6,5.97,5.59,5.97,6.68,6.3,5.91,6.1,6.83,6.99,6.84,7.18,7.34,7.43,7.23,6.86,7.08,6.9,7.23,7.72,7.91,9.38,11.51,13.22,12.88,14.57,14.98,13.84,14.09,13.52,12.94,11.09,12.82,12.88,12.38,12.15,11.82,11.69,12.27,12.7,12.2,11.94,13.6,13.64]]},"evals":["attrs.interactionModel"],"jsHooks":[]}</script>
+Compare NIO to an Index.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="so-much-more.html#cb9-1"></a>StockData <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(symbol, date, close) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb9-2"><a href="so-much-more.html#cb9-2"></a><span class="st">  </span><span class="kw">spread</span>(<span class="dt">key=</span>symbol, <span class="dt">value =</span> close) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb9-3"><a href="so-much-more.html#cb9-3"></a><span class="st">  </span><span class="kw">tk_xts</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">dygraph</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">dyRebase</span>(<span class="dt">value =</span> <span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb9-4"><a href="so-much-more.html#cb9-4"></a><span class="st">  </span><span class="kw">dyRangeSelector</span>()</span></code></pre></div>
+<div id="htmlwidget-c727d26a71d1d0b0c581" style="width:672px;height:480px;" class="dygraphs html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c727d26a71d1d0b0c581">{"x":{"attrs":{"labels":["day","NIO","SPY"],"legend":"auto","retainDateWindow":false,"axes":{"x":{"pixelsPerLabel":60}},"showRangeSelector":true,"rangeSelectorHeight":40,"rangeSelectorPlotFillColor":" #A7B1C4","rangeSelectorPlotStrokeColor":"#808FAB","interactionModel":"Dygraph.Interaction.defaultModel"},"scale":"daily","annotations":[],"shadings":[],"events":[],"format":"date","data":[["2020-06-01T00:00:00.000Z","2020-06-02T00:00:00.000Z","2020-06-03T00:00:00.000Z","2020-06-04T00:00:00.000Z","2020-06-05T00:00:00.000Z","2020-06-08T00:00:00.000Z","2020-06-09T00:00:00.000Z","2020-06-10T00:00:00.000Z","2020-06-11T00:00:00.000Z","2020-06-12T00:00:00.000Z","2020-06-15T00:00:00.000Z","2020-06-16T00:00:00.000Z","2020-06-17T00:00:00.000Z","2020-06-18T00:00:00.000Z","2020-06-19T00:00:00.000Z","2020-06-22T00:00:00.000Z","2020-06-23T00:00:00.000Z","2020-06-24T00:00:00.000Z","2020-06-25T00:00:00.000Z","2020-06-26T00:00:00.000Z","2020-06-29T00:00:00.000Z","2020-06-30T00:00:00.000Z","2020-07-01T00:00:00.000Z","2020-07-02T00:00:00.000Z","2020-07-06T00:00:00.000Z","2020-07-07T00:00:00.000Z","2020-07-08T00:00:00.000Z","2020-07-09T00:00:00.000Z","2020-07-10T00:00:00.000Z","2020-07-13T00:00:00.000Z","2020-07-14T00:00:00.000Z","2020-07-15T00:00:00.000Z","2020-07-16T00:00:00.000Z","2020-07-17T00:00:00.000Z","2020-07-20T00:00:00.000Z","2020-07-21T00:00:00.000Z","2020-07-22T00:00:00.000Z","2020-07-23T00:00:00.000Z","2020-07-24T00:00:00.000Z","2020-07-27T00:00:00.000Z","2020-07-28T00:00:00.000Z","2020-07-29T00:00:00.000Z","2020-07-30T00:00:00.000Z","2020-07-31T00:00:00.000Z","2020-08-03T00:00:00.000Z","2020-08-04T00:00:00.000Z"],[4.26,4.7,5.6,5.97,5.59,5.97,6.68,6.3,5.91,6.1,6.83,6.99,6.84,7.18,7.34,7.43,7.23,6.86,7.08,6.9,7.23,7.72,7.91,9.38,11.51,13.22,12.88,14.57,14.98,13.84,14.09,13.52,12.94,11.09,12.82,12.88,12.38,12.15,11.82,11.69,12.27,12.7,12.2,11.94,13.6,13.64],[305.549988,308.079987,312.179993,311.359985,319.339996,323.200012,320.790009,319,300.609985,304.209991,307.049988,312.959991,311.660004,311.779999,308.640015,310.619995,312.049988,304.089996,307.350006,300.049988,304.459991,308.359985,310.519989,312.230011,317.049988,313.779999,316.179993,314.380005,317.589996,314.839996,318.920013,321.850006,320.790009,321.720001,324.320007,325.01001,326.859985,322.959991,320.880005,323.220001,321.170013,325.119995,323.959991,326.519989,328.790009,330.059998]],"plugins":{"Rebase":1}},"evals":["attrs.interactionModel"],"jsHooks":[]}</script>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-science-toolbox.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="what.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["r_full_stack.pdf", "r_full_stack.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

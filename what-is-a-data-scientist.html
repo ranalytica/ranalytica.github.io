@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2.3 What is a data scientist? | Lockdown to R-Full-stack</title>
+  <title>4.3 What is a data scientist? | Lockdown to R-Full-stack</title>
   <meta name="description" content="This is my journey to R programming." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2.3 What is a data scientist? | Lockdown to R-Full-stack" />
+  <meta property="og:title" content="4.3 What is a data scientist? | Lockdown to R-Full-stack" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2.3 What is a data scientist? | Lockdown to R-Full-stack" />
+  <meta name="twitter:title" content="4.3 What is a data scientist? | Lockdown to R-Full-stack" />
   
   <meta name="twitter:description" content="This is my journey to R programming." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Richard Nacianceno" />
 
 
-<meta name="date" content="2020-08-03" />
+<meta name="date" content="2020-08-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -60,6 +60,14 @@
 <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
 <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
 <script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
+<link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet" />
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script>
+<script src="libs/dygraphs-1.1.1/shapes.js"></script>
+<script src="libs/moment-2.8.4/moment.js"></script>
+<script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script>
+<script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script>
+<script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script>
+<script src="libs/Dygraph.Plugins.Rebase-1.0/rebase.js"></script>
 
 
 <style type="text/css">
@@ -147,22 +155,24 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="retrospect.html"><a href="retrospect.html"><i class="fa fa-check"></i>Retrospect</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
-<li class="chapter" data-level="2" data-path="data-science-toolbox.html"><a href="data-science-toolbox.html"><i class="fa fa-check"></i><b>2</b> Data Science Toolbox</a><ul>
-<li class="chapter" data-level="2.1" data-path="what-is-data-science.html"><a href="what-is-data-science.html"><i class="fa fa-check"></i><b>2.1</b> What is Data Science?</a></li>
-<li class="chapter" data-level="2.2" data-path="what-is-data.html"><a href="what-is-data.html"><i class="fa fa-check"></i><b>2.2</b> What is Data?</a></li>
-<li class="chapter" data-level="2.3" data-path="what-is-a-data-scientist.html"><a href="what-is-a-data-scientist.html"><i class="fa fa-check"></i><b>2.3</b> What is a data scientist?</a></li>
+<li class="chapter" data-level="2" data-path="data-science-toolbox.html"><a href="data-science-toolbox.html"><i class="fa fa-check"></i><b>2</b> Data Science Toolbox</a></li>
+<li class="chapter" data-level="3" data-path="so-much-more.html"><a href="so-much-more.html"><i class="fa fa-check"></i><b>3</b> So Much More</a></li>
+<li class="chapter" data-level="4" data-path="what.html"><a href="what.html"><i class="fa fa-check"></i><b>4</b> What</a><ul>
+<li class="chapter" data-level="4.1" data-path="what-is-data-science.html"><a href="what-is-data-science.html"><i class="fa fa-check"></i><b>4.1</b> What is Data Science?</a></li>
+<li class="chapter" data-level="4.2" data-path="what-is-data.html"><a href="what-is-data.html"><i class="fa fa-check"></i><b>4.2</b> What is Data?</a></li>
+<li class="chapter" data-level="4.3" data-path="what-is-a-data-scientist.html"><a href="what-is-a-data-scientist.html"><i class="fa fa-check"></i><b>4.3</b> What is a data scientist?</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="getting-and-cleaning-data.html"><a href="getting-and-cleaning-data.html"><i class="fa fa-check"></i><b>3</b> Getting and Cleaning Data</a></li>
-<li class="chapter" data-level="4" data-path="r-programming.html"><a href="r-programming.html"><i class="fa fa-check"></i><b>4</b> R Programming</a></li>
-<li class="chapter" data-level="5" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>5</b> Applications</a><ul>
-<li class="chapter" data-level="5.1" data-path="example-one.html"><a href="example-one.html"><i class="fa fa-check"></i><b>5.1</b> Example one</a></li>
-<li class="chapter" data-level="5.2" data-path="example-two.html"><a href="example-two.html"><i class="fa fa-check"></i><b>5.2</b> Example two</a></li>
+<li class="chapter" data-level="5" data-path="getting-and-cleaning-data.html"><a href="getting-and-cleaning-data.html"><i class="fa fa-check"></i><b>5</b> Getting and Cleaning Data</a></li>
+<li class="chapter" data-level="6" data-path="r-programming.html"><a href="r-programming.html"><i class="fa fa-check"></i><b>6</b> R Programming</a></li>
+<li class="chapter" data-level="7" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>7</b> Applications</a><ul>
+<li class="chapter" data-level="7.1" data-path="example-one.html"><a href="example-one.html"><i class="fa fa-check"></i><b>7.1</b> Example one</a></li>
+<li class="chapter" data-level="7.2" data-path="example-two.html"><a href="example-two.html"><i class="fa fa-check"></i><b>7.2</b> Example two</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>6</b> Final Words</a></li>
-<li class="chapter" data-level="7" data-path="reproducible-research.html"><a href="reproducible-research.html"><i class="fa fa-check"></i><b>7</b> Reproducible Research</a></li>
-<li class="chapter" data-level="8" data-path="regression-models.html"><a href="regression-models.html"><i class="fa fa-check"></i><b>8</b> Regression Models</a></li>
-<li class="chapter" data-level="9" data-path="practical-machine-learning.html"><a href="practical-machine-learning.html"><i class="fa fa-check"></i><b>9</b> Practical Machine Learning</a></li>
-<li class="chapter" data-level="10" data-path="developing-data-products.html"><a href="developing-data-products.html"><i class="fa fa-check"></i><b>10</b> Developing Data Products</a></li>
+<li class="chapter" data-level="8" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>8</b> Final Words</a></li>
+<li class="chapter" data-level="9" data-path="reproducible-research.html"><a href="reproducible-research.html"><i class="fa fa-check"></i><b>9</b> Reproducible Research</a></li>
+<li class="chapter" data-level="10" data-path="regression-models.html"><a href="regression-models.html"><i class="fa fa-check"></i><b>10</b> Regression Models</a></li>
+<li class="chapter" data-level="11" data-path="practical-machine-learning.html"><a href="practical-machine-learning.html"><i class="fa fa-check"></i><b>11</b> Practical Machine Learning</a></li>
+<li class="chapter" data-level="12" data-path="developing-data-products.html"><a href="developing-data-products.html"><i class="fa fa-check"></i><b>12</b> Developing Data Products</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -185,7 +195,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="what-is-a-data-scientist" class="section level2">
-<h2><span class="header-section-number">2.3</span> What is a data scientist?</h2>
+<h2><span class="header-section-number">4.3</span> What is a data scientist?</h2>
 <div align="center">
 “who combines the skills of software programmer,<br> statistician and storyteller slash artist to extract<br>the nuggets of gold hidden under mountains of data”<br><span class="citation">(The Economist <a href="#ref-economist" role="doc-biblioref">2010</a>)</span>
 </div>
