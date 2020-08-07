@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title> 2 Data Science Toolbox | Lockdown to R-Full-Stack</title>
+  <title>11.2 Data Loading and Summary | Lockdown to R-Full-Stack</title>
   <meta name="description" content="This is my journey to R programming." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content=" 2 Data Science Toolbox | Lockdown to R-Full-Stack" />
+  <meta property="og:title" content="11.2 Data Loading and Summary | Lockdown to R-Full-Stack" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content=" 2 Data Science Toolbox | Lockdown to R-Full-Stack" />
+  <meta name="twitter:title" content="11.2 Data Loading and Summary | Lockdown to R-Full-Stack" />
   
   <meta name="twitter:description" content="This is my journey to R programming." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="introduction.html"/>
-<link rel="next" href="more-than-a-statistical-language.html"/>
+<link rel="prev" href="environment.html"/>
+<link rel="next" href="processing-data-for-tokenization.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -53,6 +53,13 @@
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
 <script src="libs/echarts4r-4.8.0/echarts-en.min.js"></script>
 <script src="libs/echarts4r-4.8.0/ecStat.min.js"></script>
 <script src="libs/echarts4r-4.8.0/dataTool.min.js"></script>
@@ -551,26 +558,373 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-science-toolbox" class="section level1">
-<h1><span class="header-section-number"> 2</span> Data Science Toolbox</h1>
-<p>The Data Science Toolbox provides a basic foundation in creating a work environment as a data scientist. This environment is based on the R language. It is an environment for statistical computing, graphics and so much more. It is similar to the S language developed at Bell Laboratories by John Chambers and his team <span class="citation">(The R Foundation <a href="#ref-wiki" role="doc-biblioref">2020</a>)</span>. R language is created by Ross Ihaka and Robert Gentleman at the University of Auckland, New Zealand and is developed by the R Development Core Team. Thus, R is named after the first initials of the co-creators Ross &amp; Robert <span class="citation">(Wikipedia <a href="#ref-wikipedia" role="doc-biblioref">2019</a>)</span>.</p>
-</div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-wiki">
-<p>The R Foundation. 2020. “What Is R?” <a href="https://www.r-project.org/about.html">https://www.r-project.org/about.html</a>.</p>
-</div>
-<div id="ref-wikipedia">
-<p>Wikipedia. 2019. “R (Programming Language).” Wikipedia, The Free Encyclopedia. <a href="https://en.wikipedia.org/wiki/R_(programming_language)">https://en.wikipedia.org/wiki/R_(programming_language)</a>.</p>
-</div>
+<div id="data-loading-and-summary" class="section level2">
+<h2><span class="header-section-number">11.2</span> Data Loading and Summary</h2>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="data-loading-and-summary.html#cb15-1"></a><span class="co">## Download file (run at the beginning only) ---------</span></span>
+<span id="cb15-2"><a href="data-loading-and-summary.html#cb15-2"></a></span>
+<span id="cb15-3"><a href="data-loading-and-summary.html#cb15-3"></a><span class="co"># if (!file.exists(&#39;data&#39;)) { dir.create(&#39;data&#39;) }</span></span>
+<span id="cb15-4"><a href="data-loading-and-summary.html#cb15-4"></a><span class="co"># download.file(</span></span>
+<span id="cb15-5"><a href="data-loading-and-summary.html#cb15-5"></a><span class="co"># &#39;https://d396qusza40orc.cloudfront.net/ds</span></span>
+<span id="cb15-6"><a href="data-loading-and-summary.html#cb15-6"></a><span class="co"># scapstone/dataset/Coursera-SwiftKey.zip&#39;, destfile</span></span>
+<span id="cb15-7"><a href="data-loading-and-summary.html#cb15-7"></a><span class="co"># = &#39;./data/Coursera-SwiftKey.zip&#39; )</span></span>
+<span id="cb15-8"><a href="data-loading-and-summary.html#cb15-8"></a><span class="co"># unzip(&#39;./data/Coursera-SwiftKey.zip&#39;, exdir =</span></span>
+<span id="cb15-9"><a href="data-loading-and-summary.html#cb15-9"></a><span class="co"># &#39;./data&#39;)</span></span>
+<span id="cb15-10"><a href="data-loading-and-summary.html#cb15-10"></a></span>
+<span id="cb15-11"><a href="data-loading-and-summary.html#cb15-11"></a><span class="co">## Combining -----------</span></span>
+<span id="cb15-12"><a href="data-loading-and-summary.html#cb15-12"></a>files2 &lt;-<span class="st"> </span><span class="kw">list.dirs</span>(<span class="st">&quot;./data/final&quot;</span>)</span>
+<span id="cb15-13"><a href="data-loading-and-summary.html#cb15-13"></a>lsfile &lt;-<span class="st"> </span><span class="kw">paste0</span>(files2[<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>], <span class="st">&quot;/&quot;</span>, <span class="kw">list.files</span>(files2[<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>]))</span>
+<span id="cb15-14"><a href="data-loading-and-summary.html#cb15-14"></a></span>
+<span id="cb15-15"><a href="data-loading-and-summary.html#cb15-15"></a><span class="co"># gives us the directory path</span></span>
+<span id="cb15-16"><a href="data-loading-and-summary.html#cb15-16"></a>ldir &lt;-<span class="st"> </span><span class="kw">normalizePath</span>(files2[<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>], <span class="st">&quot;rb&quot;</span>)</span>
+<span id="cb15-17"><a href="data-loading-and-summary.html#cb15-17"></a></span>
+<span id="cb15-18"><a href="data-loading-and-summary.html#cb15-18"></a><span class="co"># gives us full path and filename</span></span>
+<span id="cb15-19"><a href="data-loading-and-summary.html#cb15-19"></a>finaldir &lt;-<span class="st"> </span><span class="kw">dir</span>(<span class="dt">path =</span> ldir, <span class="dt">full.names =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb15-20"><a href="data-loading-and-summary.html#cb15-20"></a></span>
+<span id="cb15-21"><a href="data-loading-and-summary.html#cb15-21"></a><span class="co">## Build a table --------------</span></span>
+<span id="cb15-22"><a href="data-loading-and-summary.html#cb15-22"></a></span>
+<span id="cb15-23"><a href="data-loading-and-summary.html#cb15-23"></a><span class="co">## Num_Words total number of words in a txt file</span></span>
+<span id="cb15-24"><a href="data-loading-and-summary.html#cb15-24"></a>Num_Words &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>)</span>
+<span id="cb15-25"><a href="data-loading-and-summary.html#cb15-25"></a></span>
+<span id="cb15-26"><a href="data-loading-and-summary.html#cb15-26"></a><span class="co">## Num_Lines number of lines per txt file</span></span>
+<span id="cb15-27"><a href="data-loading-and-summary.html#cb15-27"></a>Num_Lines &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>)</span>
+<span id="cb15-28"><a href="data-loading-and-summary.html#cb15-28"></a></span>
+<span id="cb15-29"><a href="data-loading-and-summary.html#cb15-29"></a><span class="co">## Range of words per line</span></span>
+<span id="cb15-30"><a href="data-loading-and-summary.html#cb15-30"></a>Min_Words &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>)</span>
+<span id="cb15-31"><a href="data-loading-and-summary.html#cb15-31"></a>Mean_Words &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>)</span>
+<span id="cb15-32"><a href="data-loading-and-summary.html#cb15-32"></a>Max_Words &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>)</span>
+<span id="cb15-33"><a href="data-loading-and-summary.html#cb15-33"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>) {</span>
+<span id="cb15-34"><a href="data-loading-and-summary.html#cb15-34"></a>    Num_Words[i] &lt;-<span class="st"> </span><span class="kw">print</span>(<span class="kw">sum</span>(<span class="kw">stri_count_words</span>(<span class="kw">readLines</span>(finaldir[[i]]))))</span>
+<span id="cb15-35"><a href="data-loading-and-summary.html#cb15-35"></a>    Mean_Words[i] &lt;-<span class="st"> </span><span class="kw">print</span>(<span class="kw">round</span>(<span class="kw">mean</span>(<span class="kw">stri_count_words</span>(<span class="kw">readLines</span>(finaldir[[i]])))), </span>
+<span id="cb15-36"><a href="data-loading-and-summary.html#cb15-36"></a>        <span class="dt">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb15-37"><a href="data-loading-and-summary.html#cb15-37"></a>    Min_Words[i] &lt;-<span class="st"> </span><span class="kw">print</span>(<span class="kw">round</span>(<span class="kw">min</span>(<span class="kw">stri_count_words</span>(<span class="kw">readLines</span>(finaldir[[i]])))), </span>
+<span id="cb15-38"><a href="data-loading-and-summary.html#cb15-38"></a>        <span class="dt">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb15-39"><a href="data-loading-and-summary.html#cb15-39"></a>    Max_Words[i] &lt;-<span class="st"> </span><span class="kw">print</span>(<span class="kw">round</span>(<span class="kw">max</span>(<span class="kw">stri_count_words</span>(<span class="kw">readLines</span>(finaldir[[i]])))), </span>
+<span id="cb15-40"><a href="data-loading-and-summary.html#cb15-40"></a>        <span class="dt">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb15-41"><a href="data-loading-and-summary.html#cb15-41"></a>    Num_Lines[i] &lt;-<span class="st"> </span><span class="kw">print</span>(<span class="kw">length</span>(<span class="kw">readLines</span>(finaldir[i])))</span>
+<span id="cb15-42"><a href="data-loading-and-summary.html#cb15-42"></a>}</span>
+<span id="cb15-43"><a href="data-loading-and-summary.html#cb15-43"></a></span>
+<span id="cb15-44"><a href="data-loading-and-summary.html#cb15-44"></a><span class="co"># Combine -------------</span></span>
+<span id="cb15-45"><a href="data-loading-and-summary.html#cb15-45"></a>list_files &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">Name =</span> <span class="kw">list.files</span>(files2[<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>]), </span>
+<span id="cb15-46"><a href="data-loading-and-summary.html#cb15-46"></a>    <span class="dt">Size_MB =</span> <span class="kw">round</span>(<span class="kw">file.size</span>(finaldir)<span class="op">/</span><span class="dv">10</span><span class="op">^</span><span class="dv">6</span>, <span class="dt">digits =</span> <span class="dv">2</span>), </span>
+<span id="cb15-47"><a href="data-loading-and-summary.html#cb15-47"></a>    <span class="dt">Lines =</span> Num_Lines, <span class="dt">Words =</span> Num_Words, <span class="dt">Min =</span> Min_Words, </span>
+<span id="cb15-48"><a href="data-loading-and-summary.html#cb15-48"></a>    <span class="dt">Average =</span> Mean_Words, <span class="dt">Max =</span> Max_Words)</span>
+<span id="cb15-49"><a href="data-loading-and-summary.html#cb15-49"></a></span>
+<span id="cb15-50"><a href="data-loading-and-summary.html#cb15-50"></a><span class="co"># knit to table -----------</span></span>
+<span id="cb15-51"><a href="data-loading-and-summary.html#cb15-51"></a>table1 &lt;-<span class="st"> </span><span class="kw">kable</span>(list_files, <span class="dt">align =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;c&quot;</span>, <span class="dt">times =</span> <span class="dv">5</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="data-loading-and-summary.html#cb16-1"></a>table1</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">
+Name
+</th>
+<th style="text-align:center;">
+Size_MB
+</th>
+<th style="text-align:center;">
+Lines
+</th>
+<th style="text-align:center;">
+Words
+</th>
+<th style="text-align:center;">
+Min
+</th>
+<th style="text-align:center;">
+Average
+</th>
+<th style="text-align:center;">
+Max
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+de_DE.blogs.txt
+</td>
+<td style="text-align:center;">
+85.46
+</td>
+<td style="text-align:center;">
+371440
+</td>
+<td style="text-align:center;">
+12682659
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+34
+</td>
+<td style="text-align:center;">
+1638
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+de_DE.news.txt
+</td>
+<td style="text-align:center;">
+95.59
+</td>
+<td style="text-align:center;">
+244743
+</td>
+<td style="text-align:center;">
+13375092
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+55
+</td>
+<td style="text-align:center;">
+603
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+de_DE.twitter.txt
+</td>
+<td style="text-align:center;">
+75.58
+</td>
+<td style="text-align:center;">
+947774
+</td>
+<td style="text-align:center;">
+11646033
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+12
+</td>
+<td style="text-align:center;">
+42
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+en_US.blogs.txt
+</td>
+<td style="text-align:center;">
+210.16
+</td>
+<td style="text-align:center;">
+899288
+</td>
+<td style="text-align:center;">
+37546250
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+42
+</td>
+<td style="text-align:center;">
+6726
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+en_US.news.txt
+</td>
+<td style="text-align:center;">
+205.81
+</td>
+<td style="text-align:center;">
+1010242
+</td>
+<td style="text-align:center;">
+34762395
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+34
+</td>
+<td style="text-align:center;">
+1796
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+en_US.twitter.txt
+</td>
+<td style="text-align:center;">
+167.11
+</td>
+<td style="text-align:center;">
+2360148
+</td>
+<td style="text-align:center;">
+30093372
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+13
+</td>
+<td style="text-align:center;">
+47
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+fi_FI.blogs.txt
+</td>
+<td style="text-align:center;">
+108.50
+</td>
+<td style="text-align:center;">
+439785
+</td>
+<td style="text-align:center;">
+12785318
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+29
+</td>
+<td style="text-align:center;">
+2353
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+fi_FI.news.txt
+</td>
+<td style="text-align:center;">
+94.23
+</td>
+<td style="text-align:center;">
+485758
+</td>
+<td style="text-align:center;">
+10532432
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+22
+</td>
+<td style="text-align:center;">
+478
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+fi_FI.twitter.txt
+</td>
+<td style="text-align:center;">
+25.33
+</td>
+<td style="text-align:center;">
+285214
+</td>
+<td style="text-align:center;">
+3147083
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+11
+</td>
+<td style="text-align:center;">
+44
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+ru_RU.blogs.txt
+</td>
+<td style="text-align:center;">
+116.86
+</td>
+<td style="text-align:center;">
+337100
+</td>
+<td style="text-align:center;">
+9388482
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+28
+</td>
+<td style="text-align:center;">
+1197
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+ru_RU.news.txt
+</td>
+<td style="text-align:center;">
+119.00
+</td>
+<td style="text-align:center;">
+196360
+</td>
+<td style="text-align:center;">
+9057248
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+46
+</td>
+<td style="text-align:center;">
+1581
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+ru_RU.twitter.txt
+</td>
+<td style="text-align:center;">
+105.18
+</td>
+<td style="text-align:center;">
+881414
+</td>
+<td style="text-align:center;">
+9231328
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+36
+</td>
+</tr>
+</tbody>
+</table>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="introduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="more-than-a-statistical-language.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="environment.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="processing-data-for-tokenization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -13,12 +13,3 @@ pre code {
   white-space: inherit;
 }
 
-<style type="text/css">
-    #noroll {
-      position: absolute;
-      left: 10px;
-      right: 10px;
-      top: 40px;
-      bottom: 10px;
-    }
-</style>
