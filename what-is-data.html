@@ -24,7 +24,7 @@
 <meta name="author" content="Richard Nacianceno" />
 
 
-<meta name="date" content="2020-08-16" />
+<meta name="date" content="2020-08-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -57,12 +57,6 @@
 <script src="libs/echarts4r-4.8.0/ecStat.min.js"></script>
 <script src="libs/echarts4r-4.8.0/dataTool.min.js"></script>
 <script src="libs/echarts4r-binding-0.3.2/echarts4r.js"></script>
-<script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
-<script src="libs/typedarray-0.1/typedarray.min.js"></script>
-<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
 
 <script>
 /* ========================================================================
@@ -547,42 +541,42 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">2.4</span> What is Data?</h2>
 <p>There are so many data being generated everyday. Take me for example, I’ve sent 5 emails today, reviewed and created trading strategy for next week, check my reddit, stocktwits, webull, and twitter for sentiment analysis, shared several photos to my family, check-out my Tesla app to monitor Solar Panel and battery, and reviewed my nest video monitoring. These are all completed in early morning routine.</p>
 <p>Data is coming from many forms your typical emails, social media, internet of things like Tesla solar panels/Powerwall connected to the internet and google’s home monitoring Nest. All of these data are a combination of numerical, categorical, and it some cases are often big which falls under binary large objects or “BLOB”.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="what-is-data.html#cb12-1"></a><span class="co"># ggplot argument x0, y0, r are all required,</span></span>
-<span id="cb12-2"><a href="what-is-data.html#cb12-2"></a>v2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(VennDS, <span class="kw">aes</span>(</span>
-<span id="cb12-3"><a href="what-is-data.html#cb12-3"></a>  <span class="dt">x0 =</span> x,</span>
-<span id="cb12-4"><a href="what-is-data.html#cb12-4"></a>  <span class="dt">y0 =</span> y,</span>
-<span id="cb12-5"><a href="what-is-data.html#cb12-5"></a>  <span class="dt">r =</span> <span class="fl">1.5</span>,</span>
-<span id="cb12-6"><a href="what-is-data.html#cb12-6"></a>  <span class="dt">fill =</span> cat</span>
-<span id="cb12-7"><a href="what-is-data.html#cb12-7"></a>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_circle</span>(<span class="dt">alpha =</span> <span class="fl">0.25</span>,</span>
-<span id="cb12-8"><a href="what-is-data.html#cb12-8"></a>                 <span class="dt">size =</span> <span class="dv">1</span>,</span>
-<span id="cb12-9"><a href="what-is-data.html#cb12-9"></a>                 <span class="dt">color =</span> <span class="st">&quot;transparent&quot;</span>,</span>
-<span id="cb12-10"><a href="what-is-data.html#cb12-10"></a>                 <span class="dt">show.legend =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb12-11"><a href="what-is-data.html#cb12-11"></a><span class="co"># using geom_text to draw on the graph</span></span>
-<span id="cb12-12"><a href="what-is-data.html#cb12-12"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">-1.5</span>, </span>
-<span id="cb12-13"><a href="what-is-data.html#cb12-13"></a>                <span class="dt">y =</span> <span class="dv">1</span>, </span>
-<span id="cb12-14"><a href="what-is-data.html#cb12-14"></a>                <span class="dt">label =</span> <span class="st">&quot;Volume&quot;</span>), </span>
-<span id="cb12-15"><a href="what-is-data.html#cb12-15"></a>            <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span><span class="st">       </span></span>
-<span id="cb12-16"><a href="what-is-data.html#cb12-16"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">1.5</span>, </span>
-<span id="cb12-17"><a href="what-is-data.html#cb12-17"></a>                <span class="dt">y =</span> <span class="dv">1</span>, </span>
-<span id="cb12-18"><a href="what-is-data.html#cb12-18"></a>                <span class="dt">label =</span> <span class="st">&quot;Velocity&quot;</span>), </span>
-<span id="cb12-19"><a href="what-is-data.html#cb12-19"></a>            <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span></span>
-<span id="cb12-20"><a href="what-is-data.html#cb12-20"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="dv">0</span>, </span>
-<span id="cb12-21"><a href="what-is-data.html#cb12-21"></a>                <span class="dt">y =</span> <span class="dv">-1</span>, </span>
-<span id="cb12-22"><a href="what-is-data.html#cb12-22"></a>                <span class="dt">label =</span> <span class="st">&quot;Variety&quot;</span>), </span>
-<span id="cb12-23"><a href="what-is-data.html#cb12-23"></a>            <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span></span>
-<span id="cb12-24"><a href="what-is-data.html#cb12-24"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="dv">0</span>, </span>
-<span id="cb12-25"><a href="what-is-data.html#cb12-25"></a>                <span class="dt">y =</span> <span class="fl">.75</span>, </span>
-<span id="cb12-26"><a href="what-is-data.html#cb12-26"></a>                <span class="dt">label =</span> <span class="st">&quot;Big Data&quot;</span>), </span>
-<span id="cb12-27"><a href="what-is-data.html#cb12-27"></a>            <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb12-28"><a href="what-is-data.html#cb12-28"></a><span class="co"># remove x and y labels</span></span>
-<span id="cb12-29"><a href="what-is-data.html#cb12-29"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>(),</span>
-<span id="cb12-30"><a href="what-is-data.html#cb12-30"></a>        <span class="dt">axis.text.x=</span><span class="kw">element_blank</span>(),</span>
-<span id="cb12-31"><a href="what-is-data.html#cb12-31"></a>        <span class="dt">axis.ticks.x=</span><span class="kw">element_blank</span>(),</span>
-<span id="cb12-32"><a href="what-is-data.html#cb12-32"></a>        <span class="dt">axis.title.y=</span><span class="kw">element_blank</span>(),</span>
-<span id="cb12-33"><a href="what-is-data.html#cb12-33"></a>        <span class="dt">axis.text.y=</span><span class="kw">element_blank</span>(),</span>
-<span id="cb12-34"><a href="what-is-data.html#cb12-34"></a>        <span class="dt">axis.ticks.y=</span><span class="kw">element_blank</span>())</span>
-<span id="cb12-35"><a href="what-is-data.html#cb12-35"></a></span>
-<span id="cb12-36"><a href="what-is-data.html#cb12-36"></a>v2</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="what-is-data.html#cb11-1"></a><span class="co"># ggplot argument x0, y0, r are all required,</span></span>
+<span id="cb11-2"><a href="what-is-data.html#cb11-2"></a>v2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(VennDS, <span class="kw">aes</span>(</span>
+<span id="cb11-3"><a href="what-is-data.html#cb11-3"></a>  <span class="dt">x0 =</span> x,</span>
+<span id="cb11-4"><a href="what-is-data.html#cb11-4"></a>  <span class="dt">y0 =</span> y,</span>
+<span id="cb11-5"><a href="what-is-data.html#cb11-5"></a>  <span class="dt">r =</span> <span class="fl">1.5</span>,</span>
+<span id="cb11-6"><a href="what-is-data.html#cb11-6"></a>  <span class="dt">fill =</span> cat</span>
+<span id="cb11-7"><a href="what-is-data.html#cb11-7"></a>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_circle</span>(<span class="dt">alpha =</span> <span class="fl">0.25</span>,</span>
+<span id="cb11-8"><a href="what-is-data.html#cb11-8"></a>                 <span class="dt">size =</span> <span class="dv">1</span>,</span>
+<span id="cb11-9"><a href="what-is-data.html#cb11-9"></a>                 <span class="dt">color =</span> <span class="st">&quot;transparent&quot;</span>,</span>
+<span id="cb11-10"><a href="what-is-data.html#cb11-10"></a>                 <span class="dt">show.legend =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb11-11"><a href="what-is-data.html#cb11-11"></a><span class="co"># using geom_text to draw on the graph</span></span>
+<span id="cb11-12"><a href="what-is-data.html#cb11-12"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">-1.5</span>, </span>
+<span id="cb11-13"><a href="what-is-data.html#cb11-13"></a>                <span class="dt">y =</span> <span class="dv">1</span>, </span>
+<span id="cb11-14"><a href="what-is-data.html#cb11-14"></a>                <span class="dt">label =</span> <span class="st">&quot;Volume&quot;</span>), </span>
+<span id="cb11-15"><a href="what-is-data.html#cb11-15"></a>            <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span><span class="st">       </span></span>
+<span id="cb11-16"><a href="what-is-data.html#cb11-16"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="fl">1.5</span>, </span>
+<span id="cb11-17"><a href="what-is-data.html#cb11-17"></a>                <span class="dt">y =</span> <span class="dv">1</span>, </span>
+<span id="cb11-18"><a href="what-is-data.html#cb11-18"></a>                <span class="dt">label =</span> <span class="st">&quot;Velocity&quot;</span>), </span>
+<span id="cb11-19"><a href="what-is-data.html#cb11-19"></a>            <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span></span>
+<span id="cb11-20"><a href="what-is-data.html#cb11-20"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="dv">0</span>, </span>
+<span id="cb11-21"><a href="what-is-data.html#cb11-21"></a>                <span class="dt">y =</span> <span class="dv">-1</span>, </span>
+<span id="cb11-22"><a href="what-is-data.html#cb11-22"></a>                <span class="dt">label =</span> <span class="st">&quot;Variety&quot;</span>), </span>
+<span id="cb11-23"><a href="what-is-data.html#cb11-23"></a>            <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span></span>
+<span id="cb11-24"><a href="what-is-data.html#cb11-24"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="dv">0</span>, </span>
+<span id="cb11-25"><a href="what-is-data.html#cb11-25"></a>                <span class="dt">y =</span> <span class="fl">.75</span>, </span>
+<span id="cb11-26"><a href="what-is-data.html#cb11-26"></a>                <span class="dt">label =</span> <span class="st">&quot;Big Data&quot;</span>), </span>
+<span id="cb11-27"><a href="what-is-data.html#cb11-27"></a>            <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb11-28"><a href="what-is-data.html#cb11-28"></a><span class="co"># remove x and y labels</span></span>
+<span id="cb11-29"><a href="what-is-data.html#cb11-29"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>(),</span>
+<span id="cb11-30"><a href="what-is-data.html#cb11-30"></a>        <span class="dt">axis.text.x=</span><span class="kw">element_blank</span>(),</span>
+<span id="cb11-31"><a href="what-is-data.html#cb11-31"></a>        <span class="dt">axis.ticks.x=</span><span class="kw">element_blank</span>(),</span>
+<span id="cb11-32"><a href="what-is-data.html#cb11-32"></a>        <span class="dt">axis.title.y=</span><span class="kw">element_blank</span>(),</span>
+<span id="cb11-33"><a href="what-is-data.html#cb11-33"></a>        <span class="dt">axis.text.y=</span><span class="kw">element_blank</span>(),</span>
+<span id="cb11-34"><a href="what-is-data.html#cb11-34"></a>        <span class="dt">axis.ticks.y=</span><span class="kw">element_blank</span>())</span>
+<span id="cb11-35"><a href="what-is-data.html#cb11-35"></a></span>
+<span id="cb11-36"><a href="what-is-data.html#cb11-36"></a>v2</span></code></pre></div>
 <div class="figure"><span id="fig:bigdata"></span>
 <img src="r_full_stack_files/figure-html/bigdata-1.png" alt="The **V**s of Big Data" width="672" />
 <p class="caption">
