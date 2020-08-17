@@ -52,6 +52,18 @@
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
+<script src="libs/echarts4r-4.8.0/echarts-en.min.js"></script>
+<script src="libs/echarts4r-4.8.0/ecStat.min.js"></script>
+<script src="libs/echarts4r-4.8.0/dataTool.min.js"></script>
+<script src="libs/echarts4r-binding-0.3.2/echarts4r.js"></script>
 
 <script>
 /* ========================================================================
@@ -533,7 +545,16 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="data-science-capstone" class="section level1">
 <h1><span class="header-section-number"> 11</span> Data Science Capstone</h1>
 <p>This course is a culmination of all the knowledge learned during the specialization from understanding data science, to installing R and RStudio, loading, subsetting, wrangling, exploring, using statistical inference, and training our data sets based on applicable machine learning. From here we can build a data product and the capstone is a walkthrough on how to build one.</p>
-<p>The capstone is a partnership with Swiftkey. I have used this product a while back in 2013-2015. I was amazed at the innovation on digital keyboards. The ability to slide your finger across the keyboard without lifting it. It then predicts the word with high accuracy. I always wondered how this work. This course provided a blueprint on how to achieve the technology behind it.</p>
+<p>The capstone is a a partnership between Johns Hopkins University and Swiftkey. I have used this product a while back in 2013-2015. I was amazed at the innovation on digital keyboards. The ability to slide your finger across the keyboard without lifting it. It then predicts the word with high accuracy. I always wondered how this work. This course provided a blueprint on how to achieve the technology behind it.</p>
+<p>The capstone will be evaluated based on the following assessments:</p>
+<ol style="list-style-type: decimal">
+<li>An introductory quiz to test whether you have downloaded and can manipulate the data.</li>
+<li>An intermediate R markdown report that describes in plain language, plots, and code your exploratory analysis of the course data set.</li>
+<li>Two natural language processing quizzes, where you apply your predictive model to real data to check how it is working.</li>
+<li>A Shiny app that takes as input a phrase (multiple words), one clicks submit, and it predicts the next word.</li>
+<li>A 5 slide deck created with R presentations pitching your algorithm and app to your boss or investor.</li>
+</ol>
+<p>We will divide the lectures for</p>
 <p>The first week involves understanding text mining infrastructure in R and exploring the data sets provided from the course. The process I took to understand the subject are as follows:</p>
 <ol style="list-style-type: decimal">
 <li>Read the material
@@ -546,88 +567,105 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li>Opens more questions to speed and quality.</li>
 </ol>
 <p><strong>Below is the environment needed to examine our data sets.</strong></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="data-science-capstone.html#cb1-1"></a>enviro &lt;-<span class="st"> </span></span>
-<span id="cb1-2"><a href="data-science-capstone.html#cb1-2"></a><span class="st">  </span><span class="kw">c</span>(<span class="st">&quot;rmdformats&quot;</span>, <span class="st">&quot;knitr&quot;</span>,</span>
-<span id="cb1-3"><a href="data-science-capstone.html#cb1-3"></a>    <span class="st">&quot;rvest&quot;</span>, <span class="st">&quot;tidytext&quot;</span>, </span>
-<span id="cb1-4"><a href="data-science-capstone.html#cb1-4"></a>    <span class="st">&quot;tm&quot;</span>, <span class="st">&quot;tidyverse&quot;</span>, </span>
-<span id="cb1-5"><a href="data-science-capstone.html#cb1-5"></a>    <span class="st">&quot;NLP&quot;</span>, <span class="st">&quot;knitr&quot;</span>, </span>
-<span id="cb1-6"><a href="data-science-capstone.html#cb1-6"></a>    <span class="st">&quot;readr&quot;</span>, <span class="st">&quot;openNLP&quot;</span>, </span>
-<span id="cb1-7"><a href="data-science-capstone.html#cb1-7"></a>    <span class="st">&quot;glue&quot;</span>, <span class="st">&quot;RWeka&quot;</span>, </span>
-<span id="cb1-8"><a href="data-science-capstone.html#cb1-8"></a>    <span class="st">&quot;stringi&quot;</span>, <span class="st">&quot;SnowballC&quot;</span>, </span>
-<span id="cb1-9"><a href="data-science-capstone.html#cb1-9"></a>    <span class="st">&quot;wordcloud2&quot;</span>, <span class="st">&quot;caret&quot;</span>)</span>
-<span id="cb1-10"><a href="data-science-capstone.html#cb1-10"></a></span>
-<span id="cb1-11"><a href="data-science-capstone.html#cb1-11"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(enviro)){</span>
-<span id="cb1-12"><a href="data-science-capstone.html#cb1-12"></a>  <span class="kw">library</span>(enviro[i], </span>
-<span id="cb1-13"><a href="data-science-capstone.html#cb1-13"></a>  <span class="dt">character.only =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb1-14"><a href="data-science-capstone.html#cb1-14"></a>}</span></code></pre></div>
-<p>Let us examine the data. Data sets can be found <a href="https://d396qusza40orc.cloudfront.net/ds%20scapstone/dataset/Coursera-SwiftKey.zip">here</a>.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="data-science-capstone.html#cb2-1"></a><span class="co">## Download file (run at the beginning only) ---------</span></span>
-<span id="cb2-2"><a href="data-science-capstone.html#cb2-2"></a></span>
-<span id="cb2-3"><a href="data-science-capstone.html#cb2-3"></a><span class="co"># if (!file.exists(&quot;data&quot;)) {</span></span>
-<span id="cb2-4"><a href="data-science-capstone.html#cb2-4"></a><span class="co">#  dir.create(&quot;data&quot;)</span></span>
-<span id="cb2-5"><a href="data-science-capstone.html#cb2-5"></a><span class="co">#}</span></span>
-<span id="cb2-6"><a href="data-science-capstone.html#cb2-6"></a><span class="co"># download.file(</span></span>
-<span id="cb2-7"><a href="data-science-capstone.html#cb2-7"></a><span class="co">#  &quot;https://d396qusza40orc.cloudfront.net/ds scapstone/dataset/Coursera-SwiftKey.zip&quot;,</span></span>
-<span id="cb2-8"><a href="data-science-capstone.html#cb2-8"></a><span class="co">#  destfile = &quot;./data/Coursera-SwiftKey.zip&quot;</span></span>
-<span id="cb2-9"><a href="data-science-capstone.html#cb2-9"></a><span class="co"># )</span></span>
-<span id="cb2-10"><a href="data-science-capstone.html#cb2-10"></a><span class="co"># unzip(&quot;./data/Coursera-SwiftKey.zip&quot;, exdir = &quot;./data&quot;)</span></span>
-<span id="cb2-11"><a href="data-science-capstone.html#cb2-11"></a></span>
-<span id="cb2-12"><a href="data-science-capstone.html#cb2-12"></a><span class="co">## Combining -----------</span></span>
-<span id="cb2-13"><a href="data-science-capstone.html#cb2-13"></a>files2 &lt;-<span class="st"> </span><span class="kw">list.dirs</span>(<span class="st">&quot;./data/final&quot;</span>)</span>
-<span id="cb2-14"><a href="data-science-capstone.html#cb2-14"></a>lsfile &lt;-<span class="st">  </span><span class="kw">paste0</span>(files2[<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>],<span class="st">&quot;/&quot;</span>,</span>
-<span id="cb2-15"><a href="data-science-capstone.html#cb2-15"></a>                  <span class="kw">list.files</span>(files2[<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>]))</span>
-<span id="cb2-16"><a href="data-science-capstone.html#cb2-16"></a></span>
-<span id="cb2-17"><a href="data-science-capstone.html#cb2-17"></a><span class="co"># gives us the directory path</span></span>
-<span id="cb2-18"><a href="data-science-capstone.html#cb2-18"></a>ldir &lt;-<span class="st"> </span><span class="kw">normalizePath</span>(files2[<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>], <span class="st">&quot;rb&quot;</span>) </span>
-<span id="cb2-19"><a href="data-science-capstone.html#cb2-19"></a></span>
-<span id="cb2-20"><a href="data-science-capstone.html#cb2-20"></a><span class="co"># gives us full path and filename</span></span>
-<span id="cb2-21"><a href="data-science-capstone.html#cb2-21"></a>finaldir &lt;-<span class="st"> </span><span class="kw">dir</span>(<span class="dt">path=</span>ldir, <span class="dt">full.names=</span><span class="ot">TRUE</span>) </span>
-<span id="cb2-22"><a href="data-science-capstone.html#cb2-22"></a></span>
-<span id="cb2-23"><a href="data-science-capstone.html#cb2-23"></a><span class="co">## Build a table --------------</span></span>
-<span id="cb2-24"><a href="data-science-capstone.html#cb2-24"></a></span>
-<span id="cb2-25"><a href="data-science-capstone.html#cb2-25"></a><span class="co">## Num_Words total number of words in a txt file</span></span>
-<span id="cb2-26"><a href="data-science-capstone.html#cb2-26"></a>Num_Words &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>)</span>
-<span id="cb2-27"><a href="data-science-capstone.html#cb2-27"></a></span>
-<span id="cb2-28"><a href="data-science-capstone.html#cb2-28"></a><span class="co">## Num_Lines number of lines per txt file</span></span>
-<span id="cb2-29"><a href="data-science-capstone.html#cb2-29"></a>Num_Lines &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>)</span>
-<span id="cb2-30"><a href="data-science-capstone.html#cb2-30"></a></span>
-<span id="cb2-31"><a href="data-science-capstone.html#cb2-31"></a><span class="co">## Range of words per line</span></span>
-<span id="cb2-32"><a href="data-science-capstone.html#cb2-32"></a>Min_Words &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>)</span>
-<span id="cb2-33"><a href="data-science-capstone.html#cb2-33"></a>Mean_Words &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>)</span>
-<span id="cb2-34"><a href="data-science-capstone.html#cb2-34"></a>Max_Words &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>)</span>
-<span id="cb2-35"><a href="data-science-capstone.html#cb2-35"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>) {</span>
-<span id="cb2-36"><a href="data-science-capstone.html#cb2-36"></a>      Num_Words[i] &lt;-</span>
-<span id="cb2-37"><a href="data-science-capstone.html#cb2-37"></a><span class="st">        </span><span class="kw">print</span>(<span class="kw">sum</span>(<span class="kw">stri_count_words</span>(<span class="kw">readLines</span>(finaldir[[i]]))))</span>
-<span id="cb2-38"><a href="data-science-capstone.html#cb2-38"></a>      Mean_Words[i] &lt;-</span>
-<span id="cb2-39"><a href="data-science-capstone.html#cb2-39"></a><span class="st">        </span><span class="kw">print</span>(<span class="kw">round</span>(<span class="kw">mean</span>(<span class="kw">stri_count_words</span>(</span>
-<span id="cb2-40"><a href="data-science-capstone.html#cb2-40"></a>          <span class="kw">readLines</span>(finaldir[[i]])</span>
-<span id="cb2-41"><a href="data-science-capstone.html#cb2-41"></a>        ))), <span class="dt">digits =</span> <span class="dv">2</span>)</span>
-<span id="cb2-42"><a href="data-science-capstone.html#cb2-42"></a>      Min_Words[i] &lt;-</span>
-<span id="cb2-43"><a href="data-science-capstone.html#cb2-43"></a><span class="st">        </span><span class="kw">print</span>(<span class="kw">round</span>(<span class="kw">min</span>(<span class="kw">stri_count_words</span>(</span>
-<span id="cb2-44"><a href="data-science-capstone.html#cb2-44"></a>          <span class="kw">readLines</span>(finaldir[[i]])</span>
-<span id="cb2-45"><a href="data-science-capstone.html#cb2-45"></a>        ))), <span class="dt">digits =</span> <span class="dv">2</span>)</span>
-<span id="cb2-46"><a href="data-science-capstone.html#cb2-46"></a>      Max_Words[i] &lt;-</span>
-<span id="cb2-47"><a href="data-science-capstone.html#cb2-47"></a><span class="st">        </span><span class="kw">print</span>(<span class="kw">round</span>(<span class="kw">max</span>(<span class="kw">stri_count_words</span>(</span>
-<span id="cb2-48"><a href="data-science-capstone.html#cb2-48"></a>          <span class="kw">readLines</span>(finaldir[[i]])</span>
-<span id="cb2-49"><a href="data-science-capstone.html#cb2-49"></a>        ))), <span class="dt">digits =</span> <span class="dv">2</span>)</span>
-<span id="cb2-50"><a href="data-science-capstone.html#cb2-50"></a>      Num_Lines[i] &lt;-<span class="st"> </span><span class="kw">print</span>(<span class="kw">length</span>(<span class="kw">readLines</span>(finaldir[i])))</span>
-<span id="cb2-51"><a href="data-science-capstone.html#cb2-51"></a>}</span>
-<span id="cb2-52"><a href="data-science-capstone.html#cb2-52"></a></span>
-<span id="cb2-53"><a href="data-science-capstone.html#cb2-53"></a><span class="co"># Combine -------------</span></span>
-<span id="cb2-54"><a href="data-science-capstone.html#cb2-54"></a>list_files &lt;-<span class="st"> </span><span class="kw">tibble</span>(</span>
-<span id="cb2-55"><a href="data-science-capstone.html#cb2-55"></a>        <span class="st">&#39;Name&#39;</span> =<span class="st"> </span><span class="kw">list.files</span>(files2[<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>]),</span>
-<span id="cb2-56"><a href="data-science-capstone.html#cb2-56"></a>        <span class="st">&#39;Size_MB&#39;</span> =<span class="st"> </span><span class="kw">round</span>(<span class="kw">file.size</span>(finaldir) <span class="op">/</span><span class="st"> </span><span class="dv">10</span> <span class="op">^</span><span class="st"> </span><span class="dv">6</span>, <span class="dt">digits =</span></span>
-<span id="cb2-57"><a href="data-science-capstone.html#cb2-57"></a>                            <span class="dv">2</span>),</span>
-<span id="cb2-58"><a href="data-science-capstone.html#cb2-58"></a>        <span class="dt">Lines =</span> Num_Lines,</span>
-<span id="cb2-59"><a href="data-science-capstone.html#cb2-59"></a>        <span class="dt">Words =</span> Num_Words,</span>
-<span id="cb2-60"><a href="data-science-capstone.html#cb2-60"></a>        <span class="dt">Min =</span> Min_Words,</span>
-<span id="cb2-61"><a href="data-science-capstone.html#cb2-61"></a>        <span class="dt">Average =</span> Mean_Words,</span>
-<span id="cb2-62"><a href="data-science-capstone.html#cb2-62"></a>        <span class="dt">Max =</span> Max_Words</span>
-<span id="cb2-63"><a href="data-science-capstone.html#cb2-63"></a>)</span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="data-science-capstone.html#cb3-1"></a><span class="co"># knit to table -----------</span></span>
-<span id="cb3-2"><a href="data-science-capstone.html#cb3-2"></a><span class="kw">kable</span>(list_files, <span class="dt">caption =</span> <span class="st">&#39;Text info&#39;</span>,</span>
-<span id="cb3-3"><a href="data-science-capstone.html#cb3-3"></a>                <span class="dt">align =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&#39;c&#39;</span>, <span class="dt">times =</span> <span class="dv">5</span>))) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb3-4"><a href="data-science-capstone.html#cb3-4"></a><span class="st">          </span><span class="kw">kable_styling</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="data-science-capstone.html#cb14-1"></a>enviro &lt;-<span class="st"> </span></span>
+<span id="cb14-2"><a href="data-science-capstone.html#cb14-2"></a><span class="st">  </span><span class="kw">c</span>(<span class="st">&quot;rmdformats&quot;</span>, <span class="st">&quot;knitr&quot;</span>,</span>
+<span id="cb14-3"><a href="data-science-capstone.html#cb14-3"></a>    <span class="st">&quot;rvest&quot;</span>, <span class="st">&quot;tidytext&quot;</span>, </span>
+<span id="cb14-4"><a href="data-science-capstone.html#cb14-4"></a>    <span class="st">&quot;tm&quot;</span>, <span class="st">&quot;tidyverse&quot;</span>, </span>
+<span id="cb14-5"><a href="data-science-capstone.html#cb14-5"></a>    <span class="st">&quot;NLP&quot;</span>, <span class="st">&quot;knitr&quot;</span>, </span>
+<span id="cb14-6"><a href="data-science-capstone.html#cb14-6"></a>    <span class="st">&quot;readr&quot;</span>, <span class="st">&quot;openNLP&quot;</span>, </span>
+<span id="cb14-7"><a href="data-science-capstone.html#cb14-7"></a>    <span class="st">&quot;glue&quot;</span>, <span class="st">&quot;RWeka&quot;</span>, </span>
+<span id="cb14-8"><a href="data-science-capstone.html#cb14-8"></a>    <span class="st">&quot;stringi&quot;</span>, <span class="st">&quot;SnowballC&quot;</span>, </span>
+<span id="cb14-9"><a href="data-science-capstone.html#cb14-9"></a>    <span class="st">&quot;wordcloud2&quot;</span>, <span class="st">&quot;caret&quot;</span>)</span>
+<span id="cb14-10"><a href="data-science-capstone.html#cb14-10"></a></span>
+<span id="cb14-11"><a href="data-science-capstone.html#cb14-11"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(enviro)){</span>
+<span id="cb14-12"><a href="data-science-capstone.html#cb14-12"></a>  <span class="kw">library</span>(enviro[i], </span>
+<span id="cb14-13"><a href="data-science-capstone.html#cb14-13"></a>  <span class="dt">character.only =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb14-14"><a href="data-science-capstone.html#cb14-14"></a>}</span></code></pre></div>
+<p>Data sets can be found <a href="https://d396qusza40orc.cloudfront.net/ds%20scapstone/dataset/Coursera-SwiftKey.zip">here</a> and we will follow this flow to understand the data:</p>
+<ul>
+<li>Define the goal or the problem</li>
+<li>Download the data</li>
+<li>Create a data summary and understand data integrity</li>
+<li>Text organization</li>
+<li>Feature extraction</li>
+<li>Analysis</li>
+<li>Insights that solves the problem or create new opportunities</li>
+</ul>
+<p>Before we dive in let us define terminologies use in NLP infrastructure in R. A quick google search shoulb be able to help us with the following:</p>
+<ol style="list-style-type: decimal">
+<li>Text Mining -</li>
+<li>Corpus</li>
+<li>Semantic parsing</li>
+<li>Bag of Words</li>
+<li>Sentiment Analysis</li>
+</ol>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="data-science-capstone.html#cb15-1"></a><span class="co">## Download file (run at the beginning only) ---------</span></span>
+<span id="cb15-2"><a href="data-science-capstone.html#cb15-2"></a></span>
+<span id="cb15-3"><a href="data-science-capstone.html#cb15-3"></a><span class="co"># if (!file.exists(&quot;data&quot;)) {</span></span>
+<span id="cb15-4"><a href="data-science-capstone.html#cb15-4"></a><span class="co">#  dir.create(&quot;data&quot;)</span></span>
+<span id="cb15-5"><a href="data-science-capstone.html#cb15-5"></a><span class="co">#}</span></span>
+<span id="cb15-6"><a href="data-science-capstone.html#cb15-6"></a><span class="co"># download.file(</span></span>
+<span id="cb15-7"><a href="data-science-capstone.html#cb15-7"></a><span class="co">#  &quot;https://d396qusza40orc.cloudfront.net/ds scapstone/dataset/Coursera-SwiftKey.zip&quot;,</span></span>
+<span id="cb15-8"><a href="data-science-capstone.html#cb15-8"></a><span class="co">#  destfile = &quot;./data/Coursera-SwiftKey.zip&quot;</span></span>
+<span id="cb15-9"><a href="data-science-capstone.html#cb15-9"></a><span class="co"># )</span></span>
+<span id="cb15-10"><a href="data-science-capstone.html#cb15-10"></a><span class="co"># unzip(&quot;./data/Coursera-SwiftKey.zip&quot;, exdir = &quot;./data&quot;)</span></span>
+<span id="cb15-11"><a href="data-science-capstone.html#cb15-11"></a></span>
+<span id="cb15-12"><a href="data-science-capstone.html#cb15-12"></a><span class="co">## Combining -----------</span></span>
+<span id="cb15-13"><a href="data-science-capstone.html#cb15-13"></a>files2 &lt;-<span class="st"> </span><span class="kw">list.dirs</span>(<span class="st">&quot;./data/final&quot;</span>)</span>
+<span id="cb15-14"><a href="data-science-capstone.html#cb15-14"></a>lsfile &lt;-<span class="st">  </span><span class="kw">paste0</span>(files2[<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>],<span class="st">&quot;/&quot;</span>,</span>
+<span id="cb15-15"><a href="data-science-capstone.html#cb15-15"></a>                  <span class="kw">list.files</span>(files2[<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>]))</span>
+<span id="cb15-16"><a href="data-science-capstone.html#cb15-16"></a></span>
+<span id="cb15-17"><a href="data-science-capstone.html#cb15-17"></a><span class="co"># gives us the directory path</span></span>
+<span id="cb15-18"><a href="data-science-capstone.html#cb15-18"></a>ldir &lt;-<span class="st"> </span><span class="kw">normalizePath</span>(files2[<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>], <span class="st">&quot;rb&quot;</span>) </span>
+<span id="cb15-19"><a href="data-science-capstone.html#cb15-19"></a></span>
+<span id="cb15-20"><a href="data-science-capstone.html#cb15-20"></a><span class="co"># gives us full path and filename</span></span>
+<span id="cb15-21"><a href="data-science-capstone.html#cb15-21"></a>finaldir &lt;-<span class="st"> </span><span class="kw">dir</span>(<span class="dt">path=</span>ldir, <span class="dt">full.names=</span><span class="ot">TRUE</span>) </span>
+<span id="cb15-22"><a href="data-science-capstone.html#cb15-22"></a></span>
+<span id="cb15-23"><a href="data-science-capstone.html#cb15-23"></a><span class="co">## Build a table --------------</span></span>
+<span id="cb15-24"><a href="data-science-capstone.html#cb15-24"></a></span>
+<span id="cb15-25"><a href="data-science-capstone.html#cb15-25"></a><span class="co">## Num_Words total number of words in a txt file</span></span>
+<span id="cb15-26"><a href="data-science-capstone.html#cb15-26"></a>Num_Words &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>)</span>
+<span id="cb15-27"><a href="data-science-capstone.html#cb15-27"></a></span>
+<span id="cb15-28"><a href="data-science-capstone.html#cb15-28"></a><span class="co">## Num_Lines number of lines per txt file</span></span>
+<span id="cb15-29"><a href="data-science-capstone.html#cb15-29"></a>Num_Lines &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>)</span>
+<span id="cb15-30"><a href="data-science-capstone.html#cb15-30"></a></span>
+<span id="cb15-31"><a href="data-science-capstone.html#cb15-31"></a><span class="co">## Range of words per line</span></span>
+<span id="cb15-32"><a href="data-science-capstone.html#cb15-32"></a>Min_Words &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>)</span>
+<span id="cb15-33"><a href="data-science-capstone.html#cb15-33"></a>Mean_Words &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>)</span>
+<span id="cb15-34"><a href="data-science-capstone.html#cb15-34"></a>Max_Words &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>)</span>
+<span id="cb15-35"><a href="data-science-capstone.html#cb15-35"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>) {</span>
+<span id="cb15-36"><a href="data-science-capstone.html#cb15-36"></a>      Num_Words[i] &lt;-</span>
+<span id="cb15-37"><a href="data-science-capstone.html#cb15-37"></a><span class="st">        </span><span class="kw">print</span>(<span class="kw">sum</span>(<span class="kw">stri_count_words</span>(<span class="kw">readLines</span>(finaldir[[i]]))))</span>
+<span id="cb15-38"><a href="data-science-capstone.html#cb15-38"></a>      Mean_Words[i] &lt;-</span>
+<span id="cb15-39"><a href="data-science-capstone.html#cb15-39"></a><span class="st">        </span><span class="kw">print</span>(<span class="kw">round</span>(<span class="kw">mean</span>(<span class="kw">stri_count_words</span>(</span>
+<span id="cb15-40"><a href="data-science-capstone.html#cb15-40"></a>          <span class="kw">readLines</span>(finaldir[[i]])</span>
+<span id="cb15-41"><a href="data-science-capstone.html#cb15-41"></a>        ))), <span class="dt">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb15-42"><a href="data-science-capstone.html#cb15-42"></a>      Min_Words[i] &lt;-</span>
+<span id="cb15-43"><a href="data-science-capstone.html#cb15-43"></a><span class="st">        </span><span class="kw">print</span>(<span class="kw">round</span>(<span class="kw">min</span>(<span class="kw">stri_count_words</span>(</span>
+<span id="cb15-44"><a href="data-science-capstone.html#cb15-44"></a>          <span class="kw">readLines</span>(finaldir[[i]])</span>
+<span id="cb15-45"><a href="data-science-capstone.html#cb15-45"></a>        ))), <span class="dt">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb15-46"><a href="data-science-capstone.html#cb15-46"></a>      Max_Words[i] &lt;-</span>
+<span id="cb15-47"><a href="data-science-capstone.html#cb15-47"></a><span class="st">        </span><span class="kw">print</span>(<span class="kw">round</span>(<span class="kw">max</span>(<span class="kw">stri_count_words</span>(</span>
+<span id="cb15-48"><a href="data-science-capstone.html#cb15-48"></a>          <span class="kw">readLines</span>(finaldir[[i]])</span>
+<span id="cb15-49"><a href="data-science-capstone.html#cb15-49"></a>        ))), <span class="dt">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb15-50"><a href="data-science-capstone.html#cb15-50"></a>      Num_Lines[i] &lt;-<span class="st"> </span><span class="kw">print</span>(<span class="kw">length</span>(<span class="kw">readLines</span>(finaldir[i])))</span>
+<span id="cb15-51"><a href="data-science-capstone.html#cb15-51"></a>}</span>
+<span id="cb15-52"><a href="data-science-capstone.html#cb15-52"></a></span>
+<span id="cb15-53"><a href="data-science-capstone.html#cb15-53"></a><span class="co"># Combine -------------</span></span>
+<span id="cb15-54"><a href="data-science-capstone.html#cb15-54"></a>list_files &lt;-<span class="st"> </span><span class="kw">tibble</span>(</span>
+<span id="cb15-55"><a href="data-science-capstone.html#cb15-55"></a>        <span class="st">&#39;Name&#39;</span> =<span class="st"> </span><span class="kw">list.files</span>(files2[<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>]),</span>
+<span id="cb15-56"><a href="data-science-capstone.html#cb15-56"></a>        <span class="st">&#39;Size_MB&#39;</span> =<span class="st"> </span><span class="kw">round</span>(<span class="kw">file.size</span>(finaldir) <span class="op">/</span><span class="st"> </span><span class="dv">10</span> <span class="op">^</span><span class="st"> </span><span class="dv">6</span>, <span class="dt">digits =</span></span>
+<span id="cb15-57"><a href="data-science-capstone.html#cb15-57"></a>                            <span class="dv">2</span>),</span>
+<span id="cb15-58"><a href="data-science-capstone.html#cb15-58"></a>        <span class="dt">Lines =</span> Num_Lines,</span>
+<span id="cb15-59"><a href="data-science-capstone.html#cb15-59"></a>        <span class="dt">Words =</span> Num_Words,</span>
+<span id="cb15-60"><a href="data-science-capstone.html#cb15-60"></a>        <span class="dt">Min =</span> Min_Words,</span>
+<span id="cb15-61"><a href="data-science-capstone.html#cb15-61"></a>        <span class="dt">Average =</span> Mean_Words,</span>
+<span id="cb15-62"><a href="data-science-capstone.html#cb15-62"></a>        <span class="dt">Max =</span> Max_Words</span>
+<span id="cb15-63"><a href="data-science-capstone.html#cb15-63"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="data-science-capstone.html#cb16-1"></a><span class="co"># knit to table -----------</span></span>
+<span id="cb16-2"><a href="data-science-capstone.html#cb16-2"></a><span class="kw">kable</span>(list_files, <span class="dt">caption =</span> <span class="st">&#39;Text info&#39;</span>,</span>
+<span id="cb16-3"><a href="data-science-capstone.html#cb16-3"></a>                <span class="dt">align =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&#39;c&#39;</span>, <span class="dt">times =</span> <span class="dv">5</span>))) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-4"><a href="data-science-capstone.html#cb16-4"></a><span class="st">          </span><span class="kw">kable_styling</span>()</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
 (#tab:11-txt_summary)Text info
