@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>11.3 Processing data for tokenization | Lockdown to R-Full-Stack</title>
+  <title>11.1 Processing data for tokenization | Lockdown to R-Full-Stack</title>
   <meta name="description" content="This is my journey to R programming." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="11.3 Processing data for tokenization | Lockdown to R-Full-Stack" />
+  <meta property="og:title" content="11.1 Processing data for tokenization | Lockdown to R-Full-Stack" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="11.3 Processing data for tokenization | Lockdown to R-Full-Stack" />
+  <meta name="twitter:title" content="11.1 Processing data for tokenization | Lockdown to R-Full-Stack" />
   
   <meta name="twitter:description" content="This is my journey to R programming." />
   
@@ -31,7 +31,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="data-loading-and-summary.html"/>
+<link rel="prev" href="data-science-capstone.html"/>
 <link rel="next" href="transforming-text.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,6 +51,7 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 
 <script>
 /* ========================================================================
@@ -505,10 +506,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9" data-path="practical-machine-learning.html"><a href="practical-machine-learning.html"><i class="fa fa-check"></i><b>9</b> Practical Machine Learning</a></li>
 <li class="chapter" data-level="10" data-path="developing-data-products.html"><a href="developing-data-products.html"><i class="fa fa-check"></i><b>10</b> Developing Data Products</a></li>
 <li class="chapter" data-level="11" data-path="data-science-capstone.html"><a href="data-science-capstone.html"><i class="fa fa-check"></i><b>11</b> Data Science Capstone</a><ul>
-<li class="chapter" data-level="11.1" data-path="environment.html"><a href="environment.html"><i class="fa fa-check"></i><b>11.1</b> Environment</a></li>
-<li class="chapter" data-level="11.2" data-path="data-loading-and-summary.html"><a href="data-loading-and-summary.html"><i class="fa fa-check"></i><b>11.2</b> Data Loading and Summary</a></li>
-<li class="chapter" data-level="11.3" data-path="processing-data-for-tokenization.html"><a href="processing-data-for-tokenization.html"><i class="fa fa-check"></i><b>11.3</b> Processing data for tokenization</a></li>
-<li class="chapter" data-level="11.4" data-path="transforming-text.html"><a href="transforming-text.html"><i class="fa fa-check"></i><b>11.4</b> Transforming Text</a></li>
+<li class="chapter" data-level="11.1" data-path="processing-data-for-tokenization.html"><a href="processing-data-for-tokenization.html"><i class="fa fa-check"></i><b>11.1</b> Processing data for tokenization</a></li>
+<li class="chapter" data-level="11.2" data-path="transforming-text.html"><a href="transforming-text.html"><i class="fa fa-check"></i><b>11.2</b> Transforming Text</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -532,12 +531,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="processing-data-for-tokenization" class="section level2">
-<h2><span class="header-section-number">11.3</span> Processing data for tokenization</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="processing-data-for-tokenization.html#cb3-1"></a><span class="kw">set.seed</span>(<span class="dv">420</span>)</span>
-<span id="cb3-2"><a href="processing-data-for-tokenization.html#cb3-2"></a>source_data &lt;-<span class="st"> </span><span class="kw">DirSource</span>(ldir)</span>
-<span id="cb3-3"><a href="processing-data-for-tokenization.html#cb3-3"></a></span>
-<span id="cb3-4"><a href="processing-data-for-tokenization.html#cb3-4"></a>corpus_data &lt;-<span class="st"> </span><span class="kw">VCorpus</span>(source_data)</span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="processing-data-for-tokenization.html#cb4-1"></a><span class="kw">summary</span>(corpus_data)</span></code></pre></div>
+<h2><span class="header-section-number">11.1</span> Processing data for tokenization</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="processing-data-for-tokenization.html#cb4-1"></a><span class="kw">set.seed</span>(<span class="dv">420</span>)</span>
+<span id="cb4-2"><a href="processing-data-for-tokenization.html#cb4-2"></a>source_data &lt;-<span class="st"> </span><span class="kw">DirSource</span>(ldir)</span>
+<span id="cb4-3"><a href="processing-data-for-tokenization.html#cb4-3"></a></span>
+<span id="cb4-4"><a href="processing-data-for-tokenization.html#cb4-4"></a>corpus_data &lt;-<span class="st"> </span><span class="kw">VCorpus</span>(source_data)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="processing-data-for-tokenization.html#cb5-1"></a><span class="kw">summary</span>(corpus_data)</span></code></pre></div>
 <pre><code>##                   Length Class             Mode
 ## de_DE.blogs.txt   2      PlainTextDocument list
 ## de_DE.news.txt    2      PlainTextDocument list
@@ -551,7 +550,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## ru_RU.blogs.txt   2      PlainTextDocument list
 ## ru_RU.news.txt    2      PlainTextDocument list
 ## ru_RU.twitter.txt 2      PlainTextDocument list</code></pre>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="processing-data-for-tokenization.html#cb6-1"></a><span class="kw">inspect</span>(corpus_data[<span class="dv">5</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="processing-data-for-tokenization.html#cb7-1"></a><span class="kw">inspect</span>(corpus_data[<span class="dv">5</span>])</span></code></pre></div>
 <pre><code>## &lt;&lt;VCorpus&gt;&gt;
 ## Metadata:  corpus specific: 0, document level (indexed): 0
 ## Content:  documents: 1
@@ -560,7 +559,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## &lt;&lt;PlainTextDocument&gt;&gt;
 ## Metadata:  7
 ## Content:  chars: 203223159</code></pre>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="processing-data-for-tokenization.html#cb8-1"></a><span class="kw">meta</span>(corpus_data[[<span class="dv">5</span>]], <span class="st">&quot;id&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="processing-data-for-tokenization.html#cb9-1"></a><span class="kw">meta</span>(corpus_data[[<span class="dv">5</span>]], <span class="st">&quot;id&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;en_US.news.txt&quot;</code></pre>
 </div>
             </section>
@@ -568,7 +567,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="data-loading-and-summary.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-science-capstone.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="transforming-text.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
