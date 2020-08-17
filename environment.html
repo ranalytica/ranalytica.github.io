@@ -24,7 +24,7 @@
 <meta name="author" content="Richard Nacianceno" />
 
 
-<meta name="date" content="2020-08-16" />
+<meta name="date" content="2020-08-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -64,12 +64,6 @@
 <script src="libs/echarts4r-4.8.0/ecStat.min.js"></script>
 <script src="libs/echarts4r-4.8.0/dataTool.min.js"></script>
 <script src="libs/echarts4r-binding-0.3.2/echarts4r.js"></script>
-<script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
-<script src="libs/typedarray-0.1/typedarray.min.js"></script>
-<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
 
 <script>
 /* ========================================================================
@@ -501,7 +495,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a><ul>
 <li class="chapter" data-level="" data-path="expect-to-have-lucid-dreams.html"><a href="expect-to-have-lucid-dreams.html"><i class="fa fa-check"></i>Expect To Have Lucid Dreams</a></li>
-<li class="chapter" data-level="" data-path="why-create-a-bookdown-of-experience.html"><a href="why-create-a-bookdown-of-experience.html"><i class="fa fa-check"></i>Why Create a bookdown of Experience?</a></li>
+<li class="chapter" data-level="" data-path="motivation.html"><a href="motivation.html"><i class="fa fa-check"></i>Motivation</a></li>
 <li class="chapter" data-level="" data-path="in-retrospect.html"><a href="in-retrospect.html"><i class="fa fa-check"></i>In Retrospect</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
@@ -552,13 +546,20 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="environment" class="section level2">
 <h2><span class="header-section-number">11.1</span> Environment</h2>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="environment.html#cb13-1"></a>enviro &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;rmdformats&quot;</span>, <span class="st">&quot;knitr&quot;</span>, <span class="st">&quot;rvest&quot;</span>, <span class="st">&quot;tidytext&quot;</span>, </span>
-<span id="cb13-2"><a href="environment.html#cb13-2"></a>    <span class="st">&quot;tm&quot;</span>, <span class="st">&quot;tidyverse&quot;</span>, <span class="st">&quot;NLP&quot;</span>, <span class="st">&quot;knitr&quot;</span>, <span class="st">&quot;readr&quot;</span>, <span class="st">&quot;openNLP&quot;</span>, </span>
-<span id="cb13-3"><a href="environment.html#cb13-3"></a>    <span class="st">&quot;glue&quot;</span>, <span class="st">&quot;RWeka&quot;</span>, <span class="st">&quot;stringi&quot;</span>, <span class="st">&quot;SnowballC&quot;</span>, <span class="st">&quot;wordcloud2&quot;</span>)</span>
-<span id="cb13-4"><a href="environment.html#cb13-4"></a></span>
-<span id="cb13-5"><a href="environment.html#cb13-5"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(enviro)) {</span>
-<span id="cb13-6"><a href="environment.html#cb13-6"></a>    <span class="kw">library</span>(enviro[i], <span class="dt">character.only =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb13-7"><a href="environment.html#cb13-7"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="environment.html#cb13-1"></a>enviro &lt;-<span class="st"> </span></span>
+<span id="cb13-2"><a href="environment.html#cb13-2"></a><span class="st">  </span><span class="kw">c</span>(<span class="st">&quot;rmdformats&quot;</span>, <span class="st">&quot;knitr&quot;</span>,</span>
+<span id="cb13-3"><a href="environment.html#cb13-3"></a>    <span class="st">&quot;rvest&quot;</span>, <span class="st">&quot;tidytext&quot;</span>, </span>
+<span id="cb13-4"><a href="environment.html#cb13-4"></a>    <span class="st">&quot;tm&quot;</span>, <span class="st">&quot;tidyverse&quot;</span>, </span>
+<span id="cb13-5"><a href="environment.html#cb13-5"></a>    <span class="st">&quot;NLP&quot;</span>, <span class="st">&quot;knitr&quot;</span>, </span>
+<span id="cb13-6"><a href="environment.html#cb13-6"></a>    <span class="st">&quot;readr&quot;</span>, <span class="st">&quot;openNLP&quot;</span>, </span>
+<span id="cb13-7"><a href="environment.html#cb13-7"></a>    <span class="st">&quot;glue&quot;</span>, <span class="st">&quot;RWeka&quot;</span>, </span>
+<span id="cb13-8"><a href="environment.html#cb13-8"></a>    <span class="st">&quot;stringi&quot;</span>, <span class="st">&quot;SnowballC&quot;</span>, </span>
+<span id="cb13-9"><a href="environment.html#cb13-9"></a>    <span class="st">&quot;wordcloud2&quot;</span>, <span class="st">&quot;caret&quot;</span>)</span>
+<span id="cb13-10"><a href="environment.html#cb13-10"></a></span>
+<span id="cb13-11"><a href="environment.html#cb13-11"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(enviro)){</span>
+<span id="cb13-12"><a href="environment.html#cb13-12"></a>  <span class="kw">library</span>(enviro[i], </span>
+<span id="cb13-13"><a href="environment.html#cb13-13"></a>  <span class="dt">character.only =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb13-14"><a href="environment.html#cb13-14"></a>}</span></code></pre></div>
 </div>
             </section>
 
