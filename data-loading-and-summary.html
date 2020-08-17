@@ -24,7 +24,7 @@
 <meta name="author" content="Richard Nacianceno" />
 
 
-<meta name="date" content="2020-08-06" />
+<meta name="date" content="2020-08-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -64,14 +64,6 @@
 <script src="libs/echarts4r-4.8.0/ecStat.min.js"></script>
 <script src="libs/echarts4r-4.8.0/dataTool.min.js"></script>
 <script src="libs/echarts4r-binding-0.3.2/echarts4r.js"></script>
-<link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet" />
-<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script>
-<script src="libs/dygraphs-1.1.1/shapes.js"></script>
-<script src="libs/moment-2.8.4/moment.js"></script>
-<script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script>
-<script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script>
-<script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script>
-<script src="libs/Dygraph.Plugins.Rebase-1.0/rebase.js"></script>
 <script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
@@ -560,58 +552,57 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="data-loading-and-summary" class="section level2">
 <h2><span class="header-section-number">11.2</span> Data Loading and Summary</h2>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="data-loading-and-summary.html#cb15-1"></a><span class="co">## Download file (run at the beginning only) ---------</span></span>
-<span id="cb15-2"><a href="data-loading-and-summary.html#cb15-2"></a></span>
-<span id="cb15-3"><a href="data-loading-and-summary.html#cb15-3"></a><span class="co"># if (!file.exists(&#39;data&#39;)) { dir.create(&#39;data&#39;) }</span></span>
-<span id="cb15-4"><a href="data-loading-and-summary.html#cb15-4"></a><span class="co"># download.file(</span></span>
-<span id="cb15-5"><a href="data-loading-and-summary.html#cb15-5"></a><span class="co"># &#39;https://d396qusza40orc.cloudfront.net/ds</span></span>
-<span id="cb15-6"><a href="data-loading-and-summary.html#cb15-6"></a><span class="co"># scapstone/dataset/Coursera-SwiftKey.zip&#39;, destfile</span></span>
-<span id="cb15-7"><a href="data-loading-and-summary.html#cb15-7"></a><span class="co"># = &#39;./data/Coursera-SwiftKey.zip&#39; )</span></span>
-<span id="cb15-8"><a href="data-loading-and-summary.html#cb15-8"></a><span class="co"># unzip(&#39;./data/Coursera-SwiftKey.zip&#39;, exdir =</span></span>
-<span id="cb15-9"><a href="data-loading-and-summary.html#cb15-9"></a><span class="co"># &#39;./data&#39;)</span></span>
-<span id="cb15-10"><a href="data-loading-and-summary.html#cb15-10"></a></span>
-<span id="cb15-11"><a href="data-loading-and-summary.html#cb15-11"></a><span class="co">## Combining -----------</span></span>
-<span id="cb15-12"><a href="data-loading-and-summary.html#cb15-12"></a>files2 &lt;-<span class="st"> </span><span class="kw">list.dirs</span>(<span class="st">&quot;./data/final&quot;</span>)</span>
-<span id="cb15-13"><a href="data-loading-and-summary.html#cb15-13"></a>lsfile &lt;-<span class="st"> </span><span class="kw">paste0</span>(files2[<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>], <span class="st">&quot;/&quot;</span>, <span class="kw">list.files</span>(files2[<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>]))</span>
-<span id="cb15-14"><a href="data-loading-and-summary.html#cb15-14"></a></span>
-<span id="cb15-15"><a href="data-loading-and-summary.html#cb15-15"></a><span class="co"># gives us the directory path</span></span>
-<span id="cb15-16"><a href="data-loading-and-summary.html#cb15-16"></a>ldir &lt;-<span class="st"> </span><span class="kw">normalizePath</span>(files2[<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>], <span class="st">&quot;rb&quot;</span>)</span>
-<span id="cb15-17"><a href="data-loading-and-summary.html#cb15-17"></a></span>
-<span id="cb15-18"><a href="data-loading-and-summary.html#cb15-18"></a><span class="co"># gives us full path and filename</span></span>
-<span id="cb15-19"><a href="data-loading-and-summary.html#cb15-19"></a>finaldir &lt;-<span class="st"> </span><span class="kw">dir</span>(<span class="dt">path =</span> ldir, <span class="dt">full.names =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb15-20"><a href="data-loading-and-summary.html#cb15-20"></a></span>
-<span id="cb15-21"><a href="data-loading-and-summary.html#cb15-21"></a><span class="co">## Build a table --------------</span></span>
-<span id="cb15-22"><a href="data-loading-and-summary.html#cb15-22"></a></span>
-<span id="cb15-23"><a href="data-loading-and-summary.html#cb15-23"></a><span class="co">## Num_Words total number of words in a txt file</span></span>
-<span id="cb15-24"><a href="data-loading-and-summary.html#cb15-24"></a>Num_Words &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>)</span>
-<span id="cb15-25"><a href="data-loading-and-summary.html#cb15-25"></a></span>
-<span id="cb15-26"><a href="data-loading-and-summary.html#cb15-26"></a><span class="co">## Num_Lines number of lines per txt file</span></span>
-<span id="cb15-27"><a href="data-loading-and-summary.html#cb15-27"></a>Num_Lines &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>)</span>
-<span id="cb15-28"><a href="data-loading-and-summary.html#cb15-28"></a></span>
-<span id="cb15-29"><a href="data-loading-and-summary.html#cb15-29"></a><span class="co">## Range of words per line</span></span>
-<span id="cb15-30"><a href="data-loading-and-summary.html#cb15-30"></a>Min_Words &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>)</span>
-<span id="cb15-31"><a href="data-loading-and-summary.html#cb15-31"></a>Mean_Words &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>)</span>
-<span id="cb15-32"><a href="data-loading-and-summary.html#cb15-32"></a>Max_Words &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>)</span>
-<span id="cb15-33"><a href="data-loading-and-summary.html#cb15-33"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>) {</span>
-<span id="cb15-34"><a href="data-loading-and-summary.html#cb15-34"></a>    Num_Words[i] &lt;-<span class="st"> </span><span class="kw">print</span>(<span class="kw">sum</span>(<span class="kw">stri_count_words</span>(<span class="kw">readLines</span>(finaldir[[i]]))))</span>
-<span id="cb15-35"><a href="data-loading-and-summary.html#cb15-35"></a>    Mean_Words[i] &lt;-<span class="st"> </span><span class="kw">print</span>(<span class="kw">round</span>(<span class="kw">mean</span>(<span class="kw">stri_count_words</span>(<span class="kw">readLines</span>(finaldir[[i]])))), </span>
-<span id="cb15-36"><a href="data-loading-and-summary.html#cb15-36"></a>        <span class="dt">digits =</span> <span class="dv">2</span>)</span>
-<span id="cb15-37"><a href="data-loading-and-summary.html#cb15-37"></a>    Min_Words[i] &lt;-<span class="st"> </span><span class="kw">print</span>(<span class="kw">round</span>(<span class="kw">min</span>(<span class="kw">stri_count_words</span>(<span class="kw">readLines</span>(finaldir[[i]])))), </span>
-<span id="cb15-38"><a href="data-loading-and-summary.html#cb15-38"></a>        <span class="dt">digits =</span> <span class="dv">2</span>)</span>
-<span id="cb15-39"><a href="data-loading-and-summary.html#cb15-39"></a>    Max_Words[i] &lt;-<span class="st"> </span><span class="kw">print</span>(<span class="kw">round</span>(<span class="kw">max</span>(<span class="kw">stri_count_words</span>(<span class="kw">readLines</span>(finaldir[[i]])))), </span>
-<span id="cb15-40"><a href="data-loading-and-summary.html#cb15-40"></a>        <span class="dt">digits =</span> <span class="dv">2</span>)</span>
-<span id="cb15-41"><a href="data-loading-and-summary.html#cb15-41"></a>    Num_Lines[i] &lt;-<span class="st"> </span><span class="kw">print</span>(<span class="kw">length</span>(<span class="kw">readLines</span>(finaldir[i])))</span>
-<span id="cb15-42"><a href="data-loading-and-summary.html#cb15-42"></a>}</span>
-<span id="cb15-43"><a href="data-loading-and-summary.html#cb15-43"></a></span>
-<span id="cb15-44"><a href="data-loading-and-summary.html#cb15-44"></a><span class="co"># Combine -------------</span></span>
-<span id="cb15-45"><a href="data-loading-and-summary.html#cb15-45"></a>list_files &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">Name =</span> <span class="kw">list.files</span>(files2[<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>]), </span>
-<span id="cb15-46"><a href="data-loading-and-summary.html#cb15-46"></a>    <span class="dt">Size_MB =</span> <span class="kw">round</span>(<span class="kw">file.size</span>(finaldir)<span class="op">/</span><span class="dv">10</span><span class="op">^</span><span class="dv">6</span>, <span class="dt">digits =</span> <span class="dv">2</span>), </span>
-<span id="cb15-47"><a href="data-loading-and-summary.html#cb15-47"></a>    <span class="dt">Lines =</span> Num_Lines, <span class="dt">Words =</span> Num_Words, <span class="dt">Min =</span> Min_Words, </span>
-<span id="cb15-48"><a href="data-loading-and-summary.html#cb15-48"></a>    <span class="dt">Average =</span> Mean_Words, <span class="dt">Max =</span> Max_Words)</span>
-<span id="cb15-49"><a href="data-loading-and-summary.html#cb15-49"></a></span>
-<span id="cb15-50"><a href="data-loading-and-summary.html#cb15-50"></a><span class="co"># knit to table -----------</span></span>
-<span id="cb15-51"><a href="data-loading-and-summary.html#cb15-51"></a>table1 &lt;-<span class="st"> </span><span class="kw">kable</span>(list_files, <span class="dt">align =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;c&quot;</span>, <span class="dt">times =</span> <span class="dv">5</span>)))</span></code></pre></div>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="data-loading-and-summary.html#cb16-1"></a>table1</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="data-loading-and-summary.html#cb14-1"></a><span class="co">## Download file (run at the beginning only) ---------</span></span>
+<span id="cb14-2"><a href="data-loading-and-summary.html#cb14-2"></a></span>
+<span id="cb14-3"><a href="data-loading-and-summary.html#cb14-3"></a><span class="co"># if (!file.exists(&#39;data&#39;)) { dir.create(&#39;data&#39;) }</span></span>
+<span id="cb14-4"><a href="data-loading-and-summary.html#cb14-4"></a><span class="co"># download.file(</span></span>
+<span id="cb14-5"><a href="data-loading-and-summary.html#cb14-5"></a><span class="co"># &#39;https://d396qusza40orc.cloudfront.net/ds</span></span>
+<span id="cb14-6"><a href="data-loading-and-summary.html#cb14-6"></a><span class="co"># scapstone/dataset/Coursera-SwiftKey.zip&#39;, destfile =</span></span>
+<span id="cb14-7"><a href="data-loading-and-summary.html#cb14-7"></a><span class="co"># &#39;./data/Coursera-SwiftKey.zip&#39; )</span></span>
+<span id="cb14-8"><a href="data-loading-and-summary.html#cb14-8"></a><span class="co"># unzip(&#39;./data/Coursera-SwiftKey.zip&#39;, exdir =</span></span>
+<span id="cb14-9"><a href="data-loading-and-summary.html#cb14-9"></a><span class="co"># &#39;./data&#39;)</span></span>
+<span id="cb14-10"><a href="data-loading-and-summary.html#cb14-10"></a></span>
+<span id="cb14-11"><a href="data-loading-and-summary.html#cb14-11"></a><span class="co">## Combining -----------</span></span>
+<span id="cb14-12"><a href="data-loading-and-summary.html#cb14-12"></a>files2 &lt;-<span class="st"> </span><span class="kw">list.dirs</span>(<span class="st">&quot;./data/final&quot;</span>)</span>
+<span id="cb14-13"><a href="data-loading-and-summary.html#cb14-13"></a>lsfile &lt;-<span class="st"> </span><span class="kw">paste0</span>(files2[<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>], <span class="st">&quot;/&quot;</span>, <span class="kw">list.files</span>(files2[<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>]))</span>
+<span id="cb14-14"><a href="data-loading-and-summary.html#cb14-14"></a></span>
+<span id="cb14-15"><a href="data-loading-and-summary.html#cb14-15"></a><span class="co"># gives us the directory path</span></span>
+<span id="cb14-16"><a href="data-loading-and-summary.html#cb14-16"></a>ldir &lt;-<span class="st"> </span><span class="kw">normalizePath</span>(files2[<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>], <span class="st">&quot;rb&quot;</span>)</span>
+<span id="cb14-17"><a href="data-loading-and-summary.html#cb14-17"></a></span>
+<span id="cb14-18"><a href="data-loading-and-summary.html#cb14-18"></a><span class="co"># gives us full path and filename</span></span>
+<span id="cb14-19"><a href="data-loading-and-summary.html#cb14-19"></a>finaldir &lt;-<span class="st"> </span><span class="kw">dir</span>(<span class="dt">path =</span> ldir, <span class="dt">full.names =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb14-20"><a href="data-loading-and-summary.html#cb14-20"></a></span>
+<span id="cb14-21"><a href="data-loading-and-summary.html#cb14-21"></a><span class="co">## Build a table --------------</span></span>
+<span id="cb14-22"><a href="data-loading-and-summary.html#cb14-22"></a></span>
+<span id="cb14-23"><a href="data-loading-and-summary.html#cb14-23"></a><span class="co">## Num_Words total number of words in a txt file</span></span>
+<span id="cb14-24"><a href="data-loading-and-summary.html#cb14-24"></a>Num_Words &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>)</span>
+<span id="cb14-25"><a href="data-loading-and-summary.html#cb14-25"></a></span>
+<span id="cb14-26"><a href="data-loading-and-summary.html#cb14-26"></a><span class="co">## Num_Lines number of lines per txt file</span></span>
+<span id="cb14-27"><a href="data-loading-and-summary.html#cb14-27"></a>Num_Lines &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>)</span>
+<span id="cb14-28"><a href="data-loading-and-summary.html#cb14-28"></a></span>
+<span id="cb14-29"><a href="data-loading-and-summary.html#cb14-29"></a><span class="co">## Range of words per line</span></span>
+<span id="cb14-30"><a href="data-loading-and-summary.html#cb14-30"></a>Min_Words &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>)</span>
+<span id="cb14-31"><a href="data-loading-and-summary.html#cb14-31"></a>Mean_Words &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>)</span>
+<span id="cb14-32"><a href="data-loading-and-summary.html#cb14-32"></a>Max_Words &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>)</span>
+<span id="cb14-33"><a href="data-loading-and-summary.html#cb14-33"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>) {</span>
+<span id="cb14-34"><a href="data-loading-and-summary.html#cb14-34"></a>    Num_Words[i] &lt;-<span class="st"> </span><span class="kw">print</span>(<span class="kw">sum</span>(<span class="kw">stri_count_words</span>(<span class="kw">readLines</span>(finaldir[[i]]))))</span>
+<span id="cb14-35"><a href="data-loading-and-summary.html#cb14-35"></a>    Mean_Words[i] &lt;-<span class="st"> </span><span class="kw">print</span>(<span class="kw">round</span>(<span class="kw">mean</span>(<span class="kw">stri_count_words</span>(<span class="kw">readLines</span>(finaldir[[i]])))), </span>
+<span id="cb14-36"><a href="data-loading-and-summary.html#cb14-36"></a>        <span class="dt">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb14-37"><a href="data-loading-and-summary.html#cb14-37"></a>    Min_Words[i] &lt;-<span class="st"> </span><span class="kw">print</span>(<span class="kw">round</span>(<span class="kw">min</span>(<span class="kw">stri_count_words</span>(<span class="kw">readLines</span>(finaldir[[i]])))), </span>
+<span id="cb14-38"><a href="data-loading-and-summary.html#cb14-38"></a>        <span class="dt">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb14-39"><a href="data-loading-and-summary.html#cb14-39"></a>    Max_Words[i] &lt;-<span class="st"> </span><span class="kw">print</span>(<span class="kw">round</span>(<span class="kw">max</span>(<span class="kw">stri_count_words</span>(<span class="kw">readLines</span>(finaldir[[i]])))), </span>
+<span id="cb14-40"><a href="data-loading-and-summary.html#cb14-40"></a>        <span class="dt">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb14-41"><a href="data-loading-and-summary.html#cb14-41"></a>    Num_Lines[i] &lt;-<span class="st"> </span><span class="kw">print</span>(<span class="kw">length</span>(<span class="kw">readLines</span>(finaldir[i])))</span>
+<span id="cb14-42"><a href="data-loading-and-summary.html#cb14-42"></a>}</span>
+<span id="cb14-43"><a href="data-loading-and-summary.html#cb14-43"></a></span>
+<span id="cb14-44"><a href="data-loading-and-summary.html#cb14-44"></a><span class="co"># Combine -------------</span></span>
+<span id="cb14-45"><a href="data-loading-and-summary.html#cb14-45"></a>list_files &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">Name =</span> <span class="kw">list.files</span>(files2[<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>]), <span class="dt">Size_MB =</span> <span class="kw">round</span>(<span class="kw">file.size</span>(finaldir)<span class="op">/</span><span class="dv">10</span><span class="op">^</span><span class="dv">6</span>, </span>
+<span id="cb14-46"><a href="data-loading-and-summary.html#cb14-46"></a>    <span class="dt">digits =</span> <span class="dv">2</span>), <span class="dt">Lines =</span> Num_Lines, <span class="dt">Words =</span> Num_Words, <span class="dt">Min =</span> Min_Words, </span>
+<span id="cb14-47"><a href="data-loading-and-summary.html#cb14-47"></a>    <span class="dt">Average =</span> Mean_Words, <span class="dt">Max =</span> Max_Words)</span>
+<span id="cb14-48"><a href="data-loading-and-summary.html#cb14-48"></a></span>
+<span id="cb14-49"><a href="data-loading-and-summary.html#cb14-49"></a><span class="co"># knit to table -----------</span></span>
+<span id="cb14-50"><a href="data-loading-and-summary.html#cb14-50"></a>table1 &lt;-<span class="st"> </span><span class="kw">kable</span>(list_files, <span class="dt">align =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;c&quot;</span>, <span class="dt">times =</span> <span class="dv">5</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="data-loading-and-summary.html#cb15-1"></a>table1</span></code></pre></div>
 <table>
 <thead>
 <tr>
