@@ -546,9 +546,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="what-is-data" class="section level2">
 <h2><span class="header-section-number">2.4</span> What is Data?</h2>
 <p>There are so many data being generated everyday. Take me for example, I’ve sent 5 emails today, reviewed and created trading strategy for next week, check my reddit, stocktwits, webull, and twitter for sentiment analysis, shared several photos to my family, check-out my Tesla app to monitor Solar Panel and battery, and reviewed my nest video monitoring. These are all completed in early morning routine.</p>
-<p>Data is coming from many forms such as your typical emails, social media, internet of things such as Tesla solar panels/Powerwall connected to the internet and google’s home monitoring Nest. All of these data are a combination of numerical, categorical, and it some cases are often big which falls under binary large objects or “BLOB”.</p>
+<p>Data is coming from many forms your typical emails, social media, internet of things like Tesla solar panels/Powerwall connected to the internet and google’s home monitoring Nest. All of these data are a combination of numerical, categorical, and it some cases are often big which falls under binary large objects or “BLOB”.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="what-is-data.html#cb12-1"></a><span class="co"># ggplot argument x0, y0, r are all required,</span></span>
-<span id="cb12-2"><a href="what-is-data.html#cb12-2"></a><span class="kw">ggplot</span>(VennDS, <span class="kw">aes</span>(</span>
+<span id="cb12-2"><a href="what-is-data.html#cb12-2"></a>v2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(VennDS, <span class="kw">aes</span>(</span>
 <span id="cb12-3"><a href="what-is-data.html#cb12-3"></a>  <span class="dt">x0 =</span> x,</span>
 <span id="cb12-4"><a href="what-is-data.html#cb12-4"></a>  <span class="dt">y0 =</span> y,</span>
 <span id="cb12-5"><a href="what-is-data.html#cb12-5"></a>  <span class="dt">r =</span> <span class="fl">1.5</span>,</span>
@@ -580,8 +580,15 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb12-31"><a href="what-is-data.html#cb12-31"></a>        <span class="dt">axis.ticks.x=</span><span class="kw">element_blank</span>(),</span>
 <span id="cb12-32"><a href="what-is-data.html#cb12-32"></a>        <span class="dt">axis.title.y=</span><span class="kw">element_blank</span>(),</span>
 <span id="cb12-33"><a href="what-is-data.html#cb12-33"></a>        <span class="dt">axis.text.y=</span><span class="kw">element_blank</span>(),</span>
-<span id="cb12-34"><a href="what-is-data.html#cb12-34"></a>        <span class="dt">axis.ticks.y=</span><span class="kw">element_blank</span>())</span></code></pre></div>
-<p><img src="r_full_stack_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<span id="cb12-34"><a href="what-is-data.html#cb12-34"></a>        <span class="dt">axis.ticks.y=</span><span class="kw">element_blank</span>())</span>
+<span id="cb12-35"><a href="what-is-data.html#cb12-35"></a></span>
+<span id="cb12-36"><a href="what-is-data.html#cb12-36"></a>v2</span></code></pre></div>
+<div class="figure"><span id="fig:bigdata"></span>
+<img src="r_full_stack_files/figure-html/bigdata-1.png" alt="The **V**s of Big Data" width="672" />
+<p class="caption">
+Figure 2.7: The <strong>V</strong>s of Big Data
+</p>
+</div>
 </div>
             </section>
 

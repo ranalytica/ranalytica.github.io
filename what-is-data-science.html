@@ -562,7 +562,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb11-14"><a href="what-is-data-science.html#cb11-14"></a>          <span class="st">&#39;Volume&#39;</span>)</span>
 <span id="cb11-15"><a href="what-is-data-science.html#cb11-15"></a>)</span>
 <span id="cb11-16"><a href="what-is-data-science.html#cb11-16"></a><span class="co"># ggplot argument x0, y0, r are all required,</span></span>
-<span id="cb11-17"><a href="what-is-data-science.html#cb11-17"></a><span class="kw">ggplot</span>(VennDS, <span class="kw">aes</span>(</span>
+<span id="cb11-17"><a href="what-is-data-science.html#cb11-17"></a>v1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(VennDS, <span class="kw">aes</span>(</span>
 <span id="cb11-18"><a href="what-is-data-science.html#cb11-18"></a>  <span class="dt">x0 =</span> x,</span>
 <span id="cb11-19"><a href="what-is-data-science.html#cb11-19"></a>  <span class="dt">y0 =</span> y,</span>
 <span id="cb11-20"><a href="what-is-data-science.html#cb11-20"></a>  <span class="dt">r =</span> <span class="fl">1.5</span>,</span>
@@ -618,19 +618,21 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb11-70"><a href="what-is-data-science.html#cb11-70"></a>        <span class="dt">axis.ticks.x=</span><span class="kw">element_blank</span>(),</span>
 <span id="cb11-71"><a href="what-is-data-science.html#cb11-71"></a>        <span class="dt">axis.title.y=</span><span class="kw">element_blank</span>(),</span>
 <span id="cb11-72"><a href="what-is-data-science.html#cb11-72"></a>        <span class="dt">axis.text.y=</span><span class="kw">element_blank</span>(),</span>
-<span id="cb11-73"><a href="what-is-data-science.html#cb11-73"></a>        <span class="dt">axis.ticks.y=</span><span class="kw">element_blank</span>())</span></code></pre></div>
-<div class="figure"><span id="fig:02-venn"></span>
-<img src="r_full_stack_files/figure-html/02-venn-1.png" alt="[@vdgm" width="672" />
+<span id="cb11-73"><a href="what-is-data-science.html#cb11-73"></a>        <span class="dt">axis.ticks.y=</span><span class="kw">element_blank</span>())</span>
+<span id="cb11-74"><a href="what-is-data-science.html#cb11-74"></a></span>
+<span id="cb11-75"><a href="what-is-data-science.html#cb11-75"></a>v1</span></code></pre></div>
+<div class="figure"><span id="fig:02-vennDS"></span>
+<img src="r_full_stack_files/figure-html/02-vennDS-1.png" alt="Data Science Venn Diagram [@vdgm]" width="672" />
 <p class="caption">
-Figure 2.6: [<span class="citation">Conway (<a href="#ref-vdgm" role="doc-biblioref">2010</a>)</span>
+Figure 2.6: Data Science Venn Diagram <span class="citation">(Conway <a href="#ref-vdgm" role="doc-biblioref">2010</a>)</span>
 </p>
 </div>
-<p>The Data Science venn diagram figure <span class="citation">(Conway <a href="#ref-vdgm" role="doc-biblioref">2010</a>)</span> shows us the combination of three fields - computer science, math &amp; statistics, and domain environment (i.e. genetics, finance, etc.). The core of Data Science is using the data to answer our question. Generating the right question will help us decide what data to take in and out.</p>
-<p>The following are basic routine in R:</p>
+<p>The Data Science venn diagram figure <span class="citation">(<span class="citeproc-not-found" data-reference-id="vdgmDS"><strong>???</strong></span>)</span> shows us the combination of three fields - computer science, math &amp; statistics, and domain environment (i.e. genetics, finance, etc.). The core of Data Science is using the data to answer our question. Generating the right question will help us decide what data to take in and out of our environment. An example of an ineffective question is “What is the sales for company abc?” What about an effective question - “What is the quarterly sales for the last 5 years for company abc? What are the top 10 products in sales/profit/numbers in the last year by month?”</p>
+<p>Once the question is generated the following are basic routine in R/RStudio:</p>
 <ol style="list-style-type: decimal">
 <li>Grabbing the data</li>
 <li>Data wrangling and making them tidy</li>
-<li>Exploratory analysis</li>
+<li>Exploratory Analysis</li>
 <li>Reproducible Research</li>
 <li>Statistical Inference</li>
 <li>Regression Models</li>
