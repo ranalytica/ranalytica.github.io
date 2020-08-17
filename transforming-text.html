@@ -550,23 +550,23 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Tokenization - identifying appropriate tokens such as words, punctuation, and numbers. Writing a function that takes a file as input and returns a tokenized version of it.</p></li>
 <li><p>Profanity filtering ——————</p></li>
 </ol>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="transforming-text.html#cb23-1"></a>removeSpecialChars &lt;-<span class="st"> </span><span class="cf">function</span>(x)</span>
-<span id="cb23-2"><a href="transforming-text.html#cb23-2"></a>      <span class="kw">gsub</span>(<span class="st">&quot;[^a-zA-Z0-9 ]&quot;</span>, <span class="st">&quot;&quot;</span>, x)</span>
-<span id="cb23-3"><a href="transforming-text.html#cb23-3"></a></span>
-<span id="cb23-4"><a href="transforming-text.html#cb23-4"></a><span class="kw">getTransformations</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="transforming-text.html#cb22-1"></a>removeSpecialChars &lt;-<span class="st"> </span><span class="cf">function</span>(x)</span>
+<span id="cb22-2"><a href="transforming-text.html#cb22-2"></a>      <span class="kw">gsub</span>(<span class="st">&quot;[^a-zA-Z0-9 ]&quot;</span>, <span class="st">&quot;&quot;</span>, x)</span>
+<span id="cb22-3"><a href="transforming-text.html#cb22-3"></a></span>
+<span id="cb22-4"><a href="transforming-text.html#cb22-4"></a><span class="kw">getTransformations</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;removeNumbers&quot;     &quot;removePunctuation&quot;
 ## [3] &quot;removeWords&quot;       &quot;stemDocument&quot;     
 ## [5] &quot;stripWhitespace&quot;</code></pre>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="transforming-text.html#cb25-1"></a>us_news &lt;-<span class="st"> </span><span class="kw">tm_map</span>(corpus_data[<span class="dv">5</span>], removePunctuation)</span>
-<span id="cb25-2"><a href="transforming-text.html#cb25-2"></a></span>
-<span id="cb25-3"><a href="transforming-text.html#cb25-3"></a>us_news &lt;-<span class="st"> </span><span class="kw">tm_map</span>(us_news, removeNumbers)</span>
-<span id="cb25-4"><a href="transforming-text.html#cb25-4"></a>us_news &lt;-<span class="st"> </span><span class="kw">tm_map</span>(us_news, <span class="kw">content_transformer</span>(tolower))</span>
-<span id="cb25-5"><a href="transforming-text.html#cb25-5"></a>us_news &lt;-<span class="st"> </span><span class="kw">tm_map</span>(us_news, removeWords, <span class="kw">stopwords</span>(<span class="dt">kind =</span> <span class="st">&quot;en&quot;</span>))</span>
-<span id="cb25-6"><a href="transforming-text.html#cb25-6"></a>us_news &lt;-<span class="st"> </span><span class="kw">tm_map</span>(us_news, stripWhitespace)</span>
-<span id="cb25-7"><a href="transforming-text.html#cb25-7"></a>us_news &lt;-<span class="st"> </span><span class="kw">tm_map</span>(us_news, stemDocument)</span>
-<span id="cb25-8"><a href="transforming-text.html#cb25-8"></a>us_news &lt;-<span class="st"> </span><span class="kw">tm_map</span>(us_news, <span class="kw">content_transformer</span>(removeSpecialChars))</span>
-<span id="cb25-9"><a href="transforming-text.html#cb25-9"></a>us_news_trix &lt;-<span class="st"> </span><span class="kw">DocumentTermMatrix</span>(us_news)</span></code></pre></div>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="transforming-text.html#cb26-1"></a><span class="kw">inspect</span>(us_news_trix)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="transforming-text.html#cb24-1"></a>us_news &lt;-<span class="st"> </span><span class="kw">tm_map</span>(corpus_data[<span class="dv">5</span>], removePunctuation)</span>
+<span id="cb24-2"><a href="transforming-text.html#cb24-2"></a></span>
+<span id="cb24-3"><a href="transforming-text.html#cb24-3"></a>us_news &lt;-<span class="st"> </span><span class="kw">tm_map</span>(us_news, removeNumbers)</span>
+<span id="cb24-4"><a href="transforming-text.html#cb24-4"></a>us_news &lt;-<span class="st"> </span><span class="kw">tm_map</span>(us_news, <span class="kw">content_transformer</span>(tolower))</span>
+<span id="cb24-5"><a href="transforming-text.html#cb24-5"></a>us_news &lt;-<span class="st"> </span><span class="kw">tm_map</span>(us_news, removeWords, <span class="kw">stopwords</span>(<span class="dt">kind =</span> <span class="st">&quot;en&quot;</span>))</span>
+<span id="cb24-6"><a href="transforming-text.html#cb24-6"></a>us_news &lt;-<span class="st"> </span><span class="kw">tm_map</span>(us_news, stripWhitespace)</span>
+<span id="cb24-7"><a href="transforming-text.html#cb24-7"></a>us_news &lt;-<span class="st"> </span><span class="kw">tm_map</span>(us_news, stemDocument)</span>
+<span id="cb24-8"><a href="transforming-text.html#cb24-8"></a>us_news &lt;-<span class="st"> </span><span class="kw">tm_map</span>(us_news, <span class="kw">content_transformer</span>(removeSpecialChars))</span>
+<span id="cb24-9"><a href="transforming-text.html#cb24-9"></a>us_news_trix &lt;-<span class="st"> </span><span class="kw">DocumentTermMatrix</span>(us_news)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="transforming-text.html#cb25-1"></a><span class="kw">inspect</span>(us_news_trix)</span></code></pre></div>
 <pre><code>## &lt;&lt;DocumentTermMatrix (documents: 1, terms: 249338)&gt;&gt;
 ## Non-/sparse entries: 249338/0
 ## Sparsity           : 0%
@@ -579,7 +579,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ##                 Terms
 ## Docs             state  time   will   year
 ##   en_US.news.txt 66073 65995 110914 109283</code></pre>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="transforming-text.html#cb28-1"></a><span class="kw">findFreqTerms</span>(us_news_trix, <span class="dv">25</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="transforming-text.html#cb27-1"></a><span class="kw">findFreqTerms</span>(us_news_trix, <span class="dv">25</span>)</span></code></pre></div>
 <pre><code>##    [1] &quot;aaa&quot;              &quot;aah&quot;             
 ##    [3] &quot;aardman&quot;          &quot;aaron&quot;           
 ##    [5] &quot;aarp&quot;             &quot;aau&quot;             
@@ -1081,10 +1081,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ##  [997] &quot;apriljun&quot;         &quot;apron&quot;           
 ##  [999] &quot;apt&quot;              &quot;aptitud&quot;         
 ##  [ reached getOption(&quot;max.print&quot;) -- omitted 24594 entries ]</code></pre>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="transforming-text.html#cb30-1"></a><span class="kw">findAssocs</span>(us_news_trix, <span class="st">&quot;feet&quot;</span>, <span class="fl">.1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="transforming-text.html#cb29-1"></a><span class="kw">findAssocs</span>(us_news_trix, <span class="st">&quot;feet&quot;</span>, <span class="fl">.1</span>)</span></code></pre></div>
 <pre><code>## $feet
 ## numeric(0)</code></pre>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="transforming-text.html#cb32-1"></a><span class="kw">inspect</span>(<span class="kw">removeSparseTerms</span>(us_news_trix, <span class="fl">.4</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="transforming-text.html#cb31-1"></a><span class="kw">inspect</span>(<span class="kw">removeSparseTerms</span>(us_news_trix, <span class="fl">.4</span>))</span></code></pre></div>
 <pre><code>## &lt;&lt;DocumentTermMatrix (documents: 1, terms: 249338)&gt;&gt;
 ## Non-/sparse entries: 249338/0
 ## Sparsity           : 0%
@@ -1097,7 +1097,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ##                 Terms
 ## Docs             state  time   will   year
 ##   en_US.news.txt 66073 65995 110914 109283</code></pre>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="transforming-text.html#cb34-1"></a><span class="kw">Terms</span>(us_news_trix)</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="transforming-text.html#cb33-1"></a><span class="kw">Terms</span>(us_news_trix)</span></code></pre></div>
 <pre><code>##    [1] &quot;aaa&quot;                             
 ##    [2] &quot;aaaa&quot;                            
 ##    [3] &quot;aaaaa&quot;                           
@@ -2099,7 +2099,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ##  [999] &quot;acereceiv&quot;                       
 ## [1000] &quot;acerno&quot;                          
 ##  [ reached getOption(&quot;max.print&quot;) -- omitted 248338 entries ]</code></pre>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="transforming-text.html#cb36-1"></a>freqq &lt;-<span class="st"> </span><span class="kw">colSums</span>(<span class="kw">as.matrix</span>(us_news_trix))</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="transforming-text.html#cb35-1"></a>freqq &lt;-<span class="st"> </span><span class="kw">colSums</span>(<span class="kw">as.matrix</span>(us_news_trix))</span></code></pre></div>
 
 </div>
 <!-- </div> -->
