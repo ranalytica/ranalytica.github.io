@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title> 7 Reproducible Research | Lockdown to R-Full-Stack</title>
+  <title>11.3 Corpus | Lockdown to R-Full-Stack</title>
   <meta name="description" content="This is my journey to R programming." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content=" 7 Reproducible Research | Lockdown to R-Full-Stack" />
+  <meta property="og:title" content="11.3 Corpus | Lockdown to R-Full-Stack" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content=" 7 Reproducible Research | Lockdown to R-Full-Stack" />
+  <meta name="twitter:title" content="11.3 Corpus | Lockdown to R-Full-Stack" />
   
   <meta name="twitter:description" content="This is my journey to R programming." />
   
@@ -24,15 +24,15 @@
 <meta name="author" content="Richard Nacianceno" />
 
 
-<meta name="date" content="2020-08-24" />
+<meta name="date" content="2020-08-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="final-words.html"/>
-<link rel="next" href="regression-models.html"/>
+<link rel="prev" href="textmining.html"/>
+<link rel="next" href="token.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -52,18 +52,6 @@
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
-<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-1.3.1/leaflet.js"></script>
-<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
-<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
-<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
-<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
-<script src="libs/echarts4r-4.8.0/echarts-en.min.js"></script>
-<script src="libs/echarts4r-4.8.0/ecStat.min.js"></script>
-<script src="libs/echarts4r-4.8.0/dataTool.min.js"></script>
-<script src="libs/echarts4r-binding-0.3.2/echarts4r.js"></script>
 
 <script>
 /* ========================================================================
@@ -519,11 +507,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10" data-path="developing-data-products.html"><a href="developing-data-products.html"><i class="fa fa-check"></i><b>10</b> Developing Data Products</a></li>
 <li class="chapter" data-level="11" data-path="data-science-capstone.html"><a href="data-science-capstone.html"><i class="fa fa-check"></i><b>11</b> Data Science Capstone</a><ul>
 <li class="chapter" data-level="11.1" data-path="first-week.html"><a href="first-week.html"><i class="fa fa-check"></i><b>11.1</b> First Week</a></li>
-<li class="chapter" data-level="11.2" data-path="text-mining.html"><a href="text-mining.html"><i class="fa fa-check"></i><b>11.2</b> Text Mining</a><ul>
-<li class="chapter" data-level="11.2.1" data-path="text-mining.html"><a href="text-mining.html#corpus"><i class="fa fa-check"></i><b>11.2.1</b> Corpus</a></li>
-<li class="chapter" data-level="11.2.2" data-path="text-mining.html"><a href="text-mining.html#tokenization"><i class="fa fa-check"></i><b>11.2.2</b> Tokenization</a></li>
-</ul></li>
-<li class="chapter" data-level="11.3" data-path="transforming-text.html"><a href="transforming-text.html"><i class="fa fa-check"></i><b>11.3</b> Transforming Text</a></li>
+<li class="chapter" data-level="11.2" data-path="textmining.html"><a href="textmining.html"><i class="fa fa-check"></i><b>11.2</b> Text Mining</a></li>
+<li class="chapter" data-level="11.3" data-path="corpus.html"><a href="corpus.html"><i class="fa fa-check"></i><b>11.3</b> Corpus</a></li>
+<li class="chapter" data-level="11.4" data-path="token.html"><a href="token.html"><i class="fa fa-check"></i><b>11.4</b> Tokenization and Ngram</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -546,17 +532,405 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="reproducible-research" class="section level1">
-<h1><span class="header-section-number"> 7</span> Reproducible Research</h1>
-
+<div id="corpus" class="section level2">
+<h2><span class="header-section-number">11.3</span> Corpus</h2>
+<p>Corpus is a collection of written texts, especially the entire works of a particular author or a body of writing on a particular subject. Corpora are generally used for statsitical liguistic analysis and hypothesis testing <span class="citation">(Mayo <a href="#ref-corpora" role="doc-biblioref">2017</a>)</span>. Let’s look at our data set for the capstone which can be found <a href="https://d396qusza40orc.cloudfront.net/ds%20scapstone/dataset/Coursera-SwiftKey.zip">here</a>. Below is a code that will give as the summary of our collection of text.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="corpus.html#cb4-1"></a><span class="co">## Download file (run at the beginning only) ---------</span></span>
+<span id="cb4-2"><a href="corpus.html#cb4-2"></a></span>
+<span id="cb4-3"><a href="corpus.html#cb4-3"></a><span class="co"># if (!file.exists(&quot;data&quot;)) {</span></span>
+<span id="cb4-4"><a href="corpus.html#cb4-4"></a><span class="co">#  dir.create(&quot;data&quot;)</span></span>
+<span id="cb4-5"><a href="corpus.html#cb4-5"></a><span class="co">#}</span></span>
+<span id="cb4-6"><a href="corpus.html#cb4-6"></a><span class="co"># download.file(</span></span>
+<span id="cb4-7"><a href="corpus.html#cb4-7"></a><span class="co">#  &quot;https://d396qusza40orc.cloudfront.net/ds scapstone/dataset/Coursera-SwiftKey.zip&quot;,</span></span>
+<span id="cb4-8"><a href="corpus.html#cb4-8"></a><span class="co">#  destfile = &quot;./data/Coursera-SwiftKey.zip&quot;</span></span>
+<span id="cb4-9"><a href="corpus.html#cb4-9"></a><span class="co"># )</span></span>
+<span id="cb4-10"><a href="corpus.html#cb4-10"></a><span class="co"># unzip(&quot;./data/Coursera-SwiftKey.zip&quot;, exdir = &quot;./data&quot;)</span></span>
+<span id="cb4-11"><a href="corpus.html#cb4-11"></a></span>
+<span id="cb4-12"><a href="corpus.html#cb4-12"></a><span class="co">## Combining -----------</span></span>
+<span id="cb4-13"><a href="corpus.html#cb4-13"></a>files2 &lt;-<span class="st"> </span><span class="kw">list.dirs</span>(<span class="st">&quot;./data/final&quot;</span>)</span>
+<span id="cb4-14"><a href="corpus.html#cb4-14"></a>lsfile &lt;-<span class="st">  </span><span class="kw">paste0</span>(files2[<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>],<span class="st">&quot;/&quot;</span>,</span>
+<span id="cb4-15"><a href="corpus.html#cb4-15"></a>                  <span class="kw">list.files</span>(files2[<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>]))</span>
+<span id="cb4-16"><a href="corpus.html#cb4-16"></a></span>
+<span id="cb4-17"><a href="corpus.html#cb4-17"></a><span class="co"># gives us a list of directory paths to the acutal text file</span></span>
+<span id="cb4-18"><a href="corpus.html#cb4-18"></a>ldir &lt;-<span class="st"> </span><span class="kw">normalizePath</span>(files2[<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>], <span class="st">&quot;rb&quot;</span>) </span>
+<span id="cb4-19"><a href="corpus.html#cb4-19"></a></span>
+<span id="cb4-20"><a href="corpus.html#cb4-20"></a><span class="co"># gives us full path and filename</span></span>
+<span id="cb4-21"><a href="corpus.html#cb4-21"></a>finaldir &lt;-<span class="st"> </span><span class="kw">dir</span>(<span class="dt">path=</span>ldir, <span class="dt">full.names=</span><span class="ot">TRUE</span>) </span>
+<span id="cb4-22"><a href="corpus.html#cb4-22"></a></span>
+<span id="cb4-23"><a href="corpus.html#cb4-23"></a><span class="co">## Build a table --------------</span></span>
+<span id="cb4-24"><a href="corpus.html#cb4-24"></a></span>
+<span id="cb4-25"><a href="corpus.html#cb4-25"></a><span class="co">## Num_Words total number of words in a txt file</span></span>
+<span id="cb4-26"><a href="corpus.html#cb4-26"></a>Num_Words &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>)</span>
+<span id="cb4-27"><a href="corpus.html#cb4-27"></a></span>
+<span id="cb4-28"><a href="corpus.html#cb4-28"></a><span class="co">## Num_Lines number of lines per txt file</span></span>
+<span id="cb4-29"><a href="corpus.html#cb4-29"></a>Num_Lines &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>)</span>
+<span id="cb4-30"><a href="corpus.html#cb4-30"></a></span>
+<span id="cb4-31"><a href="corpus.html#cb4-31"></a><span class="co">## Range of words per line</span></span>
+<span id="cb4-32"><a href="corpus.html#cb4-32"></a>Min_Words &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>)</span>
+<span id="cb4-33"><a href="corpus.html#cb4-33"></a>Mean_Words &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>)</span>
+<span id="cb4-34"><a href="corpus.html#cb4-34"></a>Max_Words &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>)</span>
+<span id="cb4-35"><a href="corpus.html#cb4-35"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>) {</span>
+<span id="cb4-36"><a href="corpus.html#cb4-36"></a>      Num_Words[i] &lt;-</span>
+<span id="cb4-37"><a href="corpus.html#cb4-37"></a><span class="st">        </span><span class="kw">print</span>(<span class="kw">sum</span>(<span class="kw">stri_count_words</span>(<span class="kw">readLines</span>(finaldir[[i]]))))</span>
+<span id="cb4-38"><a href="corpus.html#cb4-38"></a>      Mean_Words[i] &lt;-</span>
+<span id="cb4-39"><a href="corpus.html#cb4-39"></a><span class="st">        </span><span class="kw">print</span>(<span class="kw">round</span>(<span class="kw">mean</span>(<span class="kw">stri_count_words</span>(</span>
+<span id="cb4-40"><a href="corpus.html#cb4-40"></a>          <span class="kw">readLines</span>(finaldir[[i]])</span>
+<span id="cb4-41"><a href="corpus.html#cb4-41"></a>        ))), <span class="dt">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb4-42"><a href="corpus.html#cb4-42"></a>      Min_Words[i] &lt;-</span>
+<span id="cb4-43"><a href="corpus.html#cb4-43"></a><span class="st">        </span><span class="kw">print</span>(<span class="kw">round</span>(<span class="kw">min</span>(<span class="kw">stri_count_words</span>(</span>
+<span id="cb4-44"><a href="corpus.html#cb4-44"></a>          <span class="kw">readLines</span>(finaldir[[i]])</span>
+<span id="cb4-45"><a href="corpus.html#cb4-45"></a>        ))), <span class="dt">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb4-46"><a href="corpus.html#cb4-46"></a>      Max_Words[i] &lt;-</span>
+<span id="cb4-47"><a href="corpus.html#cb4-47"></a><span class="st">        </span><span class="kw">print</span>(<span class="kw">round</span>(<span class="kw">max</span>(<span class="kw">stri_count_words</span>(</span>
+<span id="cb4-48"><a href="corpus.html#cb4-48"></a>          <span class="kw">readLines</span>(finaldir[[i]])</span>
+<span id="cb4-49"><a href="corpus.html#cb4-49"></a>        ))), <span class="dt">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb4-50"><a href="corpus.html#cb4-50"></a>      Num_Lines[i] &lt;-<span class="st"> </span><span class="kw">print</span>(<span class="kw">length</span>(<span class="kw">readLines</span>(finaldir[i])))</span>
+<span id="cb4-51"><a href="corpus.html#cb4-51"></a>}</span>
+<span id="cb4-52"><a href="corpus.html#cb4-52"></a></span>
+<span id="cb4-53"><a href="corpus.html#cb4-53"></a><span class="co"># Table -------------</span></span>
+<span id="cb4-54"><a href="corpus.html#cb4-54"></a>list_files &lt;-<span class="st"> </span><span class="kw">tibble</span>(</span>
+<span id="cb4-55"><a href="corpus.html#cb4-55"></a>        <span class="st">&#39;Name&#39;</span> =<span class="st"> </span><span class="kw">list.files</span>(files2[<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>]),</span>
+<span id="cb4-56"><a href="corpus.html#cb4-56"></a>        <span class="st">&#39;Size_MB&#39;</span> =<span class="st"> </span><span class="kw">round</span>(<span class="kw">file.size</span>(finaldir) <span class="op">/</span><span class="st"> </span><span class="dv">10</span> <span class="op">^</span><span class="st"> </span><span class="dv">6</span>, <span class="dt">digits =</span></span>
+<span id="cb4-57"><a href="corpus.html#cb4-57"></a>                            <span class="dv">2</span>),</span>
+<span id="cb4-58"><a href="corpus.html#cb4-58"></a>        <span class="dt">Lines =</span> Num_Lines,</span>
+<span id="cb4-59"><a href="corpus.html#cb4-59"></a>        <span class="dt">Words =</span> Num_Words,</span>
+<span id="cb4-60"><a href="corpus.html#cb4-60"></a>        <span class="dt">Min =</span> Min_Words,</span>
+<span id="cb4-61"><a href="corpus.html#cb4-61"></a>        <span class="dt">Average =</span> Mean_Words,</span>
+<span id="cb4-62"><a href="corpus.html#cb4-62"></a>        <span class="dt">Max =</span> Max_Words</span>
+<span id="cb4-63"><a href="corpus.html#cb4-63"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="corpus.html#cb5-1"></a><span class="co"># knit to table -----------</span></span>
+<span id="cb5-2"><a href="corpus.html#cb5-2"></a><span class="kw">kable</span>(list_files, <span class="dt">caption =</span> <span class="st">&#39;Corpus-Collection of Text&#39;</span>,</span>
+<span id="cb5-3"><a href="corpus.html#cb5-3"></a>                <span class="dt">align =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&#39;c&#39;</span>, <span class="dt">times =</span> <span class="dv">5</span>))) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb5-4"><a href="corpus.html#cb5-4"></a><span class="st">        </span>kableExtra<span class="op">::</span><span class="kw">kable_styling</span>()</span></code></pre></div>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+(#tab:11-text_sum)Corpus-Collection of Text
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+Name
+</th>
+<th style="text-align:center;">
+Size_MB
+</th>
+<th style="text-align:center;">
+Lines
+</th>
+<th style="text-align:center;">
+Words
+</th>
+<th style="text-align:center;">
+Min
+</th>
+<th style="text-align:center;">
+Average
+</th>
+<th style="text-align:center;">
+Max
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+de_DE.blogs.txt
+</td>
+<td style="text-align:center;">
+85.46
+</td>
+<td style="text-align:center;">
+371440
+</td>
+<td style="text-align:center;">
+12682659
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+34
+</td>
+<td style="text-align:center;">
+1638
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+de_DE.news.txt
+</td>
+<td style="text-align:center;">
+95.59
+</td>
+<td style="text-align:center;">
+244743
+</td>
+<td style="text-align:center;">
+13375092
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+55
+</td>
+<td style="text-align:center;">
+603
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+de_DE.twitter.txt
+</td>
+<td style="text-align:center;">
+75.58
+</td>
+<td style="text-align:center;">
+947774
+</td>
+<td style="text-align:center;">
+11646033
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+12
+</td>
+<td style="text-align:center;">
+42
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+en_US.blogs.txt
+</td>
+<td style="text-align:center;">
+210.16
+</td>
+<td style="text-align:center;">
+899288
+</td>
+<td style="text-align:center;">
+37546250
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+42
+</td>
+<td style="text-align:center;">
+6726
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+en_US.news.txt
+</td>
+<td style="text-align:center;">
+205.81
+</td>
+<td style="text-align:center;">
+1010242
+</td>
+<td style="text-align:center;">
+34762395
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+34
+</td>
+<td style="text-align:center;">
+1796
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+en_US.twitter.txt
+</td>
+<td style="text-align:center;">
+167.11
+</td>
+<td style="text-align:center;">
+2360148
+</td>
+<td style="text-align:center;">
+30093372
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+13
+</td>
+<td style="text-align:center;">
+47
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+fi_FI.blogs.txt
+</td>
+<td style="text-align:center;">
+108.50
+</td>
+<td style="text-align:center;">
+439785
+</td>
+<td style="text-align:center;">
+12785318
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+29
+</td>
+<td style="text-align:center;">
+2353
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+fi_FI.news.txt
+</td>
+<td style="text-align:center;">
+94.23
+</td>
+<td style="text-align:center;">
+485758
+</td>
+<td style="text-align:center;">
+10532432
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+22
+</td>
+<td style="text-align:center;">
+478
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+fi_FI.twitter.txt
+</td>
+<td style="text-align:center;">
+25.33
+</td>
+<td style="text-align:center;">
+285214
+</td>
+<td style="text-align:center;">
+3147083
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+11
+</td>
+<td style="text-align:center;">
+44
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+ru_RU.blogs.txt
+</td>
+<td style="text-align:center;">
+116.86
+</td>
+<td style="text-align:center;">
+337100
+</td>
+<td style="text-align:center;">
+9388482
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+28
+</td>
+<td style="text-align:center;">
+1197
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+ru_RU.news.txt
+</td>
+<td style="text-align:center;">
+119.00
+</td>
+<td style="text-align:center;">
+196360
+</td>
+<td style="text-align:center;">
+9057248
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+46
+</td>
+<td style="text-align:center;">
+1581
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+ru_RU.twitter.txt
+</td>
+<td style="text-align:center;">
+105.18
+</td>
+<td style="text-align:center;">
+881414
+</td>
+<td style="text-align:center;">
+9231328
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+36
+</td>
+</tr>
+</tbody>
+</table>
+<p>Table @ref(tab:11-txt_sum), provides the breakdown of name, size, number of lines, and word summary. The data sets have a collection of 4 languages composed of blogs, news, and twitter. The languages are in German, English, Finnish, and Russian. All characters are based on roman characters and in several cases I saw several emoji character inside twitter corpus</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Tokenization</li>
+<li>Semantic parsing -</li>
+<li>Bag of Words -</li>
+<li>Sentiment Analysis -</li>
+</ol>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-corpora">
+<p>Mayo, Matthew. 2017. “Building a Wikipedia Text Corpus for Natural Language Processing.” <a href="https://www.kdnuggets.com/2017/11/building-wikipedia-text-corpus-nlp.html#:~:text=In%20linguistics%20and%20NLP%2C%20corpus,of%20corpus)%20may%20be%20useful.">https://www.kdnuggets.com/2017/11/building-wikipedia-text-corpus-nlp.html#:~:text=In%20linguistics%20and%20NLP%2C%20corpus,of%20corpus)%20may%20be%20useful.</a></p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="final-words.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="regression-models.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="textmining.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="token.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

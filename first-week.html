@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title> 7 Reproducible Research | Lockdown to R-Full-Stack</title>
+  <title>11.1 First Week | Lockdown to R-Full-Stack</title>
   <meta name="description" content="This is my journey to R programming." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content=" 7 Reproducible Research | Lockdown to R-Full-Stack" />
+  <meta property="og:title" content="11.1 First Week | Lockdown to R-Full-Stack" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content=" 7 Reproducible Research | Lockdown to R-Full-Stack" />
+  <meta name="twitter:title" content="11.1 First Week | Lockdown to R-Full-Stack" />
   
   <meta name="twitter:description" content="This is my journey to R programming." />
   
@@ -24,15 +24,15 @@
 <meta name="author" content="Richard Nacianceno" />
 
 
-<meta name="date" content="2020-08-24" />
+<meta name="date" content="2020-08-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="final-words.html"/>
-<link rel="next" href="regression-models.html"/>
+<link rel="prev" href="data-science-capstone.html"/>
+<link rel="next" href="textmining.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -52,18 +52,6 @@
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
-<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-1.3.1/leaflet.js"></script>
-<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
-<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
-<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
-<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
-<script src="libs/echarts4r-4.8.0/echarts-en.min.js"></script>
-<script src="libs/echarts4r-4.8.0/ecStat.min.js"></script>
-<script src="libs/echarts4r-4.8.0/dataTool.min.js"></script>
-<script src="libs/echarts4r-binding-0.3.2/echarts4r.js"></script>
 
 <script>
 /* ========================================================================
@@ -519,11 +507,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10" data-path="developing-data-products.html"><a href="developing-data-products.html"><i class="fa fa-check"></i><b>10</b> Developing Data Products</a></li>
 <li class="chapter" data-level="11" data-path="data-science-capstone.html"><a href="data-science-capstone.html"><i class="fa fa-check"></i><b>11</b> Data Science Capstone</a><ul>
 <li class="chapter" data-level="11.1" data-path="first-week.html"><a href="first-week.html"><i class="fa fa-check"></i><b>11.1</b> First Week</a></li>
-<li class="chapter" data-level="11.2" data-path="text-mining.html"><a href="text-mining.html"><i class="fa fa-check"></i><b>11.2</b> Text Mining</a><ul>
-<li class="chapter" data-level="11.2.1" data-path="text-mining.html"><a href="text-mining.html#corpus"><i class="fa fa-check"></i><b>11.2.1</b> Corpus</a></li>
-<li class="chapter" data-level="11.2.2" data-path="text-mining.html"><a href="text-mining.html#tokenization"><i class="fa fa-check"></i><b>11.2.2</b> Tokenization</a></li>
-</ul></li>
-<li class="chapter" data-level="11.3" data-path="transforming-text.html"><a href="transforming-text.html"><i class="fa fa-check"></i><b>11.3</b> Transforming Text</a></li>
+<li class="chapter" data-level="11.2" data-path="textmining.html"><a href="textmining.html"><i class="fa fa-check"></i><b>11.2</b> Text Mining</a></li>
+<li class="chapter" data-level="11.3" data-path="corpus.html"><a href="corpus.html"><i class="fa fa-check"></i><b>11.3</b> Corpus</a></li>
+<li class="chapter" data-level="11.4" data-path="token.html"><a href="token.html"><i class="fa fa-check"></i><b>11.4</b> Tokenization and Ngram</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -546,17 +532,74 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="reproducible-research" class="section level1">
-<h1><span class="header-section-number"> 7</span> Reproducible Research</h1>
-
+<div id="first-week" class="section level2">
+<h2><span class="header-section-number">11.1</span> First Week</h2>
+<p>The first week involves understanding text mining infrastructure in R and exploring the data sets provided from the course. The process I took to understand the subject are as follows:</p>
+<ol style="list-style-type: decimal">
+<li>Read the material
+<ul>
+<li><a href="https://www.jstatsoft.org/article/view/v025i05">Journal of Statistical Software</a></li>
+<li><a href="https://cran.r-project.org/web/views/NaturalLanguageProcessing.html">CRAN: Natural Language Processing</a></li>
+<li><a href="https://web.stanford.edu/~jurafsky/NLPCourseraSlides.html">Natural Language Processing</a></li>
+</ul></li>
+<li>Apply the learned material and exploring the data sets which</li>
+<li>Leads to more questions such as:
+<ul>
+<li>Optimizing for speed vs. accuracy?</li>
+<li>Are there any other framework that can do this better?</li>
+<li>What technology are out there in NLP language?</li>
+</ul></li>
+</ol>
+<p>The exploration leads to more questions. The goal is to optimize algorithm based either speed or accuracy. Finding the balance is pretty difficult.</p>
+<p><strong>Below is the environment needed to examine our data sets.</strong></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="first-week.html#cb1-1"></a><span class="kw">library</span>(rmdformats)</span>
+<span id="cb1-2"><a href="first-week.html#cb1-2"></a><span class="kw">library</span>(knitr)</span>
+<span id="cb1-3"><a href="first-week.html#cb1-3"></a><span class="kw">library</span>(rvest)</span>
+<span id="cb1-4"><a href="first-week.html#cb1-4"></a><span class="kw">library</span>(tidytext)</span>
+<span id="cb1-5"><a href="first-week.html#cb1-5"></a><span class="kw">library</span>(tm)</span>
+<span id="cb1-6"><a href="first-week.html#cb1-6"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb1-7"><a href="first-week.html#cb1-7"></a><span class="kw">library</span>(readr)</span>
+<span id="cb1-8"><a href="first-week.html#cb1-8"></a><span class="kw">library</span>(openNLP)</span>
+<span id="cb1-9"><a href="first-week.html#cb1-9"></a><span class="kw">library</span>(RWeka)</span>
+<span id="cb1-10"><a href="first-week.html#cb1-10"></a><span class="kw">library</span>(glue)</span>
+<span id="cb1-11"><a href="first-week.html#cb1-11"></a><span class="kw">library</span>(stringi)</span>
+<span id="cb1-12"><a href="first-week.html#cb1-12"></a><span class="kw">library</span>(SnowballC)</span>
+<span id="cb1-13"><a href="first-week.html#cb1-13"></a><span class="kw">library</span>(caret)</span>
+<span id="cb1-14"><a href="first-week.html#cb1-14"></a><span class="kw">library</span>(disk.frame)</span>
+<span id="cb1-15"><a href="first-week.html#cb1-15"></a><span class="kw">library</span>(spacyr)</span>
+<span id="cb1-16"><a href="first-week.html#cb1-16"></a><span class="kw">library</span>(readtext)</span>
+<span id="cb1-17"><a href="first-week.html#cb1-17"></a></span>
+<span id="cb1-18"><a href="first-week.html#cb1-18"></a>enviro &lt;-<span class="st"> </span></span>
+<span id="cb1-19"><a href="first-week.html#cb1-19"></a><span class="st">  </span><span class="kw">c</span>(<span class="st">&quot;rmdformats&quot;</span>, <span class="st">&quot;knitr&quot;</span>,</span>
+<span id="cb1-20"><a href="first-week.html#cb1-20"></a>    <span class="st">&quot;rvest&quot;</span>, <span class="st">&quot;tidytext&quot;</span>, </span>
+<span id="cb1-21"><a href="first-week.html#cb1-21"></a>    <span class="st">&quot;tm&quot;</span>, <span class="st">&quot;tidyverse&quot;</span>, </span>
+<span id="cb1-22"><a href="first-week.html#cb1-22"></a>    <span class="st">&quot;NLP&quot;</span>, <span class="st">&quot;knitr&quot;</span>, </span>
+<span id="cb1-23"><a href="first-week.html#cb1-23"></a>    <span class="st">&quot;readr&quot;</span>, <span class="st">&quot;openNLP&quot;</span>, </span>
+<span id="cb1-24"><a href="first-week.html#cb1-24"></a>    <span class="st">&quot;glue&quot;</span>, <span class="st">&quot;RWeka&quot;</span>, </span>
+<span id="cb1-25"><a href="first-week.html#cb1-25"></a>    <span class="st">&quot;stringi&quot;</span>, <span class="st">&quot;SnowballC&quot;</span>, </span>
+<span id="cb1-26"><a href="first-week.html#cb1-26"></a>    <span class="st">&quot;wordcloud2&quot;</span>, <span class="st">&quot;caret&quot;</span>,</span>
+<span id="cb1-27"><a href="first-week.html#cb1-27"></a>    <span class="st">&quot;disk.frame&quot;</span>, <span class="st">&quot;spacyr&quot;</span>,</span>
+<span id="cb1-28"><a href="first-week.html#cb1-28"></a>    <span class="st">&quot;readtext&quot;</span></span>
+<span id="cb1-29"><a href="first-week.html#cb1-29"></a>  )</span>
+<span id="cb1-30"><a href="first-week.html#cb1-30"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(enviro)){</span>
+<span id="cb1-31"><a href="first-week.html#cb1-31"></a>  <span class="kw">library</span>(enviro[i], </span>
+<span id="cb1-32"><a href="first-week.html#cb1-32"></a>  <span class="dt">character.only =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb1-33"><a href="first-week.html#cb1-33"></a>}</span></code></pre></div>
+<p>Data sets can be found <a href="https://d396qusza40orc.cloudfront.net/ds%20scapstone/dataset/Coursera-SwiftKey.zip">here</a> but before we dive-in the data, let us define terminologies in NLP infrastructure. A quick google search should be able to help us with the following:</p>
+<ol style="list-style-type: decimal">
+<li>Text Mining - <a href="textmining.html#textmining">11.2</a></li>
+<li>Corpus - <a href="corpus.html#corpus">11.3</a></li>
+<li>Tokenization - <a href="token.html#token">11.4</a></li>
+<li>Ngram - <a href="token.html#token">11.4</a></li>
+</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="final-words.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="regression-models.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-science-capstone.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="textmining.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
