@@ -24,7 +24,7 @@
 <meta name="author" content="Richard Nacianceno" />
 
 
-<meta name="date" content="2020-08-24" />
+<meta name="date" content="2020-08-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="first-week.html"/>
-<link rel="next" href="transforming-text.html"/>
+<link rel="next" href="corpus.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -53,17 +53,12 @@
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
-<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-1.3.1/leaflet.js"></script>
-<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
-<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
-<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
-<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
-<script src="libs/echarts4r-4.8.0/echarts-en.min.js"></script>
-<script src="libs/echarts4r-4.8.0/ecStat.min.js"></script>
-<script src="libs/echarts4r-4.8.0/dataTool.min.js"></script>
-<script src="libs/echarts4r-binding-0.3.2/echarts4r.js"></script>
+<script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
 
 <script>
 /* ========================================================================
@@ -519,11 +514,20 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10" data-path="developing-data-products.html"><a href="developing-data-products.html"><i class="fa fa-check"></i><b>10</b> Developing Data Products</a></li>
 <li class="chapter" data-level="11" data-path="data-science-capstone.html"><a href="data-science-capstone.html"><i class="fa fa-check"></i><b>11</b> Data Science Capstone</a><ul>
 <li class="chapter" data-level="11.1" data-path="first-week.html"><a href="first-week.html"><i class="fa fa-check"></i><b>11.1</b> First Week</a></li>
-<li class="chapter" data-level="11.2" data-path="text-mining.html"><a href="text-mining.html"><i class="fa fa-check"></i><b>11.2</b> Text Mining</a><ul>
-<li class="chapter" data-level="11.2.1" data-path="text-mining.html"><a href="text-mining.html#corpus"><i class="fa fa-check"></i><b>11.2.1</b> Corpus</a></li>
-<li class="chapter" data-level="11.2.2" data-path="text-mining.html"><a href="text-mining.html#tokenization"><i class="fa fa-check"></i><b>11.2.2</b> Tokenization</a></li>
+<li class="chapter" data-level="11.2" data-path="text-mining.html"><a href="text-mining.html"><i class="fa fa-check"></i><b>11.2</b> Text Mining</a></li>
+<li class="chapter" data-level="11.3" data-path="corpus.html"><a href="corpus.html"><i class="fa fa-check"></i><b>11.3</b> Corpus</a></li>
+<li class="chapter" data-level="11.4" data-path="token.html"><a href="token.html"><i class="fa fa-check"></i><b>11.4</b> Tokenization</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="token.html"><a href="token.html#spacyr"><i class="fa fa-check"></i><b>11.4.1</b> spacyr</a></li>
+<li class="chapter" data-level="11.4.2" data-path="token.html"><a href="token.html#we-can-create-a-data.frame-output-and-tokenize-our-samples-below."><i class="fa fa-check"></i><b>11.4.2</b> We can create a data.frame output and tokenize our samples below.</a></li>
+<li class="chapter" data-level="11.4.3" data-path="token.html"><a href="token.html#we-can-extract-language-properties"><i class="fa fa-check"></i><b>11.4.3</b> We can extract language properties:</a></li>
+<li class="chapter" data-level="11.4.4" data-path="token.html"><a href="token.html#we-can-extract-dates-events-and-cardinal-or-ordinal-quantities"><i class="fa fa-check"></i><b>11.4.4</b> We can extract dates, events and cardinal or ordinal quantities:</a></li>
+<li class="chapter" data-level="11.4.5" data-path="token.html"><a href="token.html#consolidate-functions-to-compound-multi-word-entities-into-single-token"><i class="fa fa-check"></i><b>11.4.5</b> Consolidate functions to compound multi-word entities into single “token”:</a></li>
+<li class="chapter" data-level="11.4.6" data-path="token.html"><a href="token.html#consolidate-noun-phrase-into-single-token"><i class="fa fa-check"></i><b>11.4.6</b> Consolidate noun phrase into single “token”:</a></li>
+<li class="chapter" data-level="11.4.7" data-path="token.html"><a href="token.html#analyzing-blog-data-set"><i class="fa fa-check"></i><b>11.4.7</b> Analyzing Blog Data Set</a></li>
+<li class="chapter" data-level="11.4.8" data-path="token.html"><a href="token.html#news-data-set"><i class="fa fa-check"></i><b>11.4.8</b> News Data Set</a></li>
+<li class="chapter" data-level="11.4.9" data-path="token.html"><a href="token.html#tweet-data-set"><i class="fa fa-check"></i><b>11.4.9</b> Tweet Data Set</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="transforming-text.html"><a href="transforming-text.html"><i class="fa fa-check"></i><b>11.3</b> Transforming Text</a></li>
+<li class="chapter" data-level="11.5" data-path="next-step.html"><a href="next-step.html"><i class="fa fa-check"></i><b>11.5</b> Next Step</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -548,20 +552,21 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="text-mining" class="section level2">
 <h2><span class="header-section-number">11.2</span> Text Mining</h2>
-<p>Amazon product reviews, Yelp, reddit, twitter feeds, facebook, LinkedIn are some of the sites that are text-mined to provide market research, sentiment analysis for a product and in many cases to build a data product. An example of a data product I have seen are tradingviews.com and stocktwits.com where they measure users bullish or bearish sentiment in a particular publicly traded company. Here is a basic example of text mining.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="text-mining.html#cb15-1"></a><span class="co"># Mining our openning paragraph</span></span>
-<span id="cb15-2"><a href="text-mining.html#cb15-2"></a>samp_text &lt;-<span class="st"> &quot;This is the final course of the specialization. It combines all the knowledge and skills learned during the course - from understanding data science, to installing R and RStudio, loading, subsetting, wrangling, exploring, using statistical inference, training, and testing our data sets based on applicable machine learning. The capstone is a partnership between Johns Hopkins University and Swiftkey. I have used this product a while back in 2013-2015. I was amazed at the innovation on digital keyboards. The ability to slide your finger across the keyboard without lifting it. It then predicts the word with high accuracy. This course provides a blueprint on how to achieve the word prediction technology behind it.&quot;</span></span>
-<span id="cb15-3"><a href="text-mining.html#cb15-3"></a></span>
-<span id="cb15-4"><a href="text-mining.html#cb15-4"></a><span class="co"># 10 most frequent terms</span></span>
-<span id="cb15-5"><a href="text-mining.html#cb15-5"></a>sampdf &lt;-<span class="st"> </span><span class="kw">data_frame</span>(<span class="dt">text =</span> samp_text) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb15-6"><a href="text-mining.html#cb15-6"></a><span class="st">    </span><span class="kw">unnest_tokens</span>(word, text) <span class="op">%&gt;%</span><span class="st">    </span><span class="co"># split words</span></span>
-<span id="cb15-7"><a href="text-mining.html#cb15-7"></a><span class="st">    </span><span class="kw">anti_join</span>(stop_words) <span class="op">%&gt;%</span><span class="st">    </span><span class="co"># take out &quot;a&quot;, &quot;an&quot;, &quot;the&quot;, etc.</span></span>
-<span id="cb15-8"><a href="text-mining.html#cb15-8"></a><span class="st">    </span><span class="kw">count</span>(word, <span class="dt">sort =</span> <span class="ot">TRUE</span>)    <span class="co"># count occurrences</span></span>
-<span id="cb15-9"><a href="text-mining.html#cb15-9"></a></span>
-<span id="cb15-10"><a href="text-mining.html#cb15-10"></a>sampdf[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">kable</span>(<span class="dt">caption =</span> <span class="st">&#39;Text Mining&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span>kableExtra<span class="op">::</span><span class="kw">kable_styling</span>()</span></code></pre></div>
+<p>Amazon product reviews, Yelp, reddit, twitter feeds, facebook, and LinkedIn are some of the sites that are text-mined to provide market research, sentiment analysis and in many cases to build a data product. An example of a data product I use are tradingviews.com and stocktwits.com. One of the features they provide are to measure publicly traded - bullish or bearish sentiments. These are valuable tools for investors and day traders. Rather than reviewing pages and pages of tweets or reddit post, a person can visualize the sentiment of users based on there comment, timeframe (i.e. day, week, month, quarter etc.) in a simple graph.</p>
+<p>Here is a basic example of text mining:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="text-mining.html#cb2-1"></a><span class="co"># Mining our openning paragraph</span></span>
+<span id="cb2-2"><a href="text-mining.html#cb2-2"></a>samp_text &lt;-<span class="st"> &quot;This is the final course of the specialization. It combines all the knowledge and skills learned during the course - from understanding data science, to installing R and RStudio, loading, subsetting, wrangling, exploring, using statistical inference, training, and testing our data sets based on applicable machine learning. The capstone is a partnership between Johns Hopkins University and Swiftkey. I have used this product a while back in 2013-2015. I was amazed at the innovation on digital keyboards. The ability to slide your finger across the keyboard without lifting it. It then predicts the word with high accuracy. This course provides a blueprint on how to achieve the word prediction technology behind it.&quot;</span></span>
+<span id="cb2-3"><a href="text-mining.html#cb2-3"></a></span>
+<span id="cb2-4"><a href="text-mining.html#cb2-4"></a><span class="co"># 10 most frequent terms</span></span>
+<span id="cb2-5"><a href="text-mining.html#cb2-5"></a>sampdf &lt;-<span class="st"> </span><span class="kw">data_frame</span>(<span class="dt">text =</span> samp_text) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb2-6"><a href="text-mining.html#cb2-6"></a><span class="st">    </span><span class="kw">unnest_tokens</span>(word, text) <span class="op">%&gt;%</span><span class="st">    </span><span class="co"># split words</span></span>
+<span id="cb2-7"><a href="text-mining.html#cb2-7"></a><span class="st">    </span><span class="kw">anti_join</span>(stop_words) <span class="op">%&gt;%</span><span class="st">    </span><span class="co"># take out &quot;a&quot;, &quot;an&quot;, &quot;the&quot;, etc.</span></span>
+<span id="cb2-8"><a href="text-mining.html#cb2-8"></a><span class="st">    </span><span class="kw">count</span>(word, <span class="dt">sort =</span> <span class="ot">TRUE</span>)    <span class="co"># count occurrences</span></span>
+<span id="cb2-9"><a href="text-mining.html#cb2-9"></a></span>
+<span id="cb2-10"><a href="text-mining.html#cb2-10"></a>sampdf[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">kable</span>(<span class="dt">caption =</span> <span class="st">&#39;Text Mining&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span>kableExtra<span class="op">::</span><span class="kw">kable_styling</span>()</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-14">Table 11.1: </span>Text Mining
+(#tab:11-sample_tm)Text Mining
 </caption>
 <thead>
 <tr>
@@ -656,442 +661,9 @@ based
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="text-mining.html#cb16-1"></a>sampdf[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y=</span><span class="kw">reorder</span>(word,n), <span class="dt">x=</span>n))<span class="op">+</span><span class="kw">geom_col</span>()<span class="op">+</span><span class="kw">labs</span>(<span class="dt">y=</span> <span class="st">&quot;Words/Characters&quot;</span>, <span class="dt">x=</span><span class="st">&quot;Frequency&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Text Mining&quot;</span>)</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-15"></span>
-<img src="r_full_stack_files/figure-html/unnamed-chunk-15-1.png" alt="Text Mining" width="672" />
-<p class="caption">
-Figure 11.1: Text Mining
-</p>
-</div>
-<div id="corpus" class="section level3">
-<h3><span class="header-section-number">11.2.1</span> Corpus</h3>
-<p>Corpus is a collection of written texts, especially the entire works of a particular author or a body of writing on a particular subject. Let’s look at our data set for the capstone which can be found <a href="https://d396qusza40orc.cloudfront.net/ds%20scapstone/dataset/Coursera-SwiftKey.zip">here</a>. Below is a code that will give as the summary of our corpus.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="text-mining.html#cb17-1"></a><span class="co">## Download file (run at the beginning only) ---------</span></span>
-<span id="cb17-2"><a href="text-mining.html#cb17-2"></a></span>
-<span id="cb17-3"><a href="text-mining.html#cb17-3"></a><span class="co"># if (!file.exists(&quot;data&quot;)) {</span></span>
-<span id="cb17-4"><a href="text-mining.html#cb17-4"></a><span class="co">#  dir.create(&quot;data&quot;)</span></span>
-<span id="cb17-5"><a href="text-mining.html#cb17-5"></a><span class="co">#}</span></span>
-<span id="cb17-6"><a href="text-mining.html#cb17-6"></a><span class="co"># download.file(</span></span>
-<span id="cb17-7"><a href="text-mining.html#cb17-7"></a><span class="co">#  &quot;https://d396qusza40orc.cloudfront.net/ds scapstone/dataset/Coursera-SwiftKey.zip&quot;,</span></span>
-<span id="cb17-8"><a href="text-mining.html#cb17-8"></a><span class="co">#  destfile = &quot;./data/Coursera-SwiftKey.zip&quot;</span></span>
-<span id="cb17-9"><a href="text-mining.html#cb17-9"></a><span class="co"># )</span></span>
-<span id="cb17-10"><a href="text-mining.html#cb17-10"></a><span class="co"># unzip(&quot;./data/Coursera-SwiftKey.zip&quot;, exdir = &quot;./data&quot;)</span></span>
-<span id="cb17-11"><a href="text-mining.html#cb17-11"></a></span>
-<span id="cb17-12"><a href="text-mining.html#cb17-12"></a><span class="co">## Combining -----------</span></span>
-<span id="cb17-13"><a href="text-mining.html#cb17-13"></a>files2 &lt;-<span class="st"> </span><span class="kw">list.dirs</span>(<span class="st">&quot;./data/final&quot;</span>)</span>
-<span id="cb17-14"><a href="text-mining.html#cb17-14"></a>lsfile &lt;-<span class="st">  </span><span class="kw">paste0</span>(files2[<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>],<span class="st">&quot;/&quot;</span>,</span>
-<span id="cb17-15"><a href="text-mining.html#cb17-15"></a>                  <span class="kw">list.files</span>(files2[<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>]))</span>
-<span id="cb17-16"><a href="text-mining.html#cb17-16"></a></span>
-<span id="cb17-17"><a href="text-mining.html#cb17-17"></a><span class="co"># gives us the directory path</span></span>
-<span id="cb17-18"><a href="text-mining.html#cb17-18"></a>ldir &lt;-<span class="st"> </span><span class="kw">normalizePath</span>(files2[<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>], <span class="st">&quot;rb&quot;</span>) </span>
-<span id="cb17-19"><a href="text-mining.html#cb17-19"></a></span>
-<span id="cb17-20"><a href="text-mining.html#cb17-20"></a><span class="co"># gives us full path and filename</span></span>
-<span id="cb17-21"><a href="text-mining.html#cb17-21"></a>finaldir &lt;-<span class="st"> </span><span class="kw">dir</span>(<span class="dt">path=</span>ldir, <span class="dt">full.names=</span><span class="ot">TRUE</span>) </span>
-<span id="cb17-22"><a href="text-mining.html#cb17-22"></a></span>
-<span id="cb17-23"><a href="text-mining.html#cb17-23"></a><span class="co">## Build a table --------------</span></span>
-<span id="cb17-24"><a href="text-mining.html#cb17-24"></a></span>
-<span id="cb17-25"><a href="text-mining.html#cb17-25"></a><span class="co">## Num_Words total number of words in a txt file</span></span>
-<span id="cb17-26"><a href="text-mining.html#cb17-26"></a>Num_Words &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>)</span>
-<span id="cb17-27"><a href="text-mining.html#cb17-27"></a></span>
-<span id="cb17-28"><a href="text-mining.html#cb17-28"></a><span class="co">## Num_Lines number of lines per txt file</span></span>
-<span id="cb17-29"><a href="text-mining.html#cb17-29"></a>Num_Lines &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>)</span>
-<span id="cb17-30"><a href="text-mining.html#cb17-30"></a></span>
-<span id="cb17-31"><a href="text-mining.html#cb17-31"></a><span class="co">## Range of words per line</span></span>
-<span id="cb17-32"><a href="text-mining.html#cb17-32"></a>Min_Words &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>)</span>
-<span id="cb17-33"><a href="text-mining.html#cb17-33"></a>Mean_Words &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>)</span>
-<span id="cb17-34"><a href="text-mining.html#cb17-34"></a>Max_Words &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>)</span>
-<span id="cb17-35"><a href="text-mining.html#cb17-35"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>) {</span>
-<span id="cb17-36"><a href="text-mining.html#cb17-36"></a>      Num_Words[i] &lt;-</span>
-<span id="cb17-37"><a href="text-mining.html#cb17-37"></a><span class="st">        </span><span class="kw">print</span>(<span class="kw">sum</span>(<span class="kw">stri_count_words</span>(<span class="kw">readLines</span>(finaldir[[i]]))))</span>
-<span id="cb17-38"><a href="text-mining.html#cb17-38"></a>      Mean_Words[i] &lt;-</span>
-<span id="cb17-39"><a href="text-mining.html#cb17-39"></a><span class="st">        </span><span class="kw">print</span>(<span class="kw">round</span>(<span class="kw">mean</span>(<span class="kw">stri_count_words</span>(</span>
-<span id="cb17-40"><a href="text-mining.html#cb17-40"></a>          <span class="kw">readLines</span>(finaldir[[i]])</span>
-<span id="cb17-41"><a href="text-mining.html#cb17-41"></a>        ))), <span class="dt">digits =</span> <span class="dv">2</span>)</span>
-<span id="cb17-42"><a href="text-mining.html#cb17-42"></a>      Min_Words[i] &lt;-</span>
-<span id="cb17-43"><a href="text-mining.html#cb17-43"></a><span class="st">        </span><span class="kw">print</span>(<span class="kw">round</span>(<span class="kw">min</span>(<span class="kw">stri_count_words</span>(</span>
-<span id="cb17-44"><a href="text-mining.html#cb17-44"></a>          <span class="kw">readLines</span>(finaldir[[i]])</span>
-<span id="cb17-45"><a href="text-mining.html#cb17-45"></a>        ))), <span class="dt">digits =</span> <span class="dv">2</span>)</span>
-<span id="cb17-46"><a href="text-mining.html#cb17-46"></a>      Max_Words[i] &lt;-</span>
-<span id="cb17-47"><a href="text-mining.html#cb17-47"></a><span class="st">        </span><span class="kw">print</span>(<span class="kw">round</span>(<span class="kw">max</span>(<span class="kw">stri_count_words</span>(</span>
-<span id="cb17-48"><a href="text-mining.html#cb17-48"></a>          <span class="kw">readLines</span>(finaldir[[i]])</span>
-<span id="cb17-49"><a href="text-mining.html#cb17-49"></a>        ))), <span class="dt">digits =</span> <span class="dv">2</span>)</span>
-<span id="cb17-50"><a href="text-mining.html#cb17-50"></a>      Num_Lines[i] &lt;-<span class="st"> </span><span class="kw">print</span>(<span class="kw">length</span>(<span class="kw">readLines</span>(finaldir[i])))</span>
-<span id="cb17-51"><a href="text-mining.html#cb17-51"></a>}</span>
-<span id="cb17-52"><a href="text-mining.html#cb17-52"></a></span>
-<span id="cb17-53"><a href="text-mining.html#cb17-53"></a><span class="co"># Combine -------------</span></span>
-<span id="cb17-54"><a href="text-mining.html#cb17-54"></a>list_files &lt;-<span class="st"> </span><span class="kw">tibble</span>(</span>
-<span id="cb17-55"><a href="text-mining.html#cb17-55"></a>        <span class="st">&#39;Name&#39;</span> =<span class="st"> </span><span class="kw">list.files</span>(files2[<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>]),</span>
-<span id="cb17-56"><a href="text-mining.html#cb17-56"></a>        <span class="st">&#39;Size_MB&#39;</span> =<span class="st"> </span><span class="kw">round</span>(<span class="kw">file.size</span>(finaldir) <span class="op">/</span><span class="st"> </span><span class="dv">10</span> <span class="op">^</span><span class="st"> </span><span class="dv">6</span>, <span class="dt">digits =</span></span>
-<span id="cb17-57"><a href="text-mining.html#cb17-57"></a>                            <span class="dv">2</span>),</span>
-<span id="cb17-58"><a href="text-mining.html#cb17-58"></a>        <span class="dt">Lines =</span> Num_Lines,</span>
-<span id="cb17-59"><a href="text-mining.html#cb17-59"></a>        <span class="dt">Words =</span> Num_Words,</span>
-<span id="cb17-60"><a href="text-mining.html#cb17-60"></a>        <span class="dt">Min =</span> Min_Words,</span>
-<span id="cb17-61"><a href="text-mining.html#cb17-61"></a>        <span class="dt">Average =</span> Mean_Words,</span>
-<span id="cb17-62"><a href="text-mining.html#cb17-62"></a>        <span class="dt">Max =</span> Max_Words</span>
-<span id="cb17-63"><a href="text-mining.html#cb17-63"></a>)</span></code></pre></div>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="text-mining.html#cb18-1"></a><span class="co"># knit to table -----------</span></span>
-<span id="cb18-2"><a href="text-mining.html#cb18-2"></a><span class="kw">kable</span>(list_files, <span class="dt">caption =</span> <span class="st">&#39;Corpus-Collection of Text&#39;</span>,</span>
-<span id="cb18-3"><a href="text-mining.html#cb18-3"></a>                <span class="dt">align =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&#39;c&#39;</span>, <span class="dt">times =</span> <span class="dv">5</span>))) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb18-4"><a href="text-mining.html#cb18-4"></a><span class="st">        </span>kableExtra<span class="op">::</span><span class="kw">kable_styling</span>()</span></code></pre></div>
-<table class="table" style="margin-left: auto; margin-right: auto;">
-<caption>
-(#tab:11-txt_sum)Corpus-Collection of Text
-</caption>
-<thead>
-<tr>
-<th style="text-align:center;">
-Name
-</th>
-<th style="text-align:center;">
-Size_MB
-</th>
-<th style="text-align:center;">
-Lines
-</th>
-<th style="text-align:center;">
-Words
-</th>
-<th style="text-align:center;">
-Min
-</th>
-<th style="text-align:center;">
-Average
-</th>
-<th style="text-align:center;">
-Max
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center;">
-de_DE.blogs.txt
-</td>
-<td style="text-align:center;">
-85.46
-</td>
-<td style="text-align:center;">
-371440
-</td>
-<td style="text-align:center;">
-12682659
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-34
-</td>
-<td style="text-align:center;">
-1638
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-de_DE.news.txt
-</td>
-<td style="text-align:center;">
-95.59
-</td>
-<td style="text-align:center;">
-244743
-</td>
-<td style="text-align:center;">
-13375092
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-55
-</td>
-<td style="text-align:center;">
-603
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-de_DE.twitter.txt
-</td>
-<td style="text-align:center;">
-75.58
-</td>
-<td style="text-align:center;">
-947774
-</td>
-<td style="text-align:center;">
-11646033
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-12
-</td>
-<td style="text-align:center;">
-42
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-en_US.blogs.txt
-</td>
-<td style="text-align:center;">
-210.16
-</td>
-<td style="text-align:center;">
-899288
-</td>
-<td style="text-align:center;">
-37546250
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-42
-</td>
-<td style="text-align:center;">
-6726
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-en_US.news.txt
-</td>
-<td style="text-align:center;">
-205.81
-</td>
-<td style="text-align:center;">
-1010242
-</td>
-<td style="text-align:center;">
-34762395
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-34
-</td>
-<td style="text-align:center;">
-1796
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-en_US.twitter.txt
-</td>
-<td style="text-align:center;">
-167.11
-</td>
-<td style="text-align:center;">
-2360148
-</td>
-<td style="text-align:center;">
-30093372
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-13
-</td>
-<td style="text-align:center;">
-47
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-fi_FI.blogs.txt
-</td>
-<td style="text-align:center;">
-108.50
-</td>
-<td style="text-align:center;">
-439785
-</td>
-<td style="text-align:center;">
-12785318
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-29
-</td>
-<td style="text-align:center;">
-2353
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-fi_FI.news.txt
-</td>
-<td style="text-align:center;">
-94.23
-</td>
-<td style="text-align:center;">
-485758
-</td>
-<td style="text-align:center;">
-10532432
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-22
-</td>
-<td style="text-align:center;">
-478
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-fi_FI.twitter.txt
-</td>
-<td style="text-align:center;">
-25.33
-</td>
-<td style="text-align:center;">
-285214
-</td>
-<td style="text-align:center;">
-3147083
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-11
-</td>
-<td style="text-align:center;">
-44
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-ru_RU.blogs.txt
-</td>
-<td style="text-align:center;">
-116.86
-</td>
-<td style="text-align:center;">
-337100
-</td>
-<td style="text-align:center;">
-9388482
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-28
-</td>
-<td style="text-align:center;">
-1197
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-ru_RU.news.txt
-</td>
-<td style="text-align:center;">
-119.00
-</td>
-<td style="text-align:center;">
-196360
-</td>
-<td style="text-align:center;">
-9057248
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-46
-</td>
-<td style="text-align:center;">
-1581
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-ru_RU.twitter.txt
-</td>
-<td style="text-align:center;">
-105.18
-</td>
-<td style="text-align:center;">
-881414
-</td>
-<td style="text-align:center;">
-9231328
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-10
-</td>
-<td style="text-align:center;">
-36
-</td>
-</tr>
-</tbody>
-</table>
-<p>Table @ref(fig:11-txt_sum), provides the breakdown of name, size, number of lines, and word summary. The data sets have a collection of 4 languages composed of blogs, news, and twitter. The languages are in German, English, Finnish, and Russian. All characters are based on roman characters and in several cases I saw several emoji character inside twitter corpus</p>
-<ol start="3" style="list-style-type: decimal">
-<li>Tokenization</li>
-<li>Semantic parsing -</li>
-<li>Bag of Words -</li>
-<li>Sentiment Analysis -</li>
-</ol>
-</div>
-<div id="tokenization" class="section level3">
-<h3><span class="header-section-number">11.2.2</span> Tokenization</h3>
-<p>Tokens are the building blocks of Natural Language. Tokenization is a way of separating text into smaller units using a delimeter such as space or hyphen. Tokens can be words, characters, or subwords <span class="citation">(Pai <a href="#ref-pai" role="doc-biblioref">2020</a>)</span>.</p>
-<p>An example of a word token from a sentence: “You are the best”, can be tokenized based on space. We are assuming space is a delimiter. The tokenization of the sentence results in 4 tokens You_are_the_best.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="text-mining.html#cb19-1"></a><span class="kw">library</span>(disk.frame)</span>
-<span id="cb19-2"><a href="text-mining.html#cb19-2"></a><span class="kw">setup_disk.frame</span>()</span>
-<span id="cb19-3"><a href="text-mining.html#cb19-3"></a><span class="kw">options</span>(<span class="dt">future.globals.maxSize =</span> <span class="ot">Inf</span>)</span>
-<span id="cb19-4"><a href="text-mining.html#cb19-4"></a><span class="kw">set.seed</span>(<span class="dv">420</span>)</span>
-<span id="cb19-5"><a href="text-mining.html#cb19-5"></a>source_data &lt;-<span class="st"> </span><span class="kw">DirSource</span>(ldir)</span>
-<span id="cb19-6"><a href="text-mining.html#cb19-6"></a></span>
-<span id="cb19-7"><a href="text-mining.html#cb19-7"></a>corpus_data &lt;-<span class="st"> </span><span class="kw">VCorpus</span>(source_data)</span></code></pre></div>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="text-mining.html#cb20-1"></a><span class="kw">summary</span>(corpus_data)</span></code></pre></div>
-<pre><code>##                   Length Class             Mode
-## de_DE.blogs.txt   2      PlainTextDocument list
-## de_DE.news.txt    2      PlainTextDocument list
-## de_DE.twitter.txt 2      PlainTextDocument list
-## en_US.blogs.txt   2      PlainTextDocument list
-## en_US.news.txt    2      PlainTextDocument list
-## en_US.twitter.txt 2      PlainTextDocument list
-## fi_FI.blogs.txt   2      PlainTextDocument list
-## fi_FI.news.txt    2      PlainTextDocument list
-## fi_FI.twitter.txt 2      PlainTextDocument list
-## ru_RU.blogs.txt   2      PlainTextDocument list
-## ru_RU.news.txt    2      PlainTextDocument list
-## ru_RU.twitter.txt 2      PlainTextDocument list</code></pre>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="text-mining.html#cb22-1"></a><span class="kw">inspect</span>(corpus_data[<span class="dv">5</span>])</span></code></pre></div>
-<pre><code>## &lt;&lt;VCorpus&gt;&gt;
-## Metadata:  corpus specific: 0, document level (indexed): 0
-## Content:  documents: 1
-## 
-## [[1]]
-## &lt;&lt;PlainTextDocument&gt;&gt;
-## Metadata:  7
-## Content:  chars: 203223159</code></pre>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="text-mining.html#cb24-1"></a><span class="kw">meta</span>(corpus_data[[<span class="dv">5</span>]], <span class="st">&quot;id&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;en_US.news.txt&quot;</code></pre>
-</div>
-</div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-pai">
-<p>Pai, Aravind. 2020. “What Is Tokenization in Nlp? Here’s All You Need to Know.” <a href="https://www.analyticsvidhya.com/blog/2020/05/what-is-tokenization-nlp/#:~:text=Tokenization%20is%20a%20common%20task%20in%20Natural%20Language%20Processing%20(NLP).&amp;text=Tokens%20are%20the%20building%20blocks,words%2C%20characters%2C%20or%20subwords.">https://www.analyticsvidhya.com/blog/2020/05/what-is-tokenization-nlp/#:~:text=Tokenization%20is%20a%20common%20task%20in%20Natural%20Language%20Processing%20(NLP).&amp;text=Tokens%20are%20the%20building%20blocks,words%2C%20characters%2C%20or%20subwords.</a></p>
-</div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="text-mining.html#cb3-1"></a>sampdf[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y=</span><span class="kw">reorder</span>(word,n), <span class="dt">x=</span>n))<span class="op">+</span><span class="kw">geom_col</span>()<span class="op">+</span><span class="kw">labs</span>(<span class="dt">y=</span> <span class="st">&quot;Words/Characters&quot;</span>, <span class="dt">x=</span><span class="st">&quot;Frequency&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Text Mining&quot;</span>)</span></code></pre></div>
+<p><img src="r_full_stack_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>We can visually see “word” and “data” are the most frequent words in our paragraph. It makes sense since the topic is analyzing text data. Let’s go on to the next topic of Corpus.</p>
 </div>
             </section>
 
@@ -1099,7 +671,7 @@ ru_RU.twitter.txt
         </div>
       </div>
 <a href="first-week.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="transforming-text.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="corpus.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

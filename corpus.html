@@ -24,14 +24,14 @@
 <meta name="author" content="Richard Nacianceno" />
 
 
-<meta name="date" content="2020-08-27" />
+<meta name="date" content="2020-08-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="textmining.html"/>
+<link rel="prev" href="text-mining.html"/>
 <link rel="next" href="token.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -52,6 +52,13 @@
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
 
 <script>
 /* ========================================================================
@@ -507,9 +514,20 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10" data-path="developing-data-products.html"><a href="developing-data-products.html"><i class="fa fa-check"></i><b>10</b> Developing Data Products</a></li>
 <li class="chapter" data-level="11" data-path="data-science-capstone.html"><a href="data-science-capstone.html"><i class="fa fa-check"></i><b>11</b> Data Science Capstone</a><ul>
 <li class="chapter" data-level="11.1" data-path="first-week.html"><a href="first-week.html"><i class="fa fa-check"></i><b>11.1</b> First Week</a></li>
-<li class="chapter" data-level="11.2" data-path="textmining.html"><a href="textmining.html"><i class="fa fa-check"></i><b>11.2</b> Text Mining</a></li>
+<li class="chapter" data-level="11.2" data-path="text-mining.html"><a href="text-mining.html"><i class="fa fa-check"></i><b>11.2</b> Text Mining</a></li>
 <li class="chapter" data-level="11.3" data-path="corpus.html"><a href="corpus.html"><i class="fa fa-check"></i><b>11.3</b> Corpus</a></li>
-<li class="chapter" data-level="11.4" data-path="token.html"><a href="token.html"><i class="fa fa-check"></i><b>11.4</b> Tokenization and Ngram</a></li>
+<li class="chapter" data-level="11.4" data-path="token.html"><a href="token.html"><i class="fa fa-check"></i><b>11.4</b> Tokenization</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="token.html"><a href="token.html#spacyr"><i class="fa fa-check"></i><b>11.4.1</b> spacyr</a></li>
+<li class="chapter" data-level="11.4.2" data-path="token.html"><a href="token.html#we-can-create-a-data.frame-output-and-tokenize-our-samples-below."><i class="fa fa-check"></i><b>11.4.2</b> We can create a data.frame output and tokenize our samples below.</a></li>
+<li class="chapter" data-level="11.4.3" data-path="token.html"><a href="token.html#we-can-extract-language-properties"><i class="fa fa-check"></i><b>11.4.3</b> We can extract language properties:</a></li>
+<li class="chapter" data-level="11.4.4" data-path="token.html"><a href="token.html#we-can-extract-dates-events-and-cardinal-or-ordinal-quantities"><i class="fa fa-check"></i><b>11.4.4</b> We can extract dates, events and cardinal or ordinal quantities:</a></li>
+<li class="chapter" data-level="11.4.5" data-path="token.html"><a href="token.html#consolidate-functions-to-compound-multi-word-entities-into-single-token"><i class="fa fa-check"></i><b>11.4.5</b> Consolidate functions to compound multi-word entities into single “token”:</a></li>
+<li class="chapter" data-level="11.4.6" data-path="token.html"><a href="token.html#consolidate-noun-phrase-into-single-token"><i class="fa fa-check"></i><b>11.4.6</b> Consolidate noun phrase into single “token”:</a></li>
+<li class="chapter" data-level="11.4.7" data-path="token.html"><a href="token.html#analyzing-blog-data-set"><i class="fa fa-check"></i><b>11.4.7</b> Analyzing Blog Data Set</a></li>
+<li class="chapter" data-level="11.4.8" data-path="token.html"><a href="token.html#news-data-set"><i class="fa fa-check"></i><b>11.4.8</b> News Data Set</a></li>
+<li class="chapter" data-level="11.4.9" data-path="token.html"><a href="token.html#tweet-data-set"><i class="fa fa-check"></i><b>11.4.9</b> Tweet Data Set</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="next-step.html"><a href="next-step.html"><i class="fa fa-check"></i><b>11.5</b> Next Step</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -534,7 +552,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="corpus" class="section level2">
 <h2><span class="header-section-number">11.3</span> Corpus</h2>
-<p>Corpus is a collection of written texts, especially the entire works of a particular author or a body of writing on a particular subject. Corpora are generally used for statsitical liguistic analysis and hypothesis testing <span class="citation">(Mayo <a href="#ref-corpora" role="doc-biblioref">2017</a>)</span>. Let’s look at our data set for the capstone which can be found <a href="https://d396qusza40orc.cloudfront.net/ds%20scapstone/dataset/Coursera-SwiftKey.zip">here</a>. Below is a code that will give as the summary of our collection of text.</p>
+<p>Corpus is a collection of written texts, especially the entire works of a particular author or a body of writing on a particular subject. Corpora are generally used for statsitical liguistic analysis and hypothesis testing <span class="citation">(Mayo <a href="#ref-corpora" role="doc-biblioref">2017</a>)</span>. Let’s look at our data set for the capstone which can be found <a href="https://d396qusza40orc.cloudfront.net/ds%20scapstone/dataset/Coursera-SwiftKey.zip">here</a>. Below is our code to summarize our data set.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="corpus.html#cb4-1"></a><span class="co">## Download file (run at the beginning only) ---------</span></span>
 <span id="cb4-2"><a href="corpus.html#cb4-2"></a></span>
 <span id="cb4-3"><a href="corpus.html#cb4-3"></a><span class="co"># if (!file.exists(&quot;data&quot;)) {</span></span>
@@ -551,7 +569,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-14"><a href="corpus.html#cb4-14"></a>lsfile &lt;-<span class="st">  </span><span class="kw">paste0</span>(files2[<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>],<span class="st">&quot;/&quot;</span>,</span>
 <span id="cb4-15"><a href="corpus.html#cb4-15"></a>                  <span class="kw">list.files</span>(files2[<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>]))</span>
 <span id="cb4-16"><a href="corpus.html#cb4-16"></a></span>
-<span id="cb4-17"><a href="corpus.html#cb4-17"></a><span class="co"># gives us a list of directory paths to the acutal text file</span></span>
+<span id="cb4-17"><a href="corpus.html#cb4-17"></a><span class="co"># gives us a list of directory paths to the actual text file</span></span>
 <span id="cb4-18"><a href="corpus.html#cb4-18"></a>ldir &lt;-<span class="st"> </span><span class="kw">normalizePath</span>(files2[<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>], <span class="st">&quot;rb&quot;</span>) </span>
 <span id="cb4-19"><a href="corpus.html#cb4-19"></a></span>
 <span id="cb4-20"><a href="corpus.html#cb4-20"></a><span class="co"># gives us full path and filename</span></span>
@@ -604,7 +622,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb5-4"><a href="corpus.html#cb5-4"></a><span class="st">        </span>kableExtra<span class="op">::</span><span class="kw">kable_styling</span>()</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
-(#tab:11-text_sum)Corpus-Collection of Text
+<span id="tab:textsum">Table 11.1: </span>Corpus-Collection of Text
 </caption>
 <thead>
 <tr>
@@ -910,13 +928,28 @@ ru_RU.twitter.txt
 </tr>
 </tbody>
 </table>
-<p>Table @ref(tab:11-txt_sum), provides the breakdown of name, size, number of lines, and word summary. The data sets have a collection of 4 languages composed of blogs, news, and twitter. The languages are in German, English, Finnish, and Russian. All characters are based on roman characters and in several cases I saw several emoji character inside twitter corpus</p>
-<ol start="3" style="list-style-type: decimal">
-<li>Tokenization</li>
-<li>Semantic parsing -</li>
-<li>Bag of Words -</li>
-<li>Sentiment Analysis -</li>
-</ol>
+<p>Table 1.1: Corpus-Collection of Text, summarizes our 12 collections into their respective name files, size in mb, number of lines, number of words and their summary from minimum, average and max words per line. . The data sets have a collection of 4 languages compose of blogs, news, and twitter. The languages are in German, English, Finnish, and Russian. All characters are based on roman characters and in several cases I saw several emoji character inside twitter text collections.</p>
+<p>Let us visualize the File Name into Size_MB, Lines, and Words.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="corpus.html#cb6-1"></a>list_files <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">reorder</span>(Name, <span class="op">-</span>Size_MB), </span>
+<span id="cb6-2"><a href="corpus.html#cb6-2"></a>                          <span class="dt">y=</span>Size_MB)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb6-3"><a href="corpus.html#cb6-3"></a><span class="st">                  </span><span class="kw">geom_col</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb6-4"><a href="corpus.html#cb6-4"></a><span class="st">                  </span><span class="kw">theme</span>(<span class="dt">axis.text.x=</span><span class="kw">element_text</span>(<span class="dt">angle=</span><span class="dv">90</span>,<span class="dt">hjust=</span>.<span class="dv">1</span>)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb6-5"><a href="corpus.html#cb6-5"></a><span class="st">                  </span><span class="kw">labs</span>(<span class="dt">x=</span> <span class="st">&quot;File Name&quot;</span>, <span class="dt">y=</span> <span class="st">&quot;File Size (mb)&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;File Name and Size (mb)&quot;</span>) </span></code></pre></div>
+<p><img src="r_full_stack_files/figure-html/11-size-1.png" width="672" /></p>
+<p>Number of lines:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="corpus.html#cb7-1"></a>list_files <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">reorder</span>(Name, <span class="op">-</span>Lines), </span>
+<span id="cb7-2"><a href="corpus.html#cb7-2"></a>                          <span class="dt">y=</span>Lines)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb7-3"><a href="corpus.html#cb7-3"></a><span class="st">                  </span><span class="kw">geom_col</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb7-4"><a href="corpus.html#cb7-4"></a><span class="st">                  </span><span class="kw">theme</span>(<span class="dt">axis.text.x=</span><span class="kw">element_text</span>(<span class="dt">angle=</span><span class="dv">90</span>,<span class="dt">hjust=</span>.<span class="dv">1</span>)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb7-5"><a href="corpus.html#cb7-5"></a><span class="st">                  </span><span class="kw">labs</span>(<span class="dt">x=</span> <span class="st">&quot;File Name&quot;</span>, <span class="dt">y=</span> <span class="st">&quot;Number of Lines&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Number of Lines per File&quot;</span>) </span></code></pre></div>
+<p><img src="r_full_stack_files/figure-html/11-lines-1.png" width="672" /></p>
+<p>Number of Words:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="corpus.html#cb8-1"></a>list_files <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">reorder</span>(Name, <span class="op">-</span>Words), </span>
+<span id="cb8-2"><a href="corpus.html#cb8-2"></a>                          <span class="dt">y=</span>Words)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb8-3"><a href="corpus.html#cb8-3"></a><span class="st">                  </span><span class="kw">geom_col</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb8-4"><a href="corpus.html#cb8-4"></a><span class="st">                  </span><span class="kw">theme</span>(<span class="dt">axis.text.x=</span><span class="kw">element_text</span>(<span class="dt">angle=</span><span class="dv">90</span>,<span class="dt">hjust=</span>.<span class="dv">1</span>)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb8-5"><a href="corpus.html#cb8-5"></a><span class="st">                  </span><span class="kw">labs</span>(<span class="dt">x=</span> <span class="st">&quot;File Name&quot;</span>, <span class="dt">y=</span> <span class="st">&quot;Number of Words&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Number of Words per File&quot;</span>) </span></code></pre></div>
+<p><img src="r_full_stack_files/figure-html/11-words-1.png" width="672" /></p>
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
@@ -929,7 +962,7 @@ ru_RU.twitter.txt
           </div>
         </div>
       </div>
-<a href="textmining.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="text-mining.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="token.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

@@ -24,14 +24,14 @@
 <meta name="author" content="Richard Nacianceno" />
 
 
-<meta name="date" content="2020-08-24" />
+<meta name="date" content="2020-08-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="transforming-text.html"/>
+<link rel="prev" href="next-step.html"/>
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -64,6 +64,12 @@
 <script src="libs/echarts4r-4.8.0/ecStat.min.js"></script>
 <script src="libs/echarts4r-4.8.0/dataTool.min.js"></script>
 <script src="libs/echarts4r-binding-0.3.2/echarts4r.js"></script>
+<script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
 
 <script>
 /* ========================================================================
@@ -519,11 +525,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10" data-path="developing-data-products.html"><a href="developing-data-products.html"><i class="fa fa-check"></i><b>10</b> Developing Data Products</a></li>
 <li class="chapter" data-level="11" data-path="data-science-capstone.html"><a href="data-science-capstone.html"><i class="fa fa-check"></i><b>11</b> Data Science Capstone</a><ul>
 <li class="chapter" data-level="11.1" data-path="first-week.html"><a href="first-week.html"><i class="fa fa-check"></i><b>11.1</b> First Week</a></li>
-<li class="chapter" data-level="11.2" data-path="text-mining.html"><a href="text-mining.html"><i class="fa fa-check"></i><b>11.2</b> Text Mining</a><ul>
-<li class="chapter" data-level="11.2.1" data-path="text-mining.html"><a href="text-mining.html#corpus"><i class="fa fa-check"></i><b>11.2.1</b> Corpus</a></li>
-<li class="chapter" data-level="11.2.2" data-path="text-mining.html"><a href="text-mining.html#tokenization"><i class="fa fa-check"></i><b>11.2.2</b> Tokenization</a></li>
-</ul></li>
-<li class="chapter" data-level="11.3" data-path="transforming-text.html"><a href="transforming-text.html"><i class="fa fa-check"></i><b>11.3</b> Transforming Text</a></li>
+<li class="chapter" data-level="11.2" data-path="text-mining.html"><a href="text-mining.html"><i class="fa fa-check"></i><b>11.2</b> Text Mining</a></li>
+<li class="chapter" data-level="11.3" data-path="corpus.html"><a href="corpus.html"><i class="fa fa-check"></i><b>11.3</b> Corpus</a></li>
+<li class="chapter" data-level="11.4" data-path="token.html"><a href="token.html"><i class="fa fa-check"></i><b>11.4</b> Tokenization</a></li>
+<li class="chapter" data-level="11.5" data-path="next-step.html"><a href="next-step.html"><i class="fa fa-check"></i><b>11.5</b> Next Step</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -551,6 +556,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 
 <div id="refs" class="references">
 <div>
+<p>7ESL. 2020. “Siimple Sentence.” <a href="https://7esl.com/simple-sentence/">https://7esl.com/simple-sentence/</a>.</p>
+</div>
+<div>
 <p>Bulao, Jacquelyn. 2020. “How Much Data Is Created Every Day in 2020.” <a href="https://techjury.net/blog/how-much-data-is-created-every-day/">https://techjury.net/blog/how-much-data-is-created-every-day/</a>.</p>
 </div>
 <div>
@@ -563,7 +571,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Johns Hopkins University. 2020. “Data Science Specialization.” Baltimore, MD: Coursera. <a href="https://www.coursera.org/specializations/jhu-data-science">https://www.coursera.org/specializations/jhu-data-science</a>.</p>
 </div>
 <div>
+<p>Kenneth Benoit, Akitaka Matsuo. 2020. “A Guide to Using Spacyr.” <a href="https://spacyr.quanteda.io/articles/using_spacyr.html">https://spacyr.quanteda.io/articles/using_spacyr.html</a>.</p>
+</div>
+<div>
 <p>Kross, Sean. 2020. “The Unix Workbench.” Johns Hopkins University. <a href="https://www.coursera.org/learn/unix?">https://www.coursera.org/learn/unix?</a></p>
+</div>
+<div>
+<p>Mayo, Matthew. 2017. “Building a Wikipedia Text Corpus for Natural Language Processing.” <a href="https://www.kdnuggets.com/2017/11/building-wikipedia-text-corpus-nlp.html#:~:text=In%20linguistics%20and%20NLP%2C%20corpus,of%20corpus)%20may%20be%20useful.">https://www.kdnuggets.com/2017/11/building-wikipedia-text-corpus-nlp.html#:~:text=In%20linguistics%20and%20NLP%2C%20corpus,of%20corpus)%20may%20be%20useful.</a></p>
 </div>
 <div>
 <p>Morgan-Wall, Tyler. 2020. “Rayrender.” <a href="https://github.com/tylermorganwall/rayrender">https://github.com/tylermorganwall/rayrender</a>.</p>
@@ -602,7 +616,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="transforming-text.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="next-step.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>

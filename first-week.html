@@ -24,7 +24,7 @@
 <meta name="author" content="Richard Nacianceno" />
 
 
-<meta name="date" content="2020-08-27" />
+<meta name="date" content="2020-08-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="data-science-capstone.html"/>
-<link rel="next" href="textmining.html"/>
+<link rel="next" href="text-mining.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -52,6 +52,13 @@
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
 
 <script>
 /* ========================================================================
@@ -507,9 +514,20 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10" data-path="developing-data-products.html"><a href="developing-data-products.html"><i class="fa fa-check"></i><b>10</b> Developing Data Products</a></li>
 <li class="chapter" data-level="11" data-path="data-science-capstone.html"><a href="data-science-capstone.html"><i class="fa fa-check"></i><b>11</b> Data Science Capstone</a><ul>
 <li class="chapter" data-level="11.1" data-path="first-week.html"><a href="first-week.html"><i class="fa fa-check"></i><b>11.1</b> First Week</a></li>
-<li class="chapter" data-level="11.2" data-path="textmining.html"><a href="textmining.html"><i class="fa fa-check"></i><b>11.2</b> Text Mining</a></li>
+<li class="chapter" data-level="11.2" data-path="text-mining.html"><a href="text-mining.html"><i class="fa fa-check"></i><b>11.2</b> Text Mining</a></li>
 <li class="chapter" data-level="11.3" data-path="corpus.html"><a href="corpus.html"><i class="fa fa-check"></i><b>11.3</b> Corpus</a></li>
-<li class="chapter" data-level="11.4" data-path="token.html"><a href="token.html"><i class="fa fa-check"></i><b>11.4</b> Tokenization and Ngram</a></li>
+<li class="chapter" data-level="11.4" data-path="token.html"><a href="token.html"><i class="fa fa-check"></i><b>11.4</b> Tokenization</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="token.html"><a href="token.html#spacyr"><i class="fa fa-check"></i><b>11.4.1</b> spacyr</a></li>
+<li class="chapter" data-level="11.4.2" data-path="token.html"><a href="token.html#we-can-create-a-data.frame-output-and-tokenize-our-samples-below."><i class="fa fa-check"></i><b>11.4.2</b> We can create a data.frame output and tokenize our samples below.</a></li>
+<li class="chapter" data-level="11.4.3" data-path="token.html"><a href="token.html#we-can-extract-language-properties"><i class="fa fa-check"></i><b>11.4.3</b> We can extract language properties:</a></li>
+<li class="chapter" data-level="11.4.4" data-path="token.html"><a href="token.html#we-can-extract-dates-events-and-cardinal-or-ordinal-quantities"><i class="fa fa-check"></i><b>11.4.4</b> We can extract dates, events and cardinal or ordinal quantities:</a></li>
+<li class="chapter" data-level="11.4.5" data-path="token.html"><a href="token.html#consolidate-functions-to-compound-multi-word-entities-into-single-token"><i class="fa fa-check"></i><b>11.4.5</b> Consolidate functions to compound multi-word entities into single “token”:</a></li>
+<li class="chapter" data-level="11.4.6" data-path="token.html"><a href="token.html#consolidate-noun-phrase-into-single-token"><i class="fa fa-check"></i><b>11.4.6</b> Consolidate noun phrase into single “token”:</a></li>
+<li class="chapter" data-level="11.4.7" data-path="token.html"><a href="token.html#analyzing-blog-data-set"><i class="fa fa-check"></i><b>11.4.7</b> Analyzing Blog Data Set</a></li>
+<li class="chapter" data-level="11.4.8" data-path="token.html"><a href="token.html#news-data-set"><i class="fa fa-check"></i><b>11.4.8</b> News Data Set</a></li>
+<li class="chapter" data-level="11.4.9" data-path="token.html"><a href="token.html#tweet-data-set"><i class="fa fa-check"></i><b>11.4.9</b> Tweet Data Set</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="next-step.html"><a href="next-step.html"><i class="fa fa-check"></i><b>11.5</b> Next Step</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -550,48 +568,20 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li>What technology are out there in NLP language?</li>
 </ul></li>
 </ol>
-<p>The exploration leads to more questions. The goal is to optimize algorithm based either speed or accuracy. Finding the balance is pretty difficult.</p>
+<p>The exploration leads to more questions. The goal is to optimize algorithm based either on speed or accuracy. Finding the balance is pretty difficult.</p>
 <p><strong>Below is the environment needed to examine our data sets.</strong></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="first-week.html#cb1-1"></a><span class="kw">library</span>(rmdformats)</span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="first-week.html#cb1-1"></a><span class="kw">library</span>(bibtex)</span>
 <span id="cb1-2"><a href="first-week.html#cb1-2"></a><span class="kw">library</span>(knitr)</span>
 <span id="cb1-3"><a href="first-week.html#cb1-3"></a><span class="kw">library</span>(rvest)</span>
-<span id="cb1-4"><a href="first-week.html#cb1-4"></a><span class="kw">library</span>(tidytext)</span>
-<span id="cb1-5"><a href="first-week.html#cb1-5"></a><span class="kw">library</span>(tm)</span>
-<span id="cb1-6"><a href="first-week.html#cb1-6"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb1-7"><a href="first-week.html#cb1-7"></a><span class="kw">library</span>(readr)</span>
-<span id="cb1-8"><a href="first-week.html#cb1-8"></a><span class="kw">library</span>(openNLP)</span>
-<span id="cb1-9"><a href="first-week.html#cb1-9"></a><span class="kw">library</span>(RWeka)</span>
-<span id="cb1-10"><a href="first-week.html#cb1-10"></a><span class="kw">library</span>(glue)</span>
-<span id="cb1-11"><a href="first-week.html#cb1-11"></a><span class="kw">library</span>(stringi)</span>
-<span id="cb1-12"><a href="first-week.html#cb1-12"></a><span class="kw">library</span>(SnowballC)</span>
-<span id="cb1-13"><a href="first-week.html#cb1-13"></a><span class="kw">library</span>(caret)</span>
-<span id="cb1-14"><a href="first-week.html#cb1-14"></a><span class="kw">library</span>(disk.frame)</span>
-<span id="cb1-15"><a href="first-week.html#cb1-15"></a><span class="kw">library</span>(spacyr)</span>
-<span id="cb1-16"><a href="first-week.html#cb1-16"></a><span class="kw">library</span>(readtext)</span>
-<span id="cb1-17"><a href="first-week.html#cb1-17"></a></span>
-<span id="cb1-18"><a href="first-week.html#cb1-18"></a>enviro &lt;-<span class="st"> </span></span>
-<span id="cb1-19"><a href="first-week.html#cb1-19"></a><span class="st">  </span><span class="kw">c</span>(<span class="st">&quot;rmdformats&quot;</span>, <span class="st">&quot;knitr&quot;</span>,</span>
-<span id="cb1-20"><a href="first-week.html#cb1-20"></a>    <span class="st">&quot;rvest&quot;</span>, <span class="st">&quot;tidytext&quot;</span>, </span>
-<span id="cb1-21"><a href="first-week.html#cb1-21"></a>    <span class="st">&quot;tm&quot;</span>, <span class="st">&quot;tidyverse&quot;</span>, </span>
-<span id="cb1-22"><a href="first-week.html#cb1-22"></a>    <span class="st">&quot;NLP&quot;</span>, <span class="st">&quot;knitr&quot;</span>, </span>
-<span id="cb1-23"><a href="first-week.html#cb1-23"></a>    <span class="st">&quot;readr&quot;</span>, <span class="st">&quot;openNLP&quot;</span>, </span>
-<span id="cb1-24"><a href="first-week.html#cb1-24"></a>    <span class="st">&quot;glue&quot;</span>, <span class="st">&quot;RWeka&quot;</span>, </span>
-<span id="cb1-25"><a href="first-week.html#cb1-25"></a>    <span class="st">&quot;stringi&quot;</span>, <span class="st">&quot;SnowballC&quot;</span>, </span>
-<span id="cb1-26"><a href="first-week.html#cb1-26"></a>    <span class="st">&quot;wordcloud2&quot;</span>, <span class="st">&quot;caret&quot;</span>,</span>
-<span id="cb1-27"><a href="first-week.html#cb1-27"></a>    <span class="st">&quot;disk.frame&quot;</span>, <span class="st">&quot;spacyr&quot;</span>,</span>
-<span id="cb1-28"><a href="first-week.html#cb1-28"></a>    <span class="st">&quot;readtext&quot;</span></span>
-<span id="cb1-29"><a href="first-week.html#cb1-29"></a>  )</span>
-<span id="cb1-30"><a href="first-week.html#cb1-30"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(enviro)){</span>
-<span id="cb1-31"><a href="first-week.html#cb1-31"></a>  <span class="kw">library</span>(enviro[i], </span>
-<span id="cb1-32"><a href="first-week.html#cb1-32"></a>  <span class="dt">character.only =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb1-33"><a href="first-week.html#cb1-33"></a>}</span></code></pre></div>
-<p>Data sets can be found <a href="https://d396qusza40orc.cloudfront.net/ds%20scapstone/dataset/Coursera-SwiftKey.zip">here</a> but before we dive-in the data, let us define terminologies in NLP infrastructure. A quick google search should be able to help us with the following:</p>
-<ol style="list-style-type: decimal">
-<li>Text Mining - <a href="textmining.html#textmining">11.2</a></li>
-<li>Corpus - <a href="corpus.html#corpus">11.3</a></li>
-<li>Tokenization - <a href="token.html#token">11.4</a></li>
-<li>Ngram - <a href="token.html#token">11.4</a></li>
-</ol>
+<span id="cb1-4"><a href="first-week.html#cb1-4"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb1-5"><a href="first-week.html#cb1-5"></a><span class="kw">library</span>(glue)</span>
+<span id="cb1-6"><a href="first-week.html#cb1-6"></a><span class="kw">library</span>(stringi)</span>
+<span id="cb1-7"><a href="first-week.html#cb1-7"></a><span class="kw">library</span>(caret)</span>
+<span id="cb1-8"><a href="first-week.html#cb1-8"></a><span class="kw">library</span>(spacyr)</span>
+<span id="cb1-9"><a href="first-week.html#cb1-9"></a><span class="kw">library</span>(tidytext)</span>
+<span id="cb1-10"><a href="first-week.html#cb1-10"></a><span class="kw">library</span>(htmlwidgets)</span>
+<span id="cb1-11"><a href="first-week.html#cb1-11"></a><span class="kw">library</span>(echarts4r)</span></code></pre></div>
+<p>Data sets can be found <a href="https://d396qusza40orc.cloudfront.net/ds%20scapstone/dataset/Coursera-SwiftKey.zip">here</a> but before we dive-in the data, let us define some terminologies that are use often in NLP infrastructure such as <em>Text Mining</em>, <em>Corpus</em>, and <em>Tokenization</em>.</p>
 </div>
             </section>
 
@@ -599,7 +589,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="data-science-capstone.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="textmining.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="text-mining.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

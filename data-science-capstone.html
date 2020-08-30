@@ -24,7 +24,7 @@
 <meta name="author" content="Richard Nacianceno" />
 
 
-<meta name="date" content="2020-08-27" />
+<meta name="date" content="2020-08-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,6 +52,13 @@
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
 
 <script>
 /* ========================================================================
@@ -507,9 +514,20 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10" data-path="developing-data-products.html"><a href="developing-data-products.html"><i class="fa fa-check"></i><b>10</b> Developing Data Products</a></li>
 <li class="chapter" data-level="11" data-path="data-science-capstone.html"><a href="data-science-capstone.html"><i class="fa fa-check"></i><b>11</b> Data Science Capstone</a><ul>
 <li class="chapter" data-level="11.1" data-path="first-week.html"><a href="first-week.html"><i class="fa fa-check"></i><b>11.1</b> First Week</a></li>
-<li class="chapter" data-level="11.2" data-path="textmining.html"><a href="textmining.html"><i class="fa fa-check"></i><b>11.2</b> Text Mining</a></li>
+<li class="chapter" data-level="11.2" data-path="text-mining.html"><a href="text-mining.html"><i class="fa fa-check"></i><b>11.2</b> Text Mining</a></li>
 <li class="chapter" data-level="11.3" data-path="corpus.html"><a href="corpus.html"><i class="fa fa-check"></i><b>11.3</b> Corpus</a></li>
-<li class="chapter" data-level="11.4" data-path="token.html"><a href="token.html"><i class="fa fa-check"></i><b>11.4</b> Tokenization and Ngram</a></li>
+<li class="chapter" data-level="11.4" data-path="token.html"><a href="token.html"><i class="fa fa-check"></i><b>11.4</b> Tokenization</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="token.html"><a href="token.html#spacyr"><i class="fa fa-check"></i><b>11.4.1</b> spacyr</a></li>
+<li class="chapter" data-level="11.4.2" data-path="token.html"><a href="token.html#we-can-create-a-data.frame-output-and-tokenize-our-samples-below."><i class="fa fa-check"></i><b>11.4.2</b> We can create a data.frame output and tokenize our samples below.</a></li>
+<li class="chapter" data-level="11.4.3" data-path="token.html"><a href="token.html#we-can-extract-language-properties"><i class="fa fa-check"></i><b>11.4.3</b> We can extract language properties:</a></li>
+<li class="chapter" data-level="11.4.4" data-path="token.html"><a href="token.html#we-can-extract-dates-events-and-cardinal-or-ordinal-quantities"><i class="fa fa-check"></i><b>11.4.4</b> We can extract dates, events and cardinal or ordinal quantities:</a></li>
+<li class="chapter" data-level="11.4.5" data-path="token.html"><a href="token.html#consolidate-functions-to-compound-multi-word-entities-into-single-token"><i class="fa fa-check"></i><b>11.4.5</b> Consolidate functions to compound multi-word entities into single “token”:</a></li>
+<li class="chapter" data-level="11.4.6" data-path="token.html"><a href="token.html#consolidate-noun-phrase-into-single-token"><i class="fa fa-check"></i><b>11.4.6</b> Consolidate noun phrase into single “token”:</a></li>
+<li class="chapter" data-level="11.4.7" data-path="token.html"><a href="token.html#analyzing-blog-data-set"><i class="fa fa-check"></i><b>11.4.7</b> Analyzing Blog Data Set</a></li>
+<li class="chapter" data-level="11.4.8" data-path="token.html"><a href="token.html#news-data-set"><i class="fa fa-check"></i><b>11.4.8</b> News Data Set</a></li>
+<li class="chapter" data-level="11.4.9" data-path="token.html"><a href="token.html#tweet-data-set"><i class="fa fa-check"></i><b>11.4.9</b> Tweet Data Set</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="next-step.html"><a href="next-step.html"><i class="fa fa-check"></i><b>11.5</b> Next Step</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -534,7 +552,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="data-science-capstone" class="section level1">
 <h1><span class="header-section-number"> 11</span> Data Science Capstone</h1>
-<p>This is the final course of the specialization. It combines all the knowledge and skills learned during the course - from understanding data science, to installing R and RStudio, loading, subsetting, wrangling, exploring, using statistical inference, training, and testing our data sets based on applicable machine learning.</p>
+<p>This is the final course of the Data Science Specialization in R. It combines all the knowledge and skills learned during the course - from understanding data science, to installing R and RStudio, loading, subsetting, wrangling, exploring, using statistical inference, training, and testing our data sets based on applicable machine learning.</p>
 <p>The capstone is a partnership between Johns Hopkins University and Swiftkey. I have used this product a while back in 2013-2015. I was amazed at the innovation on digital keyboards. The ability to slide your finger across the keyboard without lifting it. It then predicts the word with high accuracy. This course provides a blueprint on how to achieve the word prediction technology behind it.</p>
 <p>The capstone will be evaluated based on the following assessments:</p>
 <ol style="list-style-type: decimal">
